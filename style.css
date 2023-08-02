@@ -171,6 +171,7 @@ p {
 }
 #socials {
     text-align: center;
+    font-size: var(--size-step-2);
     letter-spacing: 10px;
     margin-bottom: 20px;
 }
