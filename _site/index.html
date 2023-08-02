@@ -1,0 +1,221 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <style>
+        @font-face {
+        font-family: valkyrie_b_tab;
+        font-style: normal;
+        font-weight: normal;
+        font-stretch: normal;
+        font-display: auto;
+        src: url('/valkyrie_b_tab_regular.woff2') format('woff2');
+        }
+
+        @font-face {
+        font-family: valkyrie_b_tab;
+        font-style: italic;
+        font-weight: normal;
+        font-stretch: normal;
+        font-display: auto;
+        src: url('/valkyrie_b_tab_italic.woff2') format('woff2');
+        }
+
+        @font-face {
+        font-family: valkyrie_b_tab;
+        font-style: normal;
+        font-weight: bold;
+        font-stretch: normal;
+        font-display: auto;
+        src: url('/valkyrie_b_tab_bold.woff2') format('woff2');
+        }
+
+        @font-face {
+        font-family: valkyrie_b_tab;
+        font-style: italic;
+        font-weight: bold;
+        font-stretch: normal;
+        font-display: auto;
+        src: url('/valkyrie_b_tab_bold_italic.woff2') format('woff2');
+        }
+    /* Settings */
+    :root {
+        --color-dark: #371722;
+        --color-light: #E8E8E8;
+        --color-primary: #E4866E;
+        --size-step-0: clamp(1rem, calc(0.6rem + 0.15vw), 1.05rem);
+        --size-step-1: clamp(1rem, calc(0.7rem + 0.43vw), 1.5rem);
+        --size-step-2: clamp(1.1rem, calc(0.8rem + 0.76vw), 1.5rem);
+        --size-step-3: clamp(1.95rem, calc(1rem + 1.24vw), 2.66rem);
+        --size-step-4: clamp(1.24rem, calc(1rem + 1.23vw), 2.55rem);
+        --spacing: 1.5rem;
+        --align: center;
+        --font-stack: "valkyrie_b_tab", serif;
+        --code-background-color: var(--color-dark);
+        --code-color: var(--color-light);
+    }
+    @media (prefers-color-scheme: dark) {
+    :root {
+        --color-dark: #fafafa;
+        --color-light: #1a1a1a;
+    }
+    }
+    body {
+        background: var(--color-light);
+        color: var(--color-dark);
+        padding: var(--spacing)
+            clamp(calc(var(--spacing) / 2), 5vw, calc(var(--spacing) * 3));
+        font-family: var(--font-stack);
+        font-size: var(--size-step-1);
+        line-height: 1.35;
+        flex-direction: column;
+        min-height: 100vh;
+        margin: 0;
+        }
+    #container {
+        text-align: justify;
+    }
+    #header img {
+        border-radius: 50%;
+        width: 200px;
+        height: 200px;
+    }
+    #header {
+        padding-bottom: 15px;
+        border-bottom: 5px solid white;
+    }
+    a {
+        color: currentColor;}
+   a:hover {
+        color: var(--color-primary);
+    }
+    h1 {
+        font-size: var(--size-step-4);
+    }
+    h2 {
+        font-size: var(--size-step-2);
+        background-color: white;
+        width: 100%;
+        padding-top: 5px;
+        padding-bottom: 10px;
+        text-align: center;
+        color: var(--color-primary);
+        font-weight: normal;
+        font-variant: small-caps;
+        letter-spacing: 2px;
+
+    }
+    h3 {
+        font-size: var(--size-step-2);
+        font-weight: normal;
+        font-variant: small-caps;
+        letter-spacing: 2px;
+        border-top: 1px solid white;
+        text-align: center;
+        margin: 0;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    h4 {
+        font-size: var(--size-step-1);
+    }
+    h5 {
+        font-size: var(--size-step-0);
+    }
+    @media screen and (min-width:1500px) {
+            #container {
+                width: 50%;
+                margin: auto;
+            }
+            }
+
+            @media screen and (min-width:1000px) and (max-width: 1500px) {
+            #container {
+                width: 50%;
+                margin: auto;
+            }
+            }
+            @media screen and (min-width:850px) and (max-width: 1000px) {
+            #container {
+                width: 70%;
+                margin: auto;
+            }
+            }
+            @media screen and (max-width:850px) {
+            #container  {
+                width: 98%;
+                margin: auto;
+            }
+          }
+    #divisor {
+        text-align: center;
+        font-size: 36px;
+        color: white;
+        margin: 20px;
+    }
+    #divisor a {
+        background: none;
+    }
+    </style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Rad Markdown Blog Post</title>
+  </head>
+  <body>
+    <script data-goatcounter="https://simoneramello.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/ncase/nutshell/nutshell.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <div id="container">
+        <div id="header">
+<div style="text-align: center;"><img src="image02.jpg"></div>
+🏳️‍🌈 <i>Ciao!</i> My name is Simone<sup>he/him</sup> Ramello and I am a Italian <a href="#research">mathematician</a> and <a href="#scicomm">occasional storyteller</a> based in Münster, Germany. I miss the sight of the Alps every day.<br>
+<br>
+<p><em>Because we are not mathematical machines. We live, we breathe, we feel, we bleed. If your students are struggling, and you don’t acknowledge it, their education becomes disconnected and irrelevant.</em>
+(Francis Su, <em><a href="https://mathyawp.wordpress.com/2017/01/08/mathematics-for-human-flourishing/">Mathematics for Human Flourishing</a></em>)</p>
+<p><em>Il nostro pianeta è un sistema chiuso / Non è una sentiero da percorrere per arrivare dalla nonna prima degli altri / Non è un gioco d'azzardo, non bisogna essere scaltri [...] Guardati indietro, se vuoi arrivare.</em>
+(Eugenio in Via di Gioia, <em>Filastrocca per grandi</em>)</p>
+</div>
+<p>☕ I am currently a <strong>Wissenschaftlicher Mitarbeiter</strong> and second-year <strong>PhD student</strong> at the Institute for Logic of the University of Münster, under the supervision of <a href="https://ivv5hpp.uni-muenster.de/u/fjahn_01/en/">Franziska Jahnke</a> and <a href="https://www.uni-muenster.de/Logik/en/hils/">Martin Hils</a>. I completed my MSc in Mathematics at the Università degli Studi di Torino, in Italy.</p>
+<p>✉️ You can send me an email at <strong><em>name.surname</em>@uni-muenster.de</strong> or at <strong>ciao@simoneramello.it</strong>. My office is Room 110.021 in Orléans-Ring 10, Münster, Germany.</p>
+<h3>organizing</h3>
+<p>🎈 <a href="https://sel.di.unimi.it/#presentazioni">Presentazioni informali</a> (Scuola Estiva di Logica), 2023<br>
+🎈 <a href="https://reh.math.uni-duesseldorf.de/~internet/MueDueSeminar/">GeSAMT</a> (<em>Gemeinsames Seminar Algebra und Modelltheorie</em>), 2022-2023<br>
+🎈 <a href="https://informal-phd-seminar.super.site/">Informal PhD Seminar</a>, 2022-2023<br>
+🎈 <a href="https://www.uni-muenster.de/MathematicsMuenster/events/2022/ECIMT-2022.shtml">European Conference in Interdisciplinary Model Theory (ECIMT)</a>, 7-11/03/2022<br>
+👾 <a href="https://sites.google.com/view/smthconference">Short Model Theory Huddle (SMTH)</a>, 23/05/2020 and <a href="https://sites.google.com/view/smth2/home-page">SMTH2</a>, 16-18/06/2021</p>
+<div id="divisor"><a href="#header"><ion-icon name="chevron-up-outline"></ion-icon></a></div>
+<h2 id="research">research</h2>
+<p>🍪 I like thinking about the <em>algebraic</em> and <em>arithmetic</em> model theory of valued fields. I am interested in axiomatizing <strong>valued fields with extra structure</strong>, like isometries or contracting endomorphisms, and in the <strong>definability</strong> of henselian valuations.</p>
+<p>🧭 My research is supported by the Deutsche Forschungsgemeinschaft (DFG, German Research Foundation) under the project <a href="https://cris.uni-muenster.de/portal/project/80494551">Modelltheorie bewerteter Körper mit Endomorphismus</a>, and via the Excellence Strategy EXC 2044–390685587, <em>Mathematics Münster: Dynamics–Geometry–Structure</em>.</p>
+<h3>talks</h3>
+<p>⚡Axiomatizing valued difference fields: beyond surjectivity, <em>International Seminar</em>, Dresden<br>
+⚡ <a href="https://www.uni-muenster.de/IVV5WS/WebHop/user/sramello/Rennes.pdf">Why you should care about model theory</a>, <em>Séminaire Pampers</em>, Rennes<br>
+⚡ <a href="https://www.uni-muenster.de/IVV5WS/WebHop/user/sramello/Stettin-1.pdf">Towards a model theory of Frobenius lifts</a>, <em>Graduate Students' Workshop</em>, Stettin</p>
+<h3>expository notes &amp; slides</h3>
+<p>✏️ <a href="https://www.uni-muenster.de/IVV5WS/WebHop/user/sramello/p-adic.pdf">p-adically closed fields: a p-anoramic tour</a><br>
+✏️ <a href="https://www.uni-muenster.de/IVV5WS/WebHop/user/sramello/AKE_1.pdf">AK/E in equicharacteristic zero</a> [also as ☁️ <a href="https://www.uni-muenster.de/IVV5WS/WebHop/user/sramello/ake-slides.pdf">slides</a>]<br>
+☁️ <a href="https://www.uni-muenster.de/IVV5WS/WebHop/user/sramello/J2-J3.pdf">The canonical base property in ACFA</a><br>
+☁️ <a href="https://www.uni-muenster.de/IVV5WS/WebHop/user/sramello/hensel.pdf">Hensel's lemma</a></p>
+<h3>theses</h3>
+<p>🎉 <a href="https://www.uni-muenster.de/IVV5WS/WebHop/user/sramello/Master_Thesis.pdf">Étale methods in model theory</a> (MSc in Mathematics), 2021<br>
+🎉 <a href="https://www.uni-muenster.de/IVV5WS/WebHop/user/sramello/bachelor.pdf">Through the Lambda-glass</a> (BSc in Mathematics), 2019</p>
+<div id="divisor"><a href="#header"><ion-icon name="chevron-up-outline"></ion-icon></a></div>
+<h2 id="scicomm">science communication</h2>
+<p>📌 I spend a lot of my time thinking about how mathematics is communicated and taught. <em>Narratives</em> around <em>what</em> mathematics is and <em>how</em> it is done shape not only our work as mathematicians, but also the way society interacts with the subject and is influenced by it. I believe that mathematicians are <em>responsible</em> for the effect of these narratives, and should take a more active role in shaping them. To this end, I try to engage in science communication and outreach, both in English and in Italian.</p>
+<h3>writing</h3>
+<p>🪢 <a href="https://fancycomma.com/2023/05/06/mathematics-communication-education">Changing the narratives in mathematics</a>, FancyComma, 06.05.2023<br>
+✍️ <a href="https://mathstatbites.org/how-hard-is-it-to-tell-dynamical-systems-apart">How hard is it to tell dynamical systems apart?</a>, MathStatBites, 25.04.2023</p>
+<h3>meet science</h3>
+<p>🇮🇹 Dalla primavera 2023 sono membro di <a href="https://meetscience.it/">Meet Science</a>. Si tratta di un &quot;<em>gruppo di scienziati e persone interessate alla divulgazione</em>&quot;, che vuole &quot;<em>far avvicinare le persone alla scienza e al mondo della ricerca, soprattutto intervistando direttamente i ricercatori, primi protagonisti di questa realtà.</em>&quot; Ho realizzato tre interviste per Meet Science:<br>
+🪁 <a href="https://www.youtube.com/watch?v=QS6o7N3sGH0">La matematica degli infiniti</a>, con Beatrice Pitton (Losanna/Torino)<br>
+🪁 <a href="https://www.youtube.com/watch?v=KiOrGbjWS54">Matematici in prima linea</a>, con Elena Scalambro (Torino)<br>
+🪁 <a href="https://www.youtube.com/watch?v=MghCy3twRYM">La matematica dei tumori</a>, con Daniela Volpatto (Torino)<br>
+Prima di entrare a far parte del team di Meet Science, ho partecipato come intervistato in due occasioni:<br>
+🪕 <a href="https://www.youtube.com/watch?v=WXbh4pUOa64">Ordine aritmetico e caos logico</a><br>
+🪕 <a href="https://www.youtube.com/watch?v=OjO02lZiCrg&amp;t=4086s">Tra segni e significati: un'introduzione alla Teoria dei Modelli</a></p>
+<footer>Built using <a href="https://www.11ty.dev">Eleventy</a>, <a href="https://ionic.io/ionicons">Ionicons</a> and <a href="https://practicaltypography.com/valkyrie.html">Valkyrie</a>.</footer>
+    </div>
+  </body>
+</html>
