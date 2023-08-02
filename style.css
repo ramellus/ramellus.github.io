@@ -167,4 +167,11 @@ p {
 #divisor a {
     background: none;
 }
+#socials {
+    text-align: center;
+    margin-bottom: 20px;
+}
+#socials a {
+    background: none;
+}
 </style>
