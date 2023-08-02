@@ -171,9 +171,9 @@ p {
 }
 #socials {
     text-align: center;
+    letter-spacing: 10px;
     margin-bottom: 20px;
 }
 #socials a {
     background: none;
 }
-</style>
