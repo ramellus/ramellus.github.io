@@ -2,183 +2,25 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <style>
-        @font-face {
-        font-family: valkyrie_b_tab;
-        font-style: normal;
-        font-weight: normal;
-        font-stretch: normal;
-        font-display: auto;
-        src: url('/valkyrie_b_tab_regular.woff2') format('woff2');
-        }
-
-        @font-face {
-        font-family: valkyrie_b_tab;
-        font-style: italic;
-        font-weight: normal;
-        font-stretch: normal;
-        font-display: auto;
-        src: url('/valkyrie_b_tab_italic.woff2') format('woff2');
-        }
-
-        @font-face {
-        font-family: valkyrie_b_tab;
-        font-style: normal;
-        font-weight: bold;
-        font-stretch: normal;
-        font-display: auto;
-        src: url('/valkyrie_b_tab_bold.woff2') format('woff2');
-        }
-
-        @font-face {
-        font-family: valkyrie_b_tab;
-        font-style: italic;
-        font-weight: bold;
-        font-stretch: normal;
-        font-display: auto;
-        src: url('/valkyrie_b_tab_bold_italic.woff2') format('woff2');
-        }
-    /* Settings */
-    :root {
-        --color-dark: #371722;
-        --color-light: #E8E8E8;
-        --color-primary: #E4866E;
-        --size-step-0: clamp(1rem, calc(0.6rem + 0.15vw), 1.05rem);
-        --size-step-1: clamp(1rem, calc(0.7rem + 0.43vw), 1.5rem);
-        --size-step-2: clamp(1.1rem, calc(0.8rem + 0.76vw), 1.5rem);
-        --size-step-3: clamp(1.95rem, calc(1rem + 1.24vw), 2.66rem);
-        --size-step-4: clamp(1.24rem, calc(1rem + 1.23vw), 2.55rem);
-        --spacing: 1.5rem;
-        --align: center;
-        --font-stack: "valkyrie_b_tab", serif;
-        --code-background-color: var(--color-dark);
-        --code-color: var(--color-light);
-    }
-    @media (prefers-color-scheme: dark) {
-    :root {
-        --color-dark: #fafafa;
-        --color-light: #1a1a1a;
-    }
-    }
-    body {
-        background: var(--color-light);
-        color: var(--color-dark);
-        padding: var(--spacing)
-            clamp(calc(var(--spacing) / 2), 5vw, calc(var(--spacing) * 3));
-        font-family: var(--font-stack);
-        font-size: var(--size-step-1);
-        line-height: 1.35;
-        flex-direction: column;
-        min-height: 100vh;
-        margin: 0;
-        }
-    #container {
-        text-align: justify;
-    }
-    #header img {
-        border-radius: 50%;
-        width: 200px;
-        height: 200px;
-    }
-    #header {
-        padding-bottom: 15px;
-        border-bottom: 5px solid white;
-    }
-    a {
-        color: currentColor;}
-   a:hover {
-        color: var(--color-primary);
-    }
-    h1 {
-        font-size: var(--size-step-4);
-    }
-    h2 {
-        font-size: var(--size-step-2);
-        background-color: white;
-        width: 100%;
-        padding-top: 5px;
-        padding-bottom: 10px;
-        text-align: center;
-        color: var(--color-primary);
-        font-weight: normal;
-        font-variant: small-caps;
-        letter-spacing: 2px;
-
-    }
-    h3 {
-        font-size: var(--size-step-2);
-        font-weight: normal;
-        font-variant: small-caps;
-        letter-spacing: 2px;
-        border-top: 1px solid white;
-        text-align: center;
-        margin: 0;
-        padding-top: 5px;
-        padding-bottom: 5px;
-    }
-    h4 {
-        font-size: var(--size-step-1);
-    }
-    h5 {
-        font-size: var(--size-step-0);
-    }
-    @media screen and (min-width:1500px) {
-            #container {
-                width: 50%;
-                margin: auto;
-            }
-            }
-
-            @media screen and (min-width:1000px) and (max-width: 1500px) {
-            #container {
-                width: 50%;
-                margin: auto;
-            }
-            }
-            @media screen and (min-width:850px) and (max-width: 1000px) {
-            #container {
-                width: 70%;
-                margin: auto;
-            }
-            }
-            @media screen and (max-width:850px) {
-            #container  {
-                width: 98%;
-                margin: auto;
-            }
-          }
-    #divisor {
-        text-align: center;
-        font-size: 36px;
-        color: white;
-        margin: 20px;
-    }
-    #divisor a {
-        background: none;
-    }
-    </style>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Rad Markdown Blog Post</title>
   </head>
   <body>
-    <script data-goatcounter="https://simoneramello.goatcounter.com/count"
-        async src="//gc.zgo.at/count.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/ncase/nutshell/nutshell.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <div id="container">
         <div id="header">
 <div style="text-align: center;"><img src="image02.jpg"></div>
 🏳️‍🌈 <i>Ciao!</i> My name is Simone<sup>he/him</sup> Ramello and I am a Italian <a href="#research">mathematician</a> and <a href="#scicomm">occasional storyteller</a> based in Münster, Germany. I miss the sight of the Alps every day.<br>
-<br>
-<p><em>Because we are not mathematical machines. We live, we breathe, we feel, we bleed. If your students are struggling, and you don’t acknowledge it, their education becomes disconnected and irrelevant.</em>
-(Francis Su, <em><a href="https://mathyawp.wordpress.com/2017/01/08/mathematics-for-human-flourishing/">Mathematics for Human Flourishing</a></em>)</p>
-<p><em>Il nostro pianeta è un sistema chiuso / Non è una sentiero da percorrere per arrivare dalla nonna prima degli altri / Non è un gioco d'azzardo, non bisogna essere scaltri [...] Guardati indietro, se vuoi arrivare.</em>
-(Eugenio in Via di Gioia, <em>Filastrocca per grandi</em>)</p>
 </div>
-<p>☕ I am currently a <strong>Wissenschaftlicher Mitarbeiter</strong> and second-year <strong>PhD student</strong> at the Institute for Logic of the University of Münster, under the supervision of <a href="https://ivv5hpp.uni-muenster.de/u/fjahn_01/en/">Franziska Jahnke</a> and <a href="https://www.uni-muenster.de/Logik/en/hils/">Martin Hils</a>. I completed my MSc in Mathematics at the Università degli Studi di Torino, in Italy.</p>
-<p>✉️ You can send me an email at <strong><em>name.surname</em>@uni-muenster.de</strong> or at <strong>ciao@simoneramello.it</strong>. My office is Room 110.021 in Orléans-Ring 10, Münster, Germany.</p>
+<div id="quotes"><em>Because we are not mathematical machines. We live, we breathe, we feel, we bleed. If your students are struggling, and you don’t acknowledge it, their education becomes disconnected and irrelevant.</em>
+    (Francis Su, <em><a href="https://mathyawp.wordpress.com/2017/01/08/mathematics-for-human-flourishing/">Mathematics for Human Flourishing</a></em>)</br>
+    <em>Il nostro pianeta è un sistema chiuso / Non è una sentiero da percorrere per arrivare dalla nonna prima degli altri / Non è un gioco d'azzardo, non bisogna essere scaltri [...] Guardati indietro, se vuoi arrivare.</em>
+    (Eugenio in Via di Gioia, <em>Filastrocca per grandi</em>)</div>
+<p>☕ I am currently a <em>Wissenschaftlicher Mitarbeiter</em> and second-year PhD student at the Institute for Logic of the University of Münster, under the supervision of <a href="https://ivv5hpp.uni-muenster.de/u/fjahn_01/en/">Franziska Jahnke</a> and <a href="https://www.uni-muenster.de/Logik/en/hils/">Martin Hils</a>. I completed my MSc in Mathematics at the Università degli Studi di Torino, in Italy.</p>
+<p>✉️ You can send me an email at <em>name.surname</em>@uni-muenster.de or at ciao@simoneramello.it. My office is Room 110.021 in Orléans-Ring 10, Münster, Germany.</p>
 <h3>organizing</h3>
 <p>🎈 <a href="https://sel.di.unimi.it/#presentazioni">Presentazioni informali</a> (Scuola Estiva di Logica), 2023<br>
 🎈 <a href="https://reh.math.uni-duesseldorf.de/~internet/MueDueSeminar/">GeSAMT</a> (<em>Gemeinsames Seminar Algebra und Modelltheorie</em>), 2022-2023<br>
@@ -215,7 +57,7 @@
 Prima di entrare a far parte del team di Meet Science, ho partecipato come intervistato in due occasioni:<br>
 🪕 <a href="https://www.youtube.com/watch?v=WXbh4pUOa64">Ordine aritmetico e caos logico</a><br>
 🪕 <a href="https://www.youtube.com/watch?v=OjO02lZiCrg&amp;t=4086s">Tra segni e significati: un'introduzione alla Teoria dei Modelli</a></p>
-<footer>Built using <a href="https://www.11ty.dev">Eleventy</a>, <a href="https://ionic.io/ionicons">Ionicons</a> and <a href="https://practicaltypography.com/valkyrie.html">Valkyrie</a>.</footer>
+<footer>Built using <a href="https://ionic.io/ionicons">Ionicons</a>, GitHub Pages and too much coffee.</footer>
     </div>
   </body>
 </html>
