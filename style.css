@@ -37,7 +37,7 @@
     }
 /* Settings */
 :root {
-    --color-dark: #371722;
+    --color-dark: #3D3F4D;
     --color-light: #E8E8E8;
     --color-diff: #FFFFFF;
     --color-primary: #D463A6;
@@ -55,8 +55,8 @@
 @media (prefers-color-scheme: dark) {
 :root {
     --color-dark: #E8E8E8;
-    --color-light: #371722;
-    --color-diff: #000000;
+    --color-light: #3D3F4D;
+    --color-diff: #1D1F26;
 }
 }
 body {
