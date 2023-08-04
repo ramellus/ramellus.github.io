@@ -59,6 +59,12 @@
     --color-diff: #1D1F26;
 }
 }
+#image04 {
+    height: 1rem !important;
+object-fit: cover;
+object-position: center;
+width: 100% !important;
+}
 body {
     background: var(--color-light);
     color: var(--color-dark);
@@ -83,8 +89,8 @@ body {
 #quotes {
     border-top: 5px solid var(--color-diff);
     border-bottom: 5px solid var(--color-diff);
-    margin-top: 15px;
-    margin-bottom: 15px;
+    margin-top: 30px;
+    margin-bottom: 30px;
     padding: 10px;
 }
 a {
@@ -127,9 +133,7 @@ h5 {
     font-size: var(--size-step-0);
 }
 footer {
-    margin-top: 30px;
     text-align: center;
-    border-top: 5px solid var(--color-diff);
     padding-top: 10px;
 }
 p {
