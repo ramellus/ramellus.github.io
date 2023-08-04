@@ -138,6 +138,7 @@ footer {
 }
 p {
     margin: 0;
+    margin-bottom: 10px;
 }
 @media screen and (min-width:1500px) {
         #container {
