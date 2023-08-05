@@ -46,6 +46,7 @@
     --color-primary: #D463A6;
     --font-size: 1.1rem;
     --larger: 1.2rem;
+    --even-larger: 1.4rem;
     --smaller: 0.9rem;
     --spacing: 1.5rem;
     --align: center;
@@ -65,13 +66,14 @@
 object-fit: cover;
 object-position: center;
 width: 100% !important;
+margin-top: 20px;
 }
 body {
     background: var(--color-light);
     color: var(--color-dark);
     font-family: var(--font-stack);
     font-size: var(--font-size);
-    line-height: 1.5;
+    line-height: 1.4;
     margin: 0;
     }
 #container {
@@ -79,11 +81,11 @@ body {
 }
 #header img {
     height: 200px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 #header {
 }
-#quotes {
+#quotes, #blog {
     border-top: 5px solid var(--color-diff);
     border-bottom: 5px solid var(--color-diff);
     margin-top: 30px;
@@ -97,22 +99,23 @@ a {
     font-family: "Roboto Mono", monospace;}
 a:hover {
     text-decoration: none;
-    color: var(--color-light);
-    background-color: var(--color-primary);
-    border: 0;
+    color: var(--color-primary);
+    border-bottom: 3px solid var(--color-primary);
+}
+.current {
+    color: var(--color-primary);
+    border-bottom: 3px solid var(--color-primary);
 }
 h2 {
-    font-size: var(--larger);
-    background-color: var(--color-diff);
+    font-size: var(--even-larger);
     width: 100%;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    margin: 0;
     text-align: center;
+    color: var(--color-dark);
+    font-weight: bold;
+}
+h2 sup {
     color: var(--color-primary);
-    font-weight: normal;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-
 }
 h3 {
     font-size: var(---larger);
@@ -146,13 +149,13 @@ p {
 
         @media screen and (min-width:1000px) and (max-width: 1500px) {
         #container {
-            width: 50%;
+            width: 80%;
             margin: auto;
         }
         }
         @media screen and (min-width:850px) and (max-width: 1000px) {
         #container {
-            width: 70%;
+            width: 98%;
             margin: auto;
         }
         }
@@ -162,30 +165,50 @@ p {
             margin: auto;
         }
       }
-#divisor {
-    text-align: center;
-    font-size: 36px;
-    color: var(--color-diff);
-    margin: 20px;
+#container {
+    margin-top: 20px;
 }
-#divisor a {
+table {
+    width: 100%;
+}
+td {
+    vertical-align: top;
+}
+.left {
+    padding-right: 3%;
+    padding-left: 3%;
+    width: 40%;
+}
+.right {
+    padding-left: 3%;
+    padding-right: 3%;
+}
+#links {
+    text-align: center;
+    margin-bottom: 20px;
+}
+#links a {
+        font-size: var(--larger);
+        text-transform: lowercase;
+        font-variant: small-caps;
+}
+#links a:hover {
     background: none;
-    font-size: 36px;
-    color: var(--color-diff);
-    border: 0;
+    color: var(--color-primary);
+    border-bottom: 3px solid var(--color-primary);
 }
 #divisor a:hover, #socials a:hover {
     color: var(--color-primary);
 }
 #socials {
     text-align: center;
-    margin-top: 20px;
+    margin-top: 25px;
     letter-spacing: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 #socials a {
     background: none;
-    font-size: var(--larger);
+    font-size: var(--even-larger);
     color: var(--color-primary) !important;
     border: 0;
 }
