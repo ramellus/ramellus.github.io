@@ -104,7 +104,6 @@ a:hover {
 }
 .current {
     color: var(--color-primary);
-    border-bottom: 3px solid var(--color-primary);
 }
 h2 {
     font-size: var(--even-larger);
@@ -144,6 +143,7 @@ p {
         #container {
             width: 50%;
             margin: auto;
+            padding: 30px;
         }
         }
 
@@ -151,22 +151,23 @@ p {
         #container {
             width: 80%;
             margin: auto;
+            padding: 30px;
         }
         }
         @media screen and (min-width:850px) and (max-width: 1000px) {
         #container {
-            width: 98%;
+            padding: 1%;
             margin: auto;
         }
         }
         @media screen and (max-width:850px) {
         #container  {
-            width: 98%;
+            padding: 1%;
             margin: auto;
         }
       }
 #container {
-    margin-top: 20px;
+    background-color: var(--color-diff);
 }
 table {
     width: 100%;
