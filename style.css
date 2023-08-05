@@ -186,6 +186,6 @@ p {
 #socials a {
     background: none;
     font-size: var(--larger);
-    color: var(--color-diff);
+    color: var(--color-primary);
     border: 0;
 }
