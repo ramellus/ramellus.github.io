@@ -84,6 +84,8 @@ body {
     margin-bottom: 10px;
 }
 #header {
+    margin-top: 20px;
+    background-color: var(--color-light);
 }
 #quotes, #blog {
     border-top: 5px solid var(--color-diff);
@@ -207,13 +209,13 @@ td {
 }
 #socials {
     text-align: center;
-    margin-top: 25px;
+    margin-top: 10px;
     letter-spacing: 10px;
     margin-bottom: 10px;
 }
 #socials a {
     background: none;
-    font-size: var(--even-larger);
+    font-size: var(--larger);
     color: var(--color-primary) !important;
     border: 0;
 }
