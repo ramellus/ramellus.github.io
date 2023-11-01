@@ -2,39 +2,208 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans&family=Alegreya+Sans+SC&display=swap" rel="stylesheet"> 
     <title>S. Ramello</title>
+    <style>
+        /* Settings */
+        :root {
+            --color-dark: #3D3F4D;
+            --color-light: #E8E8E8;
+            --color-primary: #a77072;
+            --color-secondary: #797c89;
+            --font-size: 1.1rem;
+            --larger: 1.2rem;
+            --even-larger: 1.3rem;
+            --smaller: 0.95rem;
+            --spacing: 1.5rem;
+            --align: center;
+            --font-stack: "valkyrie_b_tab", serif;
+            --font-sans: 'Alegreya Sans', sans-serif;
+            --code-background-color: var(--color-dark);
+            --code-color: var(--color-light);
+        }
+        body {
+            background: var(--color-light);
+            color: var(--color-dark);
+            font-family: var(--font-sans);
+            font-size: var(--font-size);
+            line-height: 1.2;
+            margin: 0;
+            }
+        a, a:link, a:visited {
+            color: var(--color-primary);
+            text-decoration: none;
+        }
+        a:hover {
+            border: 0;
+            color: var(--color-primary);
+            text-decoration: underline;
+        }
+        #container {
+            width: 100%;
+            height: 100%;
+            margin-top: 20px;
+        }
+        #container td {
+            vertical-align: top;
+            font-size: var(--font-size);
+            padding-left: 50px;
+            padding-right: 50px;
+        }
+        header {
+            background-color: var(--color-dark);
+            color: var(--color-light);
+            padding-top: 20px;
+            padding-bottom: 20px;
+            padding-left: 50px;
+            padding-right: 50px;
+        }
+        header h1 {
+            font-size: var(--even-larger);
+            margin: 0;
+            text-transform: uppercase;
+            font-weight: normal;
+        }
+        #left {
+            width: 27%;
+            text-align: justify;
+            border-right: 1px solid var(--color-secondary);
+        }
+        #right {
+        }
+        #quote {
+            text-align: right;
+            font-size: var(--larger);
+            color: var(--color-secondary);
+            margin-bottom: 20px;
+        }
+        #profile {
+            width: 200px;
+            border-radius: 100%;
+        }
+        #container h1, #container h2, #container h3 {
+            font-family: var(--font-sans);
+            font-weight: normal;
+            text-transform: uppercase;
+            margin: 0;
+            margin-bottom: 15px;
+            margin-top: 15px;
+        }
+
+        #right .fa-li {
+            font-size: var(--smaller);
+        }
+
+        .details {
+            font-size: var(--smaller);
+            color: var(--color-secondary);
+        }
+        .small-details {
+            font-size: var(--smaller);
+            color: var(--color-secondary);
+        }
+
+        #right .fa-ul {            
+            margin: 0;
+        }
+        #right .fa-ul li {
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+        #links {
+            float: right;
+            text-align: right;
+        }
+        header a, header a:link, header a:visited, header a:hover {
+            color: var(--color-light);
+            border: 0;
+            font-size: var(--even-larger);
+            text-transform: uppercase;
+        }
+
+        .divisor {
+            width: 100%;
+            height: 15px;
+            border-bottom: 1px dashed var(--color-primary);
+            margin-top: 0;
+            margin-bottom: 25px;
+        }
+
+        @media screen and (max-width: 500px) {
+            tr {
+                display: inline-flex;
+                flex-direction: column;
+            }
+            td {
+                width: 88% !important;
+                padding: 6% !important;
+            }
+          }
+    </style>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.0/css/all.css">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
   </head>
   <body>
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-     
-        <div id="header">
-          
-<div style="text-align: center;">
-  <div id="socials"><a href="https://twitter.com/ramellus"><ion-icon name="logo-twitter"></ion-icon></a> <a href="https://mathstodon.xyz/@ramellus"><ion-icon name="logo-mastodon"></ion-icon></a> <a href="https://www.linkedin.com/mwlite/in/simone-ramello-54888225b"><ion-icon name="logo-linkedin"></ion-icon></a> <a href="https://www.instagram.com/simone.ramello/"><ion-icon name="logo-instagram"></ion-icon></a></div>
+    <header>
+        <div id="links">
+            <a href="/" style="margin-right: 10px;"><i class="fas fa-home"></i></a> <a href="/research/">Research</a> ⋅ <a href="/teaching/">Teaching</a> ⋅ <a href="/writing/">Writing & Talking</a>
+        </div>
+        <h1>Simone<sup>he/him</sup> Ramello</h1>
+    </header>
+    <table id="container">
+        <tr>
+            <td id="left">
+                <div style="text-align: center; padding-bottom: 20px; padding-top: 20px;">
+                <img src="/profile.jpg" alt="Picture of Simone Ramello." id="profile">
+                </div>
+                👋 <i>Ciao!</i> My name is Simone, and by day I am a second-year PhD student at the Institute for Logic of the University of Münster, under the supervision of <a href="https://www.uni-muenster.de/Logik/en/hils/">Martin Hils</a> and <a href="https://ivv5hpp.uni-muenster.de/u/fjahn_01/en">Franziska Jahnke</a> (University of Amsterdam).
+                <ul class='fa-ul'>
+                    <li><span class="fa-li"><i class="fab fa-twitter"></i></span>  <a href="https://twitter.com/ramellus">@ramellus</a></li>
+                    <li><span class="fa-li"><i class="fab fa-mastodon"></i></span>  <a href="https://mathstodon.xyz/@ramellus">@ramellus</a></li>
+                    <li><span class="fa-li"><i class="fas fa-envelope"></i></span>  ciao@simoneramello.it</li>
+                    <li><span class="fa-li"><i class="fas fa-envelope"></i></span>  <i>name.surname</i>@uni-muenster.de</li>
+                </ul>
+                My office is Room 110.021, Orléans-Ring 10, Münster.
+            </td>
+            <td id="right">
+                <div id="quote">Because we are not mathematical machines. We live, we breathe, we feel, we bleed. (Francis Su, Mathematics for Human Flourishing)</div>
 
-  <span class="credits">Picture by Victoria Liesche, 2022</span><br>
-  <img src="image02.jpg" alt="Picture of Simone Ramello."></div>
-<h2>Simone<sup>he/him</sup> Ramello</h2>
+<h3 id="upcoming-talks">Upcoming Talks</h3>
+<ul class="fa-ul">
+    <li><span class="fa-li"><i class="fas fa-hat-wizard"></i></span>  <a href="https://www.imj-prg.fr/gestion/evenement/affSeance/9482">Séminaire Théorie des modèles et groupes</a><br />
+    <span class="details">07/11/2023, Paris</span></li>
+    <li><span class="fa-li"><i class="fas fa-ghost"></i></span> <a href="https://fgallinaro.github.io/geomod-conference.github.io">GeoMod final conference</a><br />
+    <span class="details">13/11/2023, Freiburg</span></li>
+    <li><span class="fa-li"><i class="fas fa-umbrella"></i></span> <a href="https://www-fourier.univ-grenoble-alpes.fr/?q=fr/content/simone-ramello">Séminaire Compréhensible</a><br />
+    <span class="details">14/12/2023, Grenoble</span></li>
+</ul>
 
-<div id="links"><a href="index.html" class="current">Home</a> - <a href="https://blog.simoneramello.it">Blog</a> - <a href="research.html">Research</a> - <a href="scicomm.html">Science Communication</a></div>
-</div>
-<div id="container">
+<div class="divisor"></div>
 
-<p>📣 <i>Ciao!</i> My name is Simone, and I am a Italian mathematician and occasional storyteller based in Münster, Germany. I am currently a <em>Wissenschaftlicher Mitarbeiter</em> and second-year PhD student at the Institute for Logic of the University of Münster, under the supervision of <a href="https://ivv5hpp.uni-muenster.de/u/fjahn_01/en/">Franziska Jahnke</a> and <a href="https://www.uni-muenster.de/Logik/en/hils/">Martin Hils</a>. I completed my MSc in Mathematics at the Università degli Studi di Torino, in Italy. I miss the sight of the Alps every day.</p>
-<p>✉️ You can send me an email at <em>name.surname</em>@uni-muenster.de or at ciao@simoneramello.it. My office is Room 110.021 in Orléans-Ring 10, Münster, Germany.</p>
-<p style="margin-top: 10px; text-align: right;"><i>Because we are not mathematical machines. We live, we breathe, we feel, we bleed.</i><br>
-  (Francis Su, Mathematics for Human Flourishing)</p>
-  <h3>interesting readings</h3>
-<p>  🧵 <a href="https://jadeedenstarmaster.wordpress.com/2020/12/11/the-lie-of-its-just-math/">The Lie of “It’s Just Math”</a> & <a href="https://justmathematicscollective.net/nsa_statement.html">the JMC statement</a> on militarism in mathematics<br>
-  🧵 <a href="https://blogs.ams.org/inclusionexclusion/2019/12/17/diversity-22/">Diversity-22</a> & <a href="https://blogs.ams.org/inclusionexclusion/2017/03/16/a-different-kind-of-problem/">A different kind of problem</a>, from inclusion/exclusion<br>
-  🧵 <a href="https://acme-journal.org/index.php/acme/article/view/1058">For Slow Scholarship: A Feminist Politics of Resistance through Collective Action in the Neoliberal University</a></p>
-<img id="image04" src="image04.png" alt="Pride flag.">
+<h3 id="past-organizing">Past organizing</h3>
+<ul class="fa-ul">
+    <li><span class="fa-li"><i class="fas fa-dungeon"></i></span>  <a href="https://informal-phd-seminar.super.site">Informal PhD Seminar: one-shot edition</a>, 21/09/2023</li>
+    <li><span class="fa-li"><i class="fas fa-dungeon"></i></span>  <a href="https://sel.di.unimi.it/#presentazioni">Presentazioni informali</a> (Scuola Estiva di Logica), 2023</li>
+    <li><span class="fa-li"><i class="fas fa-dungeon"></i></span>  <a href="https://reh.math.uni-duesseldorf.de/~internet/MueDueSeminar">GeSAMT</a>, 2022-2023</li>
+    <li><span class="fa-li"><i class="fas fa-dungeon"></i></span>  <a href="https://informal-phd-seminar.super.site">Informal PhD Seminar</a>, 2022-2023</li>
+    <li><span class="fa-li"><i class="fas fa-dungeon"></i></span>  <a href="https://www.uni-muenster.de/MathematicsMuenster/events/2022/ECIMT-2022.shtml">European Conference in Interdisciplinary Model Theory (ECIMT)</a>, 7-11/03/2022</li>
+    <li><span class="fa-li"><i class="fas fa-dungeon"></i></span>  <a href="https://sites.google.com/view/smthconference">Short Model Theory Huddle (SMTH)</a>, 23/05/2020 and <a href="https://sites.google.com/view/smth2/home-page">SMTH2</a>, 16-18/06/2021</li>
+</ul>
 
-<footer>Built using <a href="https://ionic.io/ionicons">Ionicons</a>, GitHub Pages, the amazing <a href="https://practicaltypography.com/valkyrie.html">Valkyrie</a>, and too much coffee. (© Simone Ramello 2023)</footer>
+<div class="divisor"></div>
 
-    </div>
+<h3 id="theses">Theses</h3>
+<ul class="fa-ul">
+    <li><span class="fa-li"><a href="https://www.uni-muenster.de/IVV5WS/WebHop/user/sramello/Master_Thesis.pdf"><i class="fas fa-file"></i></a></span> <i>Étale methods in model theory</i><br />
+    <span class="details">MSc in Mathematics, University of Torino</span></li>
+    <li><span class="fa-li"><a href="https://www.uni-muenster.de/IVV5WS/WebHop/user/sramello/bachelor.pdf"><i class="fas fa-file"></i></a></span> <i>Through the Lambda glass</i><br />
+    <span class="details">BSc in Mathematics, University of Torino</span></li>
+</ul>
+                
+            </td>
+        </tr>
+    </table>
   </body>
 </html>
