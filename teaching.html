@@ -50,8 +50,6 @@
         #container td {
             vertical-align: top;
             font-size: var(--font-size);
-            padding-left: 50px;
-            padding-right: 50px;
         }
         header {
             background-color: var(--color-dark);
@@ -70,9 +68,14 @@
         #left {
             width: 27%;
             text-align: justify;
-            border-right: 1px solid var(--color-secondary);
+            border-left: 1px solid var(--color-secondary);
+            padding-left: 50px;
+            padding-right: 50px;
         }
         #right {
+            padding-top: 20px;
+            padding-left: 55px;
+            padding-right: 55px;
         }
         #quote {
             text-align: right;
@@ -141,6 +144,9 @@
                 width: 88% !important;
                 padding: 6% !important;
             }
+            #left {
+                border: 0;
+            }
           }
     </style>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.0/css/all.css">
@@ -156,6 +162,18 @@
     </header>
     <table id="container">
         <tr>
+            <td id="right">
+            <div id="quote">Because we are not mathematical machines. We live, we breathe, we feel, we bleed. (Francis Su, Mathematics for Human Flourishing)</div>
+
+                <h3 id="teaching-assistant">Teaching Assistant</h3>
+<ul class="fa-ul">
+    <li><span class="fa-li"><i class="fas fa-bolt"></i></span>  <i>Einführung in die Algebra</i>, together with <a href="https://www.uni-muenster.de/IVV5WS/WebHop/user/mketelse/index.html">Margarete Ketelsen</a><br />
+    Summer semester 2023, lectured by <a href="https://ivv5hpp.uni-muenster.de/u/fjahn_01/en/">Franziska Jahnke</a></li>
+    <li><span class="fa-li"><i class="fas fa-bolt"></i></span>  <i>Logik III – NIP Theories</i><br />
+    Summer semester 2022, lectured by <a href="https://www.uni-muenster.de/Logik/en/hils/">Martin Hils</a></li>
+</ul>
+                
+            </td>
             <td id="left">
                 <div style="text-align: center; padding-bottom: 20px; padding-top: 20px;">
                 <img src="profile.jpg" alt="Picture of Simone Ramello." id="profile">
@@ -175,18 +193,6 @@
                     <li><span class="fa-li"><i class="fas fa-atom"></i></span>  <a href="https://sites.google.com/view/penne-amiche-della-scienza">Penne Amiche della Scienza</a></li>
                 </ul>
                 <span class="details">This website was built through Jekyll, GitHub Pages and some amount of coffee. The profile picture was taken by Victoria Liesche.</span>
-            </td>
-            <td id="right">
-            <div id="quote">Because we are not mathematical machines. We live, we breathe, we feel, we bleed. (Francis Su, Mathematics for Human Flourishing)</div>
-
-                <h3 id="teaching-assistant">Teaching Assistant</h3>
-<ul class="fa-ul">
-    <li><span class="fa-li"><i class="fas fa-bolt"></i></span>  <i>Einführung in die Algebra</i>, together with <a href="https://www.uni-muenster.de/IVV5WS/WebHop/user/mketelse/index.html">Margarete Ketelsen</a><br />
-    Summer semester 2023, lectured by <a href="https://ivv5hpp.uni-muenster.de/u/fjahn_01/en/">Franziska Jahnke</a></li>
-    <li><span class="fa-li"><i class="fas fa-bolt"></i></span>  <i>Logik III – NIP Theories</i><br />
-    Summer semester 2022, lectured by <a href="https://www.uni-muenster.de/Logik/en/hils/">Martin Hils</a></li>
-</ul>
-                
             </td>
         </tr>
     </table>
