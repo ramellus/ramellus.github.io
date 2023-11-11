@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans&family=Alegreya+Sans+SC&display=swap" rel="stylesheet"> 
+    <title>The Kaplansky theory of non-inversive valued difference fields</title>
+    <link rel="stylesheet" href="https://simoneramello.it/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.0/css/all.css">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  </head>
+  <body>
+    <header>
+        <div id="links">
+            <a href="https://simoneramello.it/index.html" style="margin-right: 10px;"><i class="fas fa-home"></i></a> <a href="https://simoneramello.it/research.html">Research</a> ⋅ <a href="https://simoneramello.it/teaching.html">Teaching</a> ⋅ <a href="https://simoneramello.it/writing.html">Writing and Talking</a>
+        </div>
+        <h1>Simone<sup>he/him</sup> Ramello</h1>
+    </header>
+    <div id="post-container">
+    <h3 id="motivation">Motivation</h3>
+<p>We want to understand the complete theory of a valued field \((K,v)\) endowed with an endomorphism \(\sigma \in \operatorname{End}(K,v)\). We will call the pair \((K,\sigma)\) a <em>difference field</em>, and say that it is <em>inversive</em> if \(\sigma\) is surjective.
+In this cases, \(\sigma\) induces “auxiliary” endomorphisms \(\sigma_\Gamma\) on the value group \(\Gamma_K\) and \(\bar{\sigma}\) on the residue field \(k\). In the classical philosophy of valued fields, then, the theory of \((K,v,\sigma)\) should be completely understood in terms of the theories of \((\Gamma_K,\sigma_\Gamma)\) and \((k,\bar{\sigma})\).
+More precisely, one aims to prove something like: given an elementary class \(\mathfrak{C}\) of valued fields with endomorphism, and \((K,v,\sigma), (L,v,\sigma) \in \mathfrak{C}\),</p>
+
+\[(K,v,\sigma) \equiv (L,v,\sigma) \iff (\Gamma_K,\sigma_\Gamma) \equiv (\Gamma_L,\sigma_\Gamma) \land (k,\bar{\sigma}) \equiv (l,\bar{\sigma}).\]
+
+<p>A typical example of such a class \(\mathfrak{C}\) would certainly include more restrictions on the behaviour of \(\sigma\) and \(v\); for example, for today I will only look at the <em>isometric</em> case, i.e. when \(v(\sigma(x)) = v(x)\) for all \(x \in K\) (in other words, \(\sigma_\Gamma\)) is trivial.
+When trying to prove a similar theorem, one naturally has to understand <em>immediate</em> extensions.</p>
+
+<blockquote>
+  <p>Given an extension \((K,v) \subseteq (L,v)\) of valued fields, we have natural embeddings \(k \subseteq l\) and \(\Gamma_K \subseteq \Gamma_L\). We say that the extension is <strong>immediate</strong> if these embeddings are surjective.</p>
+</blockquote>
+
+<p>A proper immediate extension makes the above theorem tricky — in the pure valued field setting (without endomorphisms), think of the situation when you have an immediate algebraic extension, i.e. you add a root of some polynomial. Then the value group and residue field don’t change, but the theory of the valued field might, since you have solved a new equation.
+By <strong>Kaplansky theory</strong>, I will mean broadly “good understanding of immediate extensions”. Today, I want to explain what we know about Kaplansky theories of isometric valued difference fields, at least in the case of equicharacteristic \(0\). In particular, I want to focus on the case where \(\sigma\) is not surjective (which is similar to the algebraic situation of imperfect valued fields of equicharacteristic \(p\), in a sense).</p>
+
+<h3 id="maximality">Maximality</h3>
+<p>A good understanding of certain types of immediate extensions goes via proving an <em>existence and uniqueness</em> theorem about the maximal immediate such extension. For example, going back to 1942, we know by work of Kaplansky that if we look at a valued field \((K,v)\) of equicharacteristic \(0\), then there is a <em>unique</em> – up to isomorphism over \(K\) – valued field \((L,v)\) such that:</p>
+
+<ul>
+  <li>\((K,v) \subseteq (L,v)\) is immediate,</li>
+  <li>\((L,v)\) has no proper immediate extensions (i.e., \(L\) is <strong>maximal</strong>).</li>
+</ul>
+
+<p>In particular, one has \(L \cong k(\!(\Gamma_K)\!)\).</p>
+
+<p>We can refine this question a little bit by restricting the type of immediate extensions. We also know that there is a unique – up to isomorphism over \(K\) – valued field \((L’,v)\) such that:</p>
+
+<ul>
+  <li>\((K,v) \subseteq (L’,v)\) is immediate <em>algebraic</em>,</li>
+  <li>\((L',v)\) has no proper immediate <em>algebraic</em> extension (i.e., \(L’\) is <strong>algebraically maximal</strong>).</li>
+</ul>
+
+<p>We can play the same game for a valued field with an endomorphism \((K,v,\sigma)\). Instead of looking at <em>algebraic</em> immediate extensions we will have to look at <em>transformally algebraic</em> immediate extensions, i.e. extensions generated by solutions of equations involving \(\sigma\). We will then call a valued field with endomorphism <strong>transformally algebraically maximal</strong> if it has no proper immediate <em>transformally algebraic</em> extension.
+Let’s focus on the isometric setting. The picture looks a bit more complicated, and it splits along two axes, namely whether \(\sigma\) is surjective or not, and whether \(\bar{\sigma}\) is surjective or not.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th>\(\sigma\) surjective</th>
+      <th>\(\sigma\) non-surjective</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>\(\bar{\sigma}\) surjective</strong></td>
+      <td>Case 1</td>
+      <td>Case 3</td>
+    </tr>
+    <tr>
+      <td><strong>\(\bar{\sigma}\) non-surjective</strong></td>
+      <td>Cannot happen</td>
+      <td>Case 2</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<p><strong>Case 1.</strong> If both \(\sigma\) and \(\bar{\sigma}\) are surjective, we know from the first 2000’s that we have full control of immediate extensions.</p>
+
+<blockquote>
+  <p><strong>Theorem.</strong> (<em>Bélair, Macintyre, Scanlon</em>) Suppose \((K,v,\sigma)\) is such that \((k,\bar{\sigma})\) is linearly difference closed. Then all its maximal immediate extensions are isomorphic over \(K\), and all its transformally algebraically maximal, transformally algebraic immediate extensions are isomorphic over \(K\).</p>
+</blockquote>
+
+<p>(Indeed, we also understand the complete theories of these fields.)</p>
+
+<hr />
+
+<p><strong>Case 2.</strong> If both \(\sigma\) and \(\bar{\sigma}\) are <em>not</em> surjective, then the situation is radically different.</p>
+
+<blockquote>
+  <p><strong>Proposition.</strong> Given a difference field \((k,\bar{\sigma})\) of characteristic \(0\) such that \(\bar{\sigma}\) is not surjective, and \(k = k_0\!\mid t\rangle\) is generated by a transformally transcendental element \(t\), there is an isometric valued field with endomorphism \((K,v,\sigma)\) with residue difference field \((k,\bar{\sigma})\)  and such that \((K,v,\sigma)\) admits two non-isomorphic (transformally algebraically) maximal (transformally algebraic) immediate extensions.</p>
+</blockquote>
+
+<p><em>The idea.</em> If you know how to prove that a valued field of positive characteristic with imperfect residue field has two non-isomorphic algebraically maximal immediate algebraic extensions, the same idea works.</p>
+
+<hr />
+
+<p><strong>Case 3.</strong> If \(\bar{\sigma}\) is surjective, but \(\sigma\) is not, the situation is (as expected) halfway through; indeed, if \(\bar{\sigma}\) is linearly difference closed, being transformally algebraically maximal implies that \(\sigma\) is surjective. So we need to restrict the possible extensions, in a fashion already used by Chatzidakis and Hrushovski to find the model companion of fields with an endomorphism.</p>
+
+<blockquote>
+  <p><strong>Definition.</strong> Let \((K,\sigma) \subseteq (L,\sigma)\) be an extension of difference fields. We will say that it is <em>transformally separable</em> if \(K\) is linearly disjoint from \(\sigma(L)\) over \(\sigma(K)\).</p>
+</blockquote>
+
+<p>We will then say that an extension is <strong>transformally separably algebraic</strong> if it is both transformally separable and transformally algebraic. We will say that a valued field with endomorphism is <strong>transformally separably algebraically maximal</strong> if it has no immediate proper transformally separably algebraic extension. Then,</p>
+
+<blockquote>
+  <p><strong>Proposition.</strong> Suppose \((K,v,\sigma)\) is such that \((k,\bar{\sigma})\) is linearly difference closed and \(\sigma(K) \subseteq K\) is relatively algebraically closed. Let \((K_i,v,\sigma)\), for \(i=1,2\), be such that:</p>
+  <ul>
+    <li>\((K,v,\sigma) \subseteq (K_i,v,\sigma)\) is transformally separably algebraic and immediate,</li>
+    <li>\((K_i,v,\sigma)\) is transformally separably algebraically maximal,</li>
+    <li>\(\sigma(K_i) \subseteq K_i\) is relatively algebraically closed.</li>
+  </ul>
+
+  <p>Then \(K_1 \cong_K K_2\).</p>
+</blockquote>
+
+    </div>
+  </body>
+</html>
