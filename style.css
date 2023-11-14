@@ -10,7 +10,7 @@
     --smaller: 0.95rem;
     --spacing: 1.5rem;
     --align: center;
-    --font-stack: "valkyrie_b_tab", serif;
+    --font-stack: 'Cardo', serif;
     --font-sans: 'Alegreya Sans', sans-serif;
     --code-background-color: var(--color-dark);
     --code-color: var(--color-light);
@@ -35,6 +35,7 @@ a:hover {
 #container {
     width: 100%;
     height: 100%;
+    font-size: var(--font-stack);
     margin-top: 20px;
 }
 #container td {
