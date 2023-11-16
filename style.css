@@ -143,4 +143,5 @@ header a, header a:link, header a:visited, header a:hover {
 
   #post-container {
     width: 70%; margin-left: 15%; margin-right: 15%;
+    font-family: var(--font-stack);
   }
