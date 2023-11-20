@@ -130,7 +130,7 @@ header a, header a:link, header a:visited, header a:hover {
 @media screen and (max-width: 800px) {
     tr {
         display: inline-flex;
-        flex-direction: column;
+        flex-direction: column-reverse;
     }
     td {
         width: 88% !important;
