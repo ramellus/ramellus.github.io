@@ -18,12 +18,25 @@ a, a:link, a:visited {
 a:hover {
     text-decoration: underline;
 }
+
 #container {
-    width: 80%;
-    margin-left: 10%;
-    margin-right: 10%;
-    margin-top: 5%;
+    width: 40%;
+    margin-left: 30%;
+    margin-right: 30%;
+    margin-top: 2%;
+    text-align: justify;
 }
+
+@media screen and (max-width: 800px) {
+    #container {
+        width: 80%;
+        margin-left: 10%;
+        margin-right: 10%;
+        margin-top: 2%;
+        text-align: justify;
+    }
+  }
+
 .pic {
     text-align: center;
     margin: 10px;
@@ -39,12 +52,18 @@ h2 {
 h3 {
     border-bottom: 1px solid var(--color-primary);
     text-transform: uppercase;
-    margin-top: 10px;
+    margin-bottom: 5px;
+    margin-top: 15px;
 }
 ul {
-    line-height: 140%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    line-height: 130%;
 }
 #menu {
     text-align: center;
-    margin: 10px;
+    margin-bottom: 20px;
+}
+footer {
+    margin-top: 20px;
 }
