@@ -10,6 +10,7 @@ body {
     background-color: var(--color-light);
     font-family: var(--font);
     line-height: 130%;
+    font-size: 18px;
 }
 a, a:link, a:visited {
     color: var(--color-primary);
