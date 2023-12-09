@@ -1,6 +1,7 @@
 :root {
     --color-dark: #383838;
     --color-light: #E8E8E8;
+    --color-less-dark: #535353;
     --color-primary: #7c3350;
     --font: 'Noto Sans Display', sans-serif;
 }
@@ -72,4 +73,9 @@ ul {
 footer {
     margin-top: 20px;
     border-top: 1px dashed var(--color-primary);
+}
+.quotes {
+    margin-top: 20px;
+    margin-left: 20px;
+    color: var(--color-less-dark);
 }
