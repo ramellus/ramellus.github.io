@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>A model-theoretic scroll through the fields</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://simoneramello.it/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans&family=Alegreya+Sans+SC&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Display&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <script src='main.js'></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.0/css/all.css">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+</head>
+<body>
+    <div id="container">
+        <h2 id="blog-title">A model-theoretic scroll through the fields</h2>
+        <div id="menu"><a href="/index.html" style="margin-right: 5px;"><i class="fas fa-home"></i></a> Written on 16.12.2023, based on <a href="https://www-fourier.univ-grenoble-alpes.fr/?q=fr/content/simone-ramello">a talk given in Grenoble</a> </div>
+        The goal of this post is to explore some of the ideas behind model theory and its analysis of algebraic structures, and given an application of these methods in the form of the Ax-Grothendieck theorem. It is especially directed at an audience of students in mathematics with some notions of algebra but none of logic. Some of the ideas might have been slightly deformed to make them more relatable for this specific audience, so <i>caveat lector</i> if you know model theory.
+        <h3>What is model theory, anyway?</h3>
+        Many definitions of model theory have been given over the (few) years of its existence. As with all tentative definitions, it has pretty soon become clear that giving a precise delineation of the field is nearly impossible; thus, we have to make do with different slogans, some older, some newer. Historically, one of the oldest ideas was
+        
+
+        \[
+            \text{model theory} \; = \; \text{algebraic geometry} \; - \; \text{fields}.
+        \]
+
+
+        (One could point out, a bit tongue-in-cheek, that indeed this is true if interpreted to mean that model theory does not have all the Fields medals that algebraic geometry has.) The problem with this slogan is, of course, that we now know what algebraic geometry without fields is -- namely, it is algebraic geometry. We clearly arrive to a contradiction, as model theory and algebraic geometry are indeed distinct subjects. We have to find another way.<br>
+        A more modern slogan was proposed by Hrushovski, describing model theory as the <i>geography of tame mathematics</i>. This is, however, a bit too far ahead for the purpose of this post -- we will get nowhere near the matter of tameness of mathematical theories and objects. So, we better settle for something less catchy, but quite descriptive: let's think of model theory as the <i>linguistics of mathematics</i>.<br>
+        Along this intuition, we first establish a formal language which we will use to express mathematical properties of our favourite objects. For this, it is perhaps useful to go back to our first Algebra class, and think of the way groups were defined, for example. Typically, the lecturer would say something along the lines of ''<i>a group is a set \(G\) together with an operation \(\cdot\) and a special element \(e\), which satisfies the following axioms: \(\forall x (x\cdot e = x)\), ...</i>''. They would then proceed to write down a list of symbolic statements like \(\forall x (x \cdot e = x)\), expressing some properties of the operation \(\cdot\) and the special constant \(e\). The crucial insight behind mathematical logic is that we are allowed to treat statements like \(\forall x (x \cdot e = x)\) as mathematical objects themselves, and thus do mathematics with them.
+        <h3>Formulas or formulae?</h3>
+        Let's give a precise definition of these <i>statements</i> in a special case, namely the one useful to treat rings and fields. We choose a <i>language</i> \(\mathcal{L} = \{+, \cdot, -, 0, 1\}\), which as the name suggests is a choice of special symbols that we will use to talk about our objects. In this case, we choose two binary functions \(+,\cdot\), a unary function \(-\), and two special elements \(0,1\). This is a very natural process -- when we first introduce groups, we consider their operation \(\cdot\) and their neutral element \(e\). These are enough symbols to express their properties (or at least, their very basic ones).<br>
+        Similarly, if we want to talk about fields, we better be able to talk about their operations \(+\) and \(\cdot\), their neutral elements \(0\) and \(1\), and out of laziness and exposition, also about the operation of additive inverse \(-\) (this is not really crucial, as it can be recovered from the others, but this is irrelevant for us today). We then recursively define what a <i>formula</i> in the language \(\mathcal{L}\) is.
+        <ol>
+            <li>If \(f(X_1, \dots X_n)\) is a polynomial over \(\mathbb{Z}\), then the equality
+                \[
+                    f(X_1, \dots X_n) = 0
+                \]
+                is a formula in \(\mathcal{L}\) (using the <i>variables</i> \(X_1, \dots X_n\)).
+            </li>
+            <li>
+                If \(\varphi\), \(\psi\) are formulas (for example, \(\varphi\) is \(f(X) = 0\) and \(\psi\) is \(g(Y) = 0\), for some polynomials \(f,g\)), then we can combine them together using \(\land\) (''<i>and</i>''), \(\lor\) (''<i>or</i>''), \(\to\) (''<i>implies</i>''), and negate them using \(\neg\) (''<i>not</i>''). In other words, we declare \(\varphi\land\psi\), \(\varphi\lor\psi\), \(\varphi\to\psi\), \(\neg\varphi\) and \(\neg\psi\) to be formulas as well.
+            </li>
+            <li>
+                If \(\varphi\) is a formula and \(X\) is a variable, then \(\forall X\varphi\) (''<i>for all \(X\), \(\varphi\)</i>'') and \(\exists X\varphi\) (''<i>there exists \(X\) such that \(\varphi\)</i>'') are formulas. This step is really meaningful only if \(\varphi\) uses the variable \(X\).
+            </li>
+        </ol>
+        We are allowed to repeat and intertwine these steps as many times as we like. The first step isolates the basic building blocks of our process; as for steps two and three, they are built along our intuition of what mathematical statements look like. Before, we saw an example: \(\forall x(x \cdot e = x)\). Let us see some further examples in our chosen language \(\mathcal{L}\), and try to understand what they mean in plain English.
+        <br>
+        <ul>
+            <li>\(\forall X \forall Y (X\cdot Y - Y \cdot X = 0)\). First of all, a sanity check: \(X\cdot Y - Y \cdot X\) is a honest polynomial over the integers, in two variables. We have then taken an equality (which is a formula by step one) and applied a quantifier twice (i.e., used step three twice). This is a formula as we defined it. What does it mean? Well, it is expressing a property of \(\cdot\), namely that it is commutative. This is recognizable as one of the axioms of a field.</li>
+            <li>\(\exists X (X^2+1 = 0)\). Once again, we have started with an equation over the integers and then applied a quantifier. This is slightly more interesting -- it is stating that a certain equation can be solved. This can be used, for example, to distinguish \(\mathbb{R}\) and \(\mathbb{C}\), even in our realm of formal statements.</li>
+            <li>\(\forall X\exists Y((X^2-Y=0)\land\exists Z(Z^2-Y=0))\). Our usual sanity check: this is a formula, as we defined it, obtained through a couple more iterations of the steps above. What does it say, in plain English? For every \(X\), there is a \(Y\) such that first of all \(X^2 = Y\), and then furthermore there is \(Z\) such that \(Y = Z^2)\. This is not a particularly exiting statement, but it is a formula nonetheless.</li>
+            <li>\(\forall X (X^2 + YX + 1 = 0)\). This is a bit different from the previous ones. Suppose I asked you whether this is <i>true</i> in \(\mathbb{R}\). You would probably think as follows: okay, take any \(X\), I need to check whether the equation \(X^2+YX +1 =0\) is true. But how can I do so without knowing \(Y\)? Crucially, this formula is not a <i>sentence</i>, some of its variables are not quantified. To check whether it is true or not, we first need to decide a value for \(Y\).</li>
+        </ul>
+        The first three examples were all <i>sentences</i>, on the other hand, so we could check whether they were true in our favourite structure. But what does <i>true</i> mean, precisely?
+        <h3>Structures and models</h3>
+        Suppose I gave you the sentence \(\forall X_1 \forall X_2 \forall X_3 \exists Y(X_1Y^2+X_2Y+X_3=0)\) and I asked you to check whether it was true in \(\mathbb{R}\). You would take any \(a_1, a_2, a_3 \in \mathbb{R}\) and then try and figure out if the equation \(a_1Y^2+a_2Y+a_3 = 0\) had a solution in \(\mathbb{R}\). This process can naturally take place in any so-called \(\mathcal{L}\)-<i>structure</i>.<br>
+        A <i>structure</i> in the language \(\mathcal{L}\) is nothing but some set \(M\) together with <i>interpretations</i> of the symbols of \(\mathcal{L}\). In our particular case, this means that \(M\) comes together with two functions \(+^M,\cdot^M\colon M^2 \to M\), a function \(-^M\colon M \to M\), and two special elements \(0^M,1^M\in M\). Together,
+        \[
+            \mathcal{M} = (M,+^M,\cdot^M,-^M,0^M,1^M)
+        \]
+        is a structure in the language \(\mathcal{L}\). Note that these are just functions and special elements -- \(\mathcal{M}\) need not be a field, or even a ring! For example,
+        \[
+            (\mathbb{R}, \dagger, \star, \sin, 3, \frac{9}{2}),
+        \]
+        where \(\dagger\) is the binary function \((a,b) \mapsto \exp(ab)\), \(\star\) is the binary function \((a,b) \mapsto \cos(a+b)\), is a honest \(\mathcal{L}\)-structure. So is, of course, the ''real'' real numbers,
+        \[
+            (\mathbb{R}, +, \cdot, -, 0, 1).
+        \]
+        The difference between these two structures is which sentences are true in them. While the second one will satisfy all field axioms, the first one will not even satisfy the ring axioms! This is encoded in their <i>theories</i>: given a structure \(\mathcal{M}\) in the language \(\mathcal{L}\), we denote by \(\operatorname{Th}(\mathcal{M})\) the set of sentences in the language \(\mathcal{L}\) which are true in the structure. The process of defining what it means to be <i>true</i> in an arbitrary structure is the same one we would use if we wanted to check truth in \(\mathbb{R}\): we reduce to checking whether a polynomial (correctly interpreted, using the interpretations of \(+, \cdot, -, 0, 1\) in our structure) vanishes. This ''correctly interpreted'' point is a bit tricky, and perhaps a fault of the chosen presentation of the construction of formulas using polynomials over \(\mathbb{Z}\) (which carry some ambiguity if, for example, we don't choose associative operations). Since all structures we will consider are indeed rings, we will ignore this issue for today. Whenever we consider a field \(K\), we will write \(\operatorname{Th}(K)\) to mean the theory of the ''obvious'' structure of \(K\) (i.e., where \(+,\cdot,-\) are the corresponding field operations, and \(0,1\) are the corresponding neutral elements).
+        <h3>Algebraically closed fields</h3>
+        We have already seen a reason why \(\operatorname{Th}(\mathbb{R})\) and \(\operatorname{Th}(\mathbb C)\) are different: namely, the sentence \(\exists X(X^2+1=0)\) is an element of the latter, but not of the former. A bit naïvely, one could say that the point of model theory is understanding how much \(\operatorname{Th}(\mathcal{M})\) knows about \(\mathcal{M}\), and how well the theory can be described. As you can imagine, the set \(\operatorname{Th}(\mathbb{C})\) contains a lot of information, a priori described by very complicated sentences: imagine a sentence using a million quantifiers and two million connectives. These sentences talk about all sorts of polynomial equations having solutions, projections of varieties intersecting other varieties -- in a sense, the whole of (classical, complex) algebraic geometry is encoded there. Strikingly, however, it can be completely described by an infinite set of natural sentences, that make sense in plain English (I believe the human brain struggles beyond two or three quantifiers, as witnessed by everyone's horrific first encounter with \(\epsilon-\delta\) definitions of limits).<br>
+        We let \(\mathrm{ACF}_0\) be the following set of sentences (which we usually call a <i>theory</i>):
+        <ol>
+            <li>all field axioms,</li>
+            <li>\(\neg(2=0)\), \(\neg(3=0)\), and so on -- in other words, infinitely many sentences expressing that ''the characteristic is not \(p\)'', for all primes \(p\),</li>
+            <li>the sentence expressing ''<i>all polynomials of degree at most \(d\) have a root</i>'', for every \(d \geq 1\).</li>
+        </ol>
+        The last point is the trickiest of them all, but it is actually very natural: for example, for \(d=2\), it is simply
+        \[
+            \forall X_1 \forall X_2 \forall X_3 \exists Y (X_1Y^2+X_2Y+X_3=0),
+        \]
+        which we have already seen before. As the degree goes up, it becomes a long list of quantifiers, but they come with a reasonable interpretation in plain English, so it is not too bad. We can then define \(\mathrm{ACF}_p\) to be the same set of sentences, but stopping the list in 2. at the prime before \(p\), and then adding \(p=0\).<br>
+        Briefly going back to this idea of <i>tame mathematics</i>, the theory \(\mathrm{ACF}_0\) is one of the tamest theories we know. For us today, the crucial fact -- which is not at all obvious -- is that \(\mathrm{ACF}_0\) and \(\mathrm{ACF}_p\) are <i>complete</i>. Without defining what ''complete'' is, I want to highlight a crucial consequence of it: given any sentence \(\varphi\), if \(\varphi\) is true in \(\mathbb{C}\) (or in the algebraic closure \(\overline{\mathbb{F}_p}\) of a field with \(p\) elements), then there is a proof of \(\varphi\) which only uses finitely many sentences from \(\mathrm{ACF}_0\) (or \(\mathrm{ACF}_p\)).
+        <h3>Between characteristic \(0\) and characteristic \(p\)</h3>
+        This fact has a fundamental consequence. Let us take a sentence \(\varphi\). If it is true in \(\mathbb{C}\), then there is a proof of it that uses only finitely many sentences from \(\mathrm{ACF}_0\). Note that \(\mathrm{ACF}_0\) and \(\mathrm{ACF}_p\) differ only in the sentences about the characteristic. This means that, in particular, only finitely many of the sentences \(\neg(p=0)\) are used in this proof, and hence, if we choose \(p'\) big enough, we can run the same proof inside of \(\overline{\mathbb{F}_{p'}}\). In other words, if \(\varphi\) is true in \(\mathbb{C}\), then it must be true in \(\overline{\mathbb{F}_p}\), for \(p\) big enough.<br>
+        This is a precise example of an overarching philosophy in algebra, number theory, and algebraic geometry: phenomena observed in characteristic \(0\) should also be observed in characteristic \(p\), for \(p\) big enough; and viceversa. As an example, we will prove the Ax-Grothendieck theorem.<br>
+        <br>
+        <b>Theorem.</b> Let \(n \geq 0\) and suppose \(f \colon \mathbb{C}^n \to \mathbb{C}^n\) is a function such that, for some polynomials \(f_1, \dots f_n \in \mathbb{C}[X_1, \dots X_n]\), we have for all \(\overline{x} \in \mathbb{C}^n\),
+        \[
+            f(\overline{x}) = (f_1(\overline{x}), \dots f_n(\overline{x})).
+        \]
+        If \(f\) is injective, it is also surjective.<br>
+        <i>Proof.</i> We aim to use what we have just observed and reduce the question from \(\mathbb{C}\) to \(\overline{\mathbb{F}_p}\). To do that, for any \(n \geq 0\) and \(d \geq 0\) we build a sentence \(\Sigma_{n,d}\) such that \(\Sigma_{n,d}\) holds if and only if for every polynomial function \(f\) in dimension \(n\) given by polynomials of degree at most \(d\), if \(f\) is injective then it is surjective. Writing out each \(\Sigma_{n,d}\) is a bit tedious, so let's see what \(\Sigma_{1,1}\) looks like:
+        \[
+            \underbrace{\forall X_1\forall X_2}_{\text{coefficients}} \\ (\underbrace{\forall Y \forall Z((X_1Y+X_2 = X_1Z + X_2) \to (Y = Z))}_{f \; \text{is injective}} \to \underbrace{\forall W \exists U(X_1U+X_2 = W)}_{f \; \text{is surjective}}).
+        \]
+        As \(n\) and \(d\) grow, the sentences get lengthier, but the pattern is the same.<br>
+        Now, let us assume that the theorem is false. This means that we can find a counterexample, so for some dimension \(m > 0\) and degree \(g > 0\) we have that \(\Sigma_{m,g}\) is false in \(\mathbb{C}\). Indeed, this means that \(\neg\Sigma_{m,g}\) is true in \(\mathbb{C}\), so by our remark above, it must be true in \(\overline{\mathbb{F}_p}\), for \(p\) big enough. So once again, this means that \(\Sigma_{m,g}\) must be false in \(\overline{\mathbb{F}_p}\), for \(p\) big enough -- in other words, from a counterexample to the theorem in \(\mathbb{C}\), we obtain that there must be one in \(\overline{\mathbb{F}_p}\), for \(p\) big enough.<br>
+        We now argue that this cannot be, because the theorem is true if we substitute \(\mathbb{C}\) with \(\overline{\mathbb{F}_p}\), for any \(p\). First of all, it is true if we substitute \(\mathbb{C}\) with \(\mathbb{F}_q\), for \(q\) some prime power: indeed, we then have that \(f\colon \mathbb{F}_q^n \to \mathbb{F}_q^n\) is an injective map between finite sets of the same cardinality, so it must be surjective. We now have to remember something about \(\overline{\mathbb{F}_p}\): it can be described as
+        \[
+            \overline{\mathbb{F}_p} = \bigcup_{n \geq 1} \mathbb{F}_{p^n}.
+        \]
+        Then, if \(f\colon \overline{\mathbb{F}_p}^n \to \overline{\mathbb{F}_p}^n\) is given by polynomials over \(\overline{\mathbb{F}_p}\), there is \(m\) big enough so that the coefficients of these polynomials actually come from \(\mathbb{F}_{p^m}\). Suppose \(f\) is injective and we want to prove it is surjective: we then take some \(\overline{b} \in \overline{\mathbb{F}_p}^n\) and look for \(\overline{a} \in \overline{\mathbb{F}_p}^n\) such that \(f(\overline{a}) = \overline{b}\). But once again, there is \(\ell\) big enough so that \(\overline{b} \in \mathbb{F}_{p^\ell}^n\).
+        <br> Pick now your favourite \(k \geq m, l\). We can see \(f\) as a map \(\mathbb{F}_{p^k}^n \to \mathbb{F}_{p^k}^n\), with \(\overline{b}\) in its codomain. We are back to the beginning of our argument: \(f\vert_{\mathbb{F}_{p^k}^n}\) must be surjective, and so there is \(\overline{a} \in \mathbb{F}_{p^k}^n\) such that \(f(\overline{a}) = \overline{b}\). Since \(\overline{a} \in \overline{\mathbb F_{p}}^n\), we have found our desired preimage.<br>
+        We have then shown that the theorem holds in \(\overline{\mathbb{F}_p}\), so each \(\Sigma_{n,d}\) must be true in \(\overline{\mathbb{F}_p}\), against our assumption that \(\Sigma_{m,g}\) is false in \(\overline{\mathbb{F}_p}\). \(\square\)
+    <footer>
+        This website was built through GitHub Pages and some amount of coffee. The profile picture was taken by Victoria Liesche.
+    </footer>
+</div>
+  </body>
+</html>
