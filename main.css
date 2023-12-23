@@ -36,9 +36,9 @@
 
 :root {
     --color-dark: #383838;
-    --color-light: #f7f7f7;
+    --color-light: #fffff8;
     --color-less-dark: #535353;
-    --color-primary: #7c3350;
+    --color-primary: #a00000;
     --font: 'valkyrie_b_tab', serif;
 }
 
@@ -134,7 +134,6 @@ hr {
 }
 footer {
     margin-top: 20px;
-    background-color: #eeeeee   ;
     color: var(--color-primary);
     padding: 20px;
 }
