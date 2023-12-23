@@ -38,7 +38,7 @@
     --color-dark: #383838;
     --color-light: #fffff8;
     --color-less-dark: #535353;
-    --color-primary: #a00000;
+    --color-primary: #B3304D;
     --font: 'valkyrie_b_tab', serif;
 }
 
@@ -112,7 +112,8 @@ h3 {
     margin-bottom: 10px;
 }
 ul {
-    margin: 0;
+    margin-top: 5px;
+    margin-bottom: 5px;
     line-height: 140%;
     padding: 0;
 }
@@ -134,7 +135,7 @@ hr {
 }
 footer {
     margin-top: 20px;
-    color: var(--color-primary);
+    color: var(--color-less-dark);
     padding: 20px;
 }
 footer a, footer a:link, footer a:visited, footer a:hover {
