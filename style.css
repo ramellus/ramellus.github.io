@@ -33,6 +33,7 @@
     font-display: auto;
     src: url("valkyrie_b_tab_bold_italic.woff2") format("woff2");
     }
+
 body {
     background-color: #E8E8E8;
     font-family: "valkyrie_b", serif;
@@ -47,6 +48,15 @@ p {
     margin-bottom: 30px;
     text-align: justify;
 }
+@media screen and (max-width: 800px) {
+    #container {
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+        margin-top: 2%;
+        text-align: justify;
+    }
+  }
 #menu {
     text-align: right;
 }
