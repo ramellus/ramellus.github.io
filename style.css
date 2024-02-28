@@ -68,26 +68,32 @@ p {
     border-radius: 50%;
     border: 10px solid #d5c8d6;
 }
-tt {
-    color: #876b89;
-}
 h1, h2, h3 {
     margin: 0;
-    margin-top: 10px;
+    margin-bottom: 5px;
+    margin-top: 5px;
 }
-h2 {
-    border-top: 8px solid #d5c8d6;
-    margin-top: 15px;
+h3 {
+    font-variant: small-caps;
+    font-weight: normal;
+    text-transform: lowercase;
+}
+#scicomm h3 {
+    color: #94adba;
+    font-family: Lato;
+}
+#research h3, #more h3 {
+    color: #876b89;
+    font-family: Lato;
 }
 a, a:link, a:visited {
-    background: linear-gradient(#d5c8d6, #d5c8d6) 0 95% / 100% 4px no-repeat;
     color: inherit;
     text-decoration: none;
+    font-weight: bold;
 }
 a:hover {
+    background: linear-gradient(#d5c8d6, #d5c8d6) 0 95% / 100% 4px no-repeat;
     text-decoration: none;
-    color: #876b89;
-    background: none;
 }
 .fas {
     color: #876b89;
@@ -99,4 +105,28 @@ ol {
 ul {
     margin: 0;
     list-style-type: square;
+}
+#research, #more {
+    margin-top: 15px;
+    background-color: #FFFFFF;
+    border-top: 10px solid #d5c8d6;
+    padding: 20px;
+}
+#scicomm {
+    margin-top: 15px;
+    padding: 20px;
+    background-color: #FFFFFF;
+    border-top: 10px solid #cdd7dc;
+}
+#scicomm a, #scicomm a:link, #scicomm a:visited {
+    font-weight: bold;
+}
+#scicomm a:hover {
+    background: linear-gradient(#cdd7dc, #cdd7dc) 0 95% / 100% 4px no-repeat;
+}
+#scicomm .fas {
+    color: #94adba;
+}
+.text {
+    padding: 10px;
 }
