@@ -72,6 +72,9 @@ h1, h2, h3 {
     margin: 0;
     margin-bottom: 5px;
 }
+h2 {
+    text-align: center;
+}
 h1 {
     text-align: center;
     margin-bottom: 0;
@@ -95,6 +98,28 @@ a, a:link, a:visited {
     text-decoration: none;
     font-weight: bold;
 }
+
+#research details {
+    padding-bottom: 5px;
+    margin-top: 5px;
+}
+#research details > summary {
+    list-style-type: '';
+    color: #876b89;
+    border-bottom: 5px solid #d5c8d6;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+}
+
+#research details[open] {
+    border-bottom: 5px solid #d5c8d6;
+}
+
+details[open] > summary {
+    list-style-type: '';
+}
+
 a:hover {
     background: linear-gradient(#d5c8d6, #d5c8d6) 0 95% / 100% 4px no-repeat;
     text-decoration: none;
