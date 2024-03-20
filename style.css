@@ -35,6 +35,7 @@
     }
 
 body {
+    margin: 0;
     background-color: #E8E8E8;
     font-family: "valkyrie_b", serif;
 }
@@ -42,31 +43,60 @@ p {
     margin: 0;
 }
 #container {
+    border: 10px solid #FFFFFF;
+    padding: 25px;
     width: 50%;
-    margin-left: 25%;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    background-color: #FFFFFF;
     text-align: justify;
+    margin: auto;
+    margin-bottom: 30px;
+    margin-top: -100px;
+    padding-top: 80px;
 }
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 700px) {
     #container {
         width: 90%;
         margin-left: 5%;
         margin-right: 5%;
-        margin-top: 2%;
+        margin-top: 3%;
         text-align: justify;
     }
   }
 #menu {
-    text-align: right;
+    margin: 0;
+    width: 100%;
+    background-color: #7a3b5e;
+    color: #FFFFFF;
+    margin-bottom: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+#menu a, #menu a:hover {
+    color: #FFFFFF;
+}
+#links {
+    margin-left: 25px;
+    text-align: left;
+}
+#name {
+    float: right;
+    margin-right: 25px;
+    font-weight: bold;
+}
+#icone {
+    float: right;
+    margin-top: -50px;
+    margin-right: 10px;
 }
 #profile {
     text-align: center;
+    margin-top: 20px;
 }
 #profile img {
     width: 150px;
     border-radius: 50%;
-    border: 10px solid #d5c8d6;
+    border: 10px solid #7a3b5e;
+    margin-bottom: 15px;
 }
 h1, h2, h3 {
     margin: 0;
@@ -83,49 +113,29 @@ h3 {
     font-variant: small-caps;
     font-weight: normal;
     text-transform: lowercase;
-    margin-top: 10px;
-}
-#scicomm h3 {
-    color: #94adba;
-    font-family: Lato;
-}
-#research h3, #more h3 {
-    color: #876b89;
+    color: #7a3b5e;
     font-family: Lato;
 }
 a, a:link, a:visited {
-    color: inherit;
+    color: #7a3b5e;
     text-decoration: none;
-    font-weight: bold;
 }
-
-#research details {
-    padding-bottom: 5px;
-    margin-top: 5px;
+details {
+    margin-top: 10px;
+    border: 1px dashed #7a3b5e;
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
-#research details > summary {
-    list-style-type: '';
-    color: #876b89;
-    border-bottom: 5px solid #d5c8d6;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    margin-bottom: 5px;
-}
-
-#research details[open] {
-    border-bottom: 5px solid #d5c8d6;
-}
-
-details[open] > summary {
-    list-style-type: '';
+details > summary {
+    color: #7a3b5e;
 }
 
 a:hover {
-    background: linear-gradient(#d5c8d6, #d5c8d6) 0 95% / 100% 4px no-repeat;
-    text-decoration: none;
+    text-decoration: underline;
 }
 .fas {
-    color: #876b89;
+    color: #7a3b5e;
 }
 ol {
     margin: 0;
@@ -137,34 +147,31 @@ ul {
 }
 #research, #more {
     margin-top: 15px;
-    background-color: #FFFFFF;
-    border-top: 10px solid #d5c8d6;
+    background-color: #FFF;
+    border-top: 10px solid #7a3b5e;
     padding: 20px;
-}
-#scicomm {
-    margin-top: 15px;
-    padding: 20px;
-    background-color: #FFFFFF;
-    border-top: 10px solid #cdd7dc;
-}
-#scicomm a, #scicomm a:link, #scicomm a:visited {
-    font-weight: bold;
-}
-#scicomm a:hover {
-    background: linear-gradient(#cdd7dc, #cdd7dc) 0 95% / 100% 4px no-repeat;
-}
-#scicomm .fas {
-    color: #94adba;
 }
 .text {
+    margin: 0;
     padding: 10px;
+    text-align: justify;
 }
 .footer {
-    padding: 20px;
-    background-color: #FFFFFF;
+    padding: 5px;
+    font-size: 80%;
+    color: #7a3b5e;
 }
 #flag {
     margin-top: 20px;
     width: 100%;
     height: 8px;
+}
+
+.divider {
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    color: #7a3b5e;
+    letter-spacing: 3px;
+    font-size: 12px;
 }
