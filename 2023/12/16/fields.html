@@ -1,22 +1,30 @@
-<!DOCTYPE html>
 <html>
-<head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>A model-theoretic scroll through the fields</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans&family=Alegreya+Sans+SC&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Display&display=swap" rel="stylesheet"> 
-    <link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    <script src='main.js'></script>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.0/css/all.css">
-    <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
-    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
-</head>
-<body>
-    <div id="container">
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>    
+        <title>A model-theoretic scroll through the fields</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="/style.css">
+        <script src='main.js'></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.0/css/all.css">
+        <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+        <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    </head>
+    <body>
+        <div id="menu">
+            <div id="name">Simone Ramello <span style="margin-right: 15px;"></span><a href="https://twitter.com/ramellus"><ion-icon name="logo-twitter"></ion-icon></a> <a href="https://mathstodon.xyz/@ramellus"><ion-icon name="logo-mastodon"></ion-icon></a> <a href="https://www.linkedin.com/in/simone-ramello-54888225b/"><ion-icon name="logo-linkedin"></ion-icon></a></div>
+            <div id="links"><a href="/index.html">Home</a> ‖ <a href="/research.html">Research</a> ‖ <a href="/blog.html">Blog & Writing</a> ‖ <a href="https://meetscience.it/">Meet Science</a></div></div>
+        </div>
+
+        <div id="profile">
+            <img src="profile.jpg" alt="Picture of Simone.">
+        </div>
+        <div id="container">
+                            <div class="text">
+
         <h2 id="blog-title">A model-theoretic scroll through the fields</h2>
         <div id="menu"><a href="https://simoneramello.it" style="margin-right: 5px;"><i class="fas fa-home"></i></a> Written on 16.12.2023, based on <a href="https://www-fourier.univ-grenoble-alpes.fr/?q=fr/content/simone-ramello">a talk given in Grenoble</a> </div>
         The goal of this post is to explore some of the ideas behind model theory and its analysis of algebraic structures, and given an application of these methods in the form of the Ax-Grothendieck theorem. It is especially directed at an audience of students in mathematics with some notions of algebra but none of logic. Some of the ideas might have been slightly deformed to make them more relatable for this specific audience, so <i>caveat lector</i> if you know model theory.
@@ -110,9 +118,13 @@
         <br> Pick now your favourite \(k \geq m, l\). We can see \(f\) as a map \(\mathbb{F}_{p^k}^n \to \mathbb{F}_{p^k}^n\), with \(\overline{b}\) in its codomain. We are back to the beginning of our argument: \(f\vert_{\mathbb{F}_{p^k}^n}\) must be surjective, and so there is \(\overline{a} \in \mathbb{F}_{p^k}^n\) such that \(f(\overline{a}) = \overline{b}\). Since \(\overline{a} \in \overline{\mathbb F_{p}}^n\), we have found our desired preimage.<br>
         We have then shown that the theorem holds in \(\overline{\mathbb{F}_p}\), so each \(\Sigma_{n,d}\) must be true in \(\overline{\mathbb{F}_p}\), against our assumption that \(\Sigma_{m,g}\) is false in \(\overline{\mathbb{F}_p}\). \(\square\)
     
-        <footer>
-            This website was built through GitHub Pages, the amazing <a href="https://practicaltypography.com/mb-fonts.html">Valkyrie</a>, and some undisclosed amount of coffee. The profile picture was taken by Victoria Liesche.
-        </footer>
-</div>
-  </body>
+                            </div>
+
+                            <img src="flag.png" id="flag">
+
+            <div class="footer">This website was built through several train trips, GitHub Pages, and the amazing Valkyrie font. The profile picture was taken by Victoria Liesche.</div>
+        </div>
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    </body>
 </html>
