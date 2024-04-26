@@ -1,0 +1,226 @@
+@font-face {
+    font-family: valkyrie_b;
+    font-style: normal;
+    font-weight: normal;
+    font-stretch: normal;
+    font-display: auto;
+    src: url("valkyrie_b_tab_regular.woff2") format("woff2");
+    }
+    
+@font-face {
+    font-family: valkyrie_b;
+    font-style: italic;
+    font-weight: normal;
+    font-stretch: normal;
+    font-display: auto;
+    src: url("valkyrie_b_tab_italic.woff2") format("woff2");
+    }
+    
+@font-face {
+    font-family: valkyrie_b;
+    font-style: normal;
+    font-weight: bold;
+    font-stretch: normal;
+    font-display: auto;
+    src: url("valkyrie_b_tab_bold.woff2") format("woff2");
+    }
+    
+@font-face {
+    font-family: valkyrie_b;
+    font-style: italic;
+    font-weight: bold;
+    font-stretch: normal;
+    font-display: auto;
+    src: url("valkyrie_b_tab_bold_italic.woff2") format("woff2");
+    }
+body {
+    background-color: #ddd7d4;
+    color: #29201f;
+    font-family: 'valkyrie_b';
+    font-size: 15px;
+    line-height: 19px;
+}
+#container {
+    width: 42%;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+
+@media screen and (max-width: 700px) {
+    #container {
+        width: 92%;
+        padding: 4%;
+        margin: 0;
+        text-align: justify;
+        border: 0;
+    }
+  }
+#picture {
+    text-align: center;
+    margin: 5px;
+}
+#picture img {
+    width: 100%;
+    margin: auto;
+    height: 250px;
+    opacity: 0.9;
+    object-fit: cover;
+    border-radius: 8px;
+}
+a, a:link, a:visited {
+    color: #7B3D3E;
+    text-decoration: none;
+}
+a:hover {
+    color: #7B3D3E;
+    text-decoration: underline;
+}
+h1 {
+    margin: 0;
+    text-align: center;
+    font-size: 26px;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+h2 {
+    font-size: 15px;
+    text-align: center;
+    margin: 0;
+    font-weight: normal;
+    color: #7B3D3E;
+    font-variant: small-caps;
+    letter-spacing: 1px;
+    margin-top: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+#menu {
+    margin-top: 10px;
+    font-size: 16px;
+    text-align: center;
+    text-transform: lowercase;
+    font-variant: small-caps;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+#socials {
+    text-align: center; font-size: 22px; margin-top: 5px;
+}
+#menu a, #menu a:link, #menu a:visited {
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+#menu .current {
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: #7B3D3E;
+    color: #ddd7d4;
+    text-decoration: none;
+}
+#menu a:hover {
+    background-color: #7B3D3E;
+    color: #ddd7d4;
+    text-decoration: none;
+}
+footer {
+    opacity: 0.8;
+    margin-top: 10px;
+    padding: 5px;
+    font-size: 14px;
+    text-align: justify;
+}
+#subtitle {
+    text-align: center;
+    font-size: 18px;
+    opacity: 0.6;
+    margin-bottom: 10px;
+    margin-top: 8px;
+}
+#emails {
+    text-align: center;
+    margin-top: 10px;
+}
+#container p {
+    text-indent: 20px;
+    text-align: justify;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.divisor {
+    margin: 10px;
+    font-size: 10px;
+    opacity: 0.6;
+    text-align: center;
+}
+#container ul {
+    list-style: none;
+    margin-top: 0;
+    margin-left: 3px;
+    padding-right: 5px;
+    padding-left: 0;
+    margin-bottom: 3px;
+  }
+  
+#container li {
+    padding-left: 1.5em;
+    text-indent: -1em;
+  }
+
+#container li.mps, #container li.vdf {
+    text-align: justify;
+}
+  
+#container li:before {
+    content: "→";
+    opacity: 0.6;
+    padding-right: 5px;
+  }
+#container li.mps:before {
+    content: "♤";
+    opacity: 0.6;
+}
+#container li.vdf:before {
+    content: "♢";
+    opacity: 0.6;
+}
+#container li.misc:before {
+    content: "♧";
+    opacity: 0.6;
+}
+
+.paragraph {
+    font-variant: small-caps;
+    text-transform: lowercase;
+    font-weight: bold;
+    letter-spacing: 2px;
+    padding-right: 5px;
+}
+ion-icon {
+    font-size: 17px;
+    margin-bottom: -4px;
+}
+.titolino {
+    font-style: italic;
+}
+#podcast {
+    border: 15px solid #d8cfcb;
+    padding: 10px;
+    text-align: center;
+}
+#podcast a, #podcast a:link, #podcast a:hover, #podcast a:visited {
+    text-transform: lowercase;
+    font-variant: small-caps;
+    letter-spacing: 2px;
+}
+#emails {
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-align: center;
+    color: #7B3D3E;
+}
