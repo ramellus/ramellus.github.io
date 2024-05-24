@@ -33,22 +33,26 @@
     font-display: auto;
     src: url("valkyrie_b_tab_bold_italic.woff2") format("woff2");
     }
+
+    html { font-size: 2.4vw; }
+    @media all and (min-width:1000px) { html { font-size: 20px; } }
+    @media all and (max-width:520px) { html{ font-size: 16px; } }
+
 body {
     background-color: #ddd7d4;
     color: #29201f;
     font-family: 'valkyrie_b';
-    font-size: 15px;
-    line-height: 19px;
+    line-height: 1.30;
+    font-size: 0.9rem;
+    font-variant-numeric: oldstyle-nums;
 }
 #container {
-    width: 42%;
+    width: 50%;
     margin: auto;
     margin-top: 20px;
     margin-bottom: 40px;
 }
-
-
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 520px) {
     #container {
         width: 92%;
         padding: 4%;
@@ -64,7 +68,7 @@ body {
 #picture img {
     width: 100%;
     margin: auto;
-    height: 250px;
+    height: 310px;
     opacity: 0.9;
     object-fit: cover;
     border-radius: 8px;
@@ -80,25 +84,27 @@ a:hover {
 h1 {
     margin: 0;
     text-align: center;
-    font-size: 26px;
+    font-size: 145%;
+    line-height: 1.10;
     margin-top: 15px;
-    margin-bottom: 5px;
 }
 h2 {
-    font-size: 15px;
+    font-size: 95%;
+    line-height: 1.10;
     text-align: center;
     margin: 0;
     font-weight: normal;
     color: #7B3D3E;
     font-variant: small-caps;
     letter-spacing: 1px;
-    margin-top: 15px;
+    margin-top: 5px;
     padding-top: 10px;
-    padding-bottom: 10px;
+    padding-left: 90px;
+    padding-right: 90px;
 }
 #menu {
     margin-top: 10px;
-    font-size: 16px;
+    font-size: 90%;
     text-align: center;
     text-transform: lowercase;
     font-variant: small-caps;
@@ -130,12 +136,13 @@ footer {
     opacity: 0.8;
     margin-top: 10px;
     padding: 5px;
-    font-size: 14px;
+    font-size: 90%;
     text-align: justify;
 }
 #subtitle {
     text-align: center;
-    font-size: 18px;
+    font-size: 115%;
+    line-height: 1.10;
     opacity: 0.6;
     margin-bottom: 10px;
     margin-top: 8px;
@@ -154,7 +161,6 @@ footer {
 }
 .divisor {
     margin: 10px;
-    font-size: 10px;
     opacity: 0.6;
     text-align: center;
 }
@@ -172,8 +178,13 @@ footer {
     text-indent: -1em;
   }
 
-#container li.mps, #container li.vdf {
+#container li.mps, #container li.vdf, #container li.misc {
     text-align: justify;
+    margin-top: 5px;
+}
+
+li summary {
+    margin-left: 20px;
 }
   
 #container li:before {
@@ -202,7 +213,7 @@ footer {
     padding-right: 5px;
 }
 ion-icon {
-    font-size: 17px;
+    font-size: 85%;
     margin-bottom: -4px;
 }
 .titolino {
@@ -219,7 +230,7 @@ ion-icon {
     letter-spacing: 2px;
 }
 #emails {
-    font-size: 14px;
+    font-size: 90%;
     letter-spacing: 1px;
     text-align: center;
     color: #7B3D3E;
