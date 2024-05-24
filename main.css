@@ -1,3 +1,11 @@
+:root {
+    --emphasis: #7B3D3E;
+    --less-emphasis: #d7c4c0;
+    --background: #ddd7d4;
+    --text: #433E43;
+    --darker-text: #2e2c2e;
+}
+
 @font-face {
     font-family: valkyrie_b;
     font-style: normal;
@@ -34,23 +42,32 @@
     src: url("valkyrie_b_tab_bold_italic.woff2") format("woff2");
     }
 
-    html { font-size: 2.4vw; }
-    @media all and (min-width:1000px) { html { font-size: 20px; } }
+    html { font-size: 2.4vw; margin:0; }
+    @media all and (min-width:1000px) { html { font-size: 18px; } }
     @media all and (max-width:520px) { html{ font-size: 16px; } }
 
 body {
-    background-color: #ddd7d4;
-    color: #29201f;
+    background-color: var(--darker-text);
+    color: var(--text);
     font-family: 'valkyrie_b';
-    line-height: 1.30;
+    line-height: 1.25;
     font-size: 0.9rem;
     font-variant-numeric: oldstyle-nums;
 }
 #container {
-    width: 50%;
-    margin: auto;
-    margin-top: 20px;
-    margin-bottom: 40px;
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-top: 1%;
+    padding-bottom: 3%;
+    width: 44%;
+    margin: 0;
+    margin-left: auto;
+    margin-right: auto;
+    background: var(--background);
+
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    margin-bottom: 30px;
 }
 @media screen and (max-width: 520px) {
     #container {
@@ -63,23 +80,37 @@ body {
   }
 #picture {
     text-align: center;
-    margin: 5px;
+    margin-top: 30px;
 }
 #picture img {
-    width: 100%;
-    margin: auto;
-    height: 310px;
+    width: 50%;
+    margin: 0;
+    height: 250px;
     opacity: 0.9;
     object-fit: cover;
-    border-radius: 8px;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
 }
 a, a:link, a:visited {
-    color: #7B3D3E;
+    color: inherit;
     text-decoration: none;
 }
-a:hover {
-    color: #7B3D3E;
-    text-decoration: underline;
+p a, ul a, p a:link, ul a:link, p a:visited, ul a:visited, h2 a, h2 a:visited, h2 a:link {
+    color: inherit;
+    text-decoration: none;
+}
+p a:hover, ul a:hover, h2 a:hover {
+    text-decoration: none;
+    background: none;
+    color: var(--emphasis);
+}
+p a::after, ul a::after, h2 a::after {
+    position: relative;
+    top: -0.3em;
+    content: "°";
+    color: var(--emphasis);
+    font-size: 80%;
+    margin-left: 0.03em;
 }
 h1 {
     margin: 0;
@@ -89,18 +120,17 @@ h1 {
     margin-top: 15px;
 }
 h2 {
+    border: 1px dashed var(--emphasis);
     font-size: 95%;
     line-height: 1.10;
     text-align: center;
     margin: 0;
     font-weight: normal;
-    color: #7B3D3E;
-    font-variant: small-caps;
-    letter-spacing: 1px;
     margin-top: 5px;
     padding-top: 10px;
-    padding-left: 90px;
-    padding-right: 90px;
+    padding-left: 70px;
+    padding-right: 70px;
+    padding-bottom: 10px;
 }
 #menu {
     margin-top: 10px;
@@ -123,13 +153,13 @@ h2 {
     padding: 5px;
     padding-left: 10px;
     padding-right: 10px;
-    background-color: #7B3D3E;
-    color: #ddd7d4;
+    background-color: var(--emphasis);
+    color: var(--background);
     text-decoration: none;
 }
 #menu a:hover {
-    background-color: #7B3D3E;
-    color: #ddd7d4;
+    background-color: var(--emphasis);
+    color: var(--background);
     text-decoration: none;
 }
 footer {
@@ -147,6 +177,9 @@ footer {
     margin-bottom: 10px;
     margin-top: 8px;
 }
+.dettagli, .interventi {
+    font-size: 90%;
+}
 #emails {
     text-align: center;
     margin-top: 10px;
@@ -154,7 +187,7 @@ footer {
 #container p {
     text-indent: 20px;
     text-align: justify;
-    margin-top: 15px;
+    margin-top: 20px;
     margin-bottom: 5px;
     margin-left: 5px;
     margin-right: 5px;
@@ -183,27 +216,17 @@ footer {
     margin-top: 5px;
 }
 
-li summary {
+details {
+    font-size: 85%;
     margin-left: 20px;
 }
+
   
 #container li:before {
     content: "→";
-    opacity: 0.6;
+    opacity: 0.7;
     padding-right: 5px;
   }
-#container li.mps:before {
-    content: "♤";
-    opacity: 0.6;
-}
-#container li.vdf:before {
-    content: "♢";
-    opacity: 0.6;
-}
-#container li.misc:before {
-    content: "♧";
-    opacity: 0.6;
-}
 
 .paragraph {
     font-variant: small-caps;
@@ -211,6 +234,7 @@ li summary {
     font-weight: bold;
     letter-spacing: 2px;
     padding-right: 5px;
+    color: var(--emphasis);
 }
 ion-icon {
     font-size: 85%;
@@ -233,5 +257,5 @@ ion-icon {
     font-size: 90%;
     letter-spacing: 1px;
     text-align: center;
-    color: #7B3D3E;
+    color: var(--emphasis);
 }
