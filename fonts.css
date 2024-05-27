@@ -1,0 +1,119 @@
+
+@font-face {
+    font-family: valkyrie_b;
+    font-style: normal;
+    font-weight: normal;
+    font-stretch: normal;
+    font-display: auto;
+    src: url("valkyrie_b_tab_regular.woff2") format("woff2");
+    }
+    
+@font-face {
+    font-family: valkyrie_b;
+    font-style: italic;
+    font-weight: normal;
+    font-stretch: normal;
+    font-display: auto;
+    src: url("valkyrie_b_tab_italic.woff2") format("woff2");
+    }
+    
+@font-face {
+    font-family: valkyrie_b;
+    font-style: normal;
+    font-weight: bold;
+    font-stretch: normal;
+    font-display: auto;
+    src: url("valkyrie_b_tab_bold.woff2") format("woff2");
+    }
+    
+@font-face {
+    font-family: valkyrie_b;
+    font-style: italic;
+    font-weight: bold;
+    font-stretch: normal;
+    font-display: auto;
+    src: url("valkyrie_b_tab_bold_italic.woff2") format("woff2");
+    }
+    .alegreya-sans-sc-thin {
+        font-family: "Alegreya Sans SC", sans-serif;
+        font-weight: 100;
+        font-style: normal;
+      }
+      
+      .alegreya-sans-sc-thin-italic {
+        font-family: "Alegreya Sans SC", sans-serif;
+        font-weight: 100;
+        font-style: italic;
+      }
+      
+      .alegreya-sans-sc-light {
+        font-family: "Alegreya Sans SC", sans-serif;
+        font-weight: 300;
+        font-style: normal;
+      }
+      
+      .alegreya-sans-sc-light-italic {
+        font-family: "Alegreya Sans SC", sans-serif;
+        font-weight: 300;
+        font-style: italic;
+      }
+      
+      .alegreya-sans-sc-regular {
+        font-family: "Alegreya Sans SC", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+      }
+      
+      .alegreya-sans-sc-regular-italic {
+        font-family: "Alegreya Sans SC", sans-serif;
+        font-weight: 400;
+        font-style: italic;
+      }
+      
+      .alegreya-sans-sc-medium {
+        font-family: "Alegreya Sans SC", sans-serif;
+        font-weight: 500;
+        font-style: normal;
+      }
+      
+      .alegreya-sans-sc-medium-italic {
+        font-family: "Alegreya Sans SC", sans-serif;
+        font-weight: 500;
+        font-style: italic;
+      }
+      
+      .alegreya-sans-sc-bold {
+        font-family: "Alegreya Sans SC", sans-serif;
+        font-weight: 700;
+        font-style: normal;
+      }
+      
+      .alegreya-sans-sc-bold-italic {
+        font-family: "Alegreya Sans SC", sans-serif;
+        font-weight: 700;
+        font-style: italic;
+      }
+      
+      .alegreya-sans-sc-extrabold {
+        font-family: "Alegreya Sans SC", sans-serif;
+        font-weight: 800;
+        font-style: normal;
+      }
+      
+      .alegreya-sans-sc-extrabold-italic {
+        font-family: "Alegreya Sans SC", sans-serif;
+        font-weight: 800;
+        font-style: italic;
+      }
+      
+      .alegreya-sans-sc-black {
+        font-family: "Alegreya Sans SC", sans-serif;
+        font-weight: 900;
+        font-style: normal;
+      }
+      
+      .alegreya-sans-sc-black-italic {
+        font-family: "Alegreya Sans SC", sans-serif;
+        font-weight: 900;
+        font-style: italic;
+      }
