@@ -1,9 +1,7 @@
 :root {
-    --emphasis: #7B3D3E;
-    --less-emphasis: #d7c4c0;
-    --background: #ddd7d4;
-    --text: #433E43;
-    --darker-text: #2e2c2e;
+    --background: #fffcfa;
+    --text: #313438;
+    --emphasis: #513232;
 }
 
 @font-face {
@@ -47,218 +45,84 @@
     @media all and (max-width:520px) { html{ font-size: 16px; } }
 
 body {
-    background-color: var(--darker-text);
+    background-color: var(--background);
     color: var(--text);
     font-family: 'valkyrie_b';
     line-height: 1.25;
     font-size: 0.9rem;
     font-variant-numeric: oldstyle-nums;
 }
-#container {
-    padding-left: 3%;
-    padding-right: 3%;
-    padding-top: 1%;
-    padding-bottom: 3%;
-    width: 44%;
-    margin: 0;
-    margin-left: auto;
-    margin-right: auto;
-    background: var(--background);
 
-    border-bottom-right-radius: 15px;
-    border-bottom-left-radius: 15px;
-    margin-bottom: 30px;
+#container {
+    width: 45%;
+    margin: auto;
 }
-@media screen and (max-width: 520px) {
-    #container {
-        width: 92%;
-        padding: 4%;
-        margin: 0;
-        text-align: justify;
-        border: 0;
-    }
-    #picture img {
-        width: 100%;
-    }
-  }
-#picture {
-    text-align: center;
-    margin-top: 30px;
-}
-#picture img {
-    width: 50%;
+
+#menu, #endofpage {
     margin: 0;
-    height: 250px;
-    opacity: 0.9;
-    object-fit: cover;
-    border-top-right-radius: 15px;
-    border-top-left-radius: 15px;
+    border-top: 1px solid var(--emphasis);
 }
-a, a:link, a:visited {
-    color: inherit;
-    text-decoration: none;
+
+#endofpage {
+    padding: 5px;
+    border-bottom: 1px solid var(--emphasis);
 }
-p a, ul a, p a:link, ul a:link, p a:visited, ul a:visited, h2 a, h2 a:visited, h2 a:link {
-    color: inherit;
-    text-decoration: none;
-}
-p a:hover, ul a:hover, h2 a:hover {
-    text-decoration: none;
-    background: none;
-    color: var(--emphasis);
-}
-p a::after, ul a::after, h2 a::after {
-    position: relative;
-    top: -0.3em;
-    content: "°";
-    color: var(--emphasis);
-    font-size: 80%;
-    margin-left: 0.03em;
-}
-h1 {
-    margin: 0;
-    text-align: center;
-    font-size: 145%;
-    line-height: 1.10;
-    margin-top: 15px;
+
+#divider {
+    border-top: 1px dashed var(--emphasis);
 }
 h2 {
-    border: 1px dashed var(--emphasis);
-    font-size: 95%;
-    line-height: 1.10;
-    text-align: center;
-    margin: 0;
+    font-size: 18px;
     font-weight: normal;
-    margin-top: 5px;
-    padding-top: 10px;
-    padding-left: 70px;
-    padding-right: 70px;
-    padding-bottom: 10px;
-}
-#menu {
-    margin-top: 10px;
-    font-size: 90%;
-    text-align: center;
-    text-transform: lowercase;
-    font-variant: small-caps;
     letter-spacing: 2px;
-    margin-bottom: 15px;
-}
-#socials {
-    text-align: center; font-size: 22px; margin-top: 5px;
-}
-#menu a, #menu a:link, #menu a:visited {
-    padding: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
-}
-#menu .current {
-    padding: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
-    background-color: var(--emphasis);
-    color: var(--background);
-    text-decoration: none;
-}
-#menu a:hover {
-    background-color: var(--emphasis);
-    color: var(--background);
-    text-decoration: none;
-}
-footer {
-    opacity: 0.8;
-    margin-top: 10px;
-    padding: 5px;
-    font-size: 90%;
-    text-align: justify;
-}
-#subtitle {
-    text-align: center;
-    font-size: 115%;
-    line-height: 1.10;
-    opacity: 0.6;
-    margin-bottom: 10px;
-    margin-top: 8px;
-}
-.dettagli, .interventi {
-    font-size: 90%;
-}
-#emails {
-    text-align: center;
-    margin-top: 10px;
+    color: var(--emphasis);
+    font-variant: small-caps;
 }
 #container p {
-    text-indent: 20px;
     text-align: justify;
+    line-height: 130%;
+}
+
+#rightofpic {
+    float: right;
+}
+
+#language {
     margin-top: 20px;
-    margin-bottom: 5px;
-    margin-left: 5px;
-    margin-right: 5px;
-}
-.divisor {
-    margin: 10px;
-    opacity: 0.6;
-    text-align: center;
-}
-#container ul {
-    list-style: none;
-    margin-top: 0;
-    margin-left: 3px;
-    padding-right: 5px;
-    padding-left: 0;
-    margin-bottom: 3px;
-  }
-  
-#container li {
-    padding-left: 1.5em;
-    text-indent: -1em;
-  }
-
-#container li.mps, #container li.vdf, #container li.misc {
-    text-align: justify;
-    margin-top: 5px;
-}
-
-details {
-    font-size: 85%;
-    margin-left: 20px;
-}
-
-  
-#container li:before {
-    content: "→";
-    opacity: 0.7;
-    padding-right: 5px;
-  }
-
-.paragraph {
+    margin-right: 10px;
     font-variant: small-caps;
-    text-transform: lowercase;
-    font-weight: bold;
+    font-size: 14px;
+    text-align: right;
+}
+
+#name {
+    margin-top: 190px;
+    text-align: right;
+}
+
+#name-title {
+    font-size: 20px;
     letter-spacing: 2px;
-    padding-right: 5px;
     color: var(--emphasis);
+    font-variant: small-caps;
 }
-ion-icon {
-    font-size: 85%;
-    margin-bottom: -4px;
-}
-.titolino {
+
+#name-subtitle {
+    font-size: 16px;
     font-style: italic;
+    opacity: 0.8;
 }
-#podcast {
-    border: 15px solid #d8cfcb;
-    padding: 10px;
-    text-align: center;
-}
-#podcast a, #podcast a:link, #podcast a:hover, #podcast a:visited {
-    text-transform: lowercase;
-    font-variant: small-caps;
-    letter-spacing: 2px;
-}
-#emails {
-    font-size: 90%;
-    letter-spacing: 1px;
-    text-align: center;
+
+a, a:link, a:visited {
     color: var(--emphasis);
 }
+
+a:hover {
+    color: var(--emphasis);
+    text-decoration: none;
+}
+
+#container ul {
+    list-style: square;
+  }
+  
