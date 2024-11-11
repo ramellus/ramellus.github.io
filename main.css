@@ -1,7 +1,7 @@
 :root {
-    --background: #fffcfa;
+    --background: #E6E6E6;
     --text: #313438;
-    --emphasis: #513232;
+    --emphasis: #5c3637;
 }
 
 @font-face {
@@ -48,7 +48,6 @@ body {
     background-color: var(--background);
     color: var(--text);
     font-family: 'valkyrie_b';
-    line-height: 1.25;
     font-size: 0.9rem;
     font-variant-numeric: oldstyle-nums;
 }
@@ -66,10 +65,10 @@ body {
     }
   }
 #menu {
+    text-align: right;
     margin: 0;
     border-top: 1px solid var(--emphasis);
-    border-bottom: 1px solid var(--emphasis);
-    padding: 5px;
+    padding: 7px;
 }
 
 #endofpage {
@@ -83,7 +82,7 @@ body {
 }
 #container p {
     text-align: justify;
-    line-height: 130%;
+    line-height: 150%;
 }
 #headerof {
     text-align: right;
@@ -119,15 +118,20 @@ h2 {
 }
 
 a, a:link, a:visited {
-    color: var(--emphasis);
+    color: var(--text);
+    text-decoration: none;
+    border-bottom: 2px solid #FFFFFF;
 }
 
 a:hover {
     color: var(--emphasis);
-    text-decoration: none;
+    border-bottom: 2px solid #FFFFFF;
 }
 
 #container ul {
     list-style: square;
   }
   
+#container li {
+    margin-top: 7px;
+}
