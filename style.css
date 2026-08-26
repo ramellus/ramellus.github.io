@@ -1,250 +1,569 @@
+@font-face {
+	font-family: "Valkyrie A";
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url("fonts/Valkyrie A/valkyrie_a_regular.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "Valkyrie A";
+	font-style: italic;
+	font-weight: 400;
+	font-display: swap;
+	src: url("fonts/Valkyrie A/valkyrie_a_italic.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "Valkyrie A";
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+	src: url("fonts/Valkyrie A/valkyrie_a_bold.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "Valkyrie A";
+	font-style: italic;
+	font-weight: 700;
+	font-display: swap;
+	src: url("fonts/Valkyrie A/valkyrie_a_bold_italic.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "Valkyrie A Caps";
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url("fonts/Valkyrie A Caps/valkyrie_a_caps_regular.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "Valkyrie A Caps";
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+	src: url("fonts/Valkyrie A Caps/valkyrie_a_caps_bold.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "Valkyrie B";
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url("fonts/Valkyrie B/valkyrie_b_regular.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "Valkyrie B";
+	font-style: italic;
+	font-weight: 400;
+	font-display: swap;
+	src: url("fonts/Valkyrie B/valkyrie_b_italic.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "Valkyrie B";
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+	src: url("fonts/Valkyrie B/valkyrie_b_bold.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "Valkyrie B";
+	font-style: italic;
+	font-weight: 700;
+	font-display: swap;
+	src: url("fonts/Valkyrie B/valkyrie_b_bold_italic.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "Valkyrie B Caps";
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url("fonts/Valkyrie B Caps/valkyrie_b_caps_regular.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "Valkyrie B Caps";
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+	src: url("fonts/Valkyrie B Caps/valkyrie_b_caps_bold.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "Valkyrie A Tab";
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url("fonts/+%20Tab%20variants/Valkyrie%20A%20Tab/valkyrie_a_tab_regular.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "Valkyrie A Tab";
+	font-style: italic;
+	font-weight: 400;
+	font-display: swap;
+	src: url("fonts/+%20Tab%20variants/Valkyrie%20A%20Tab/valkyrie_a_tab_italic.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "Valkyrie A Tab";
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+	src: url("fonts/+%20Tab%20variants/Valkyrie%20A%20Tab/valkyrie_a_tab_bold.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "Valkyrie A Tab";
+	font-style: italic;
+	font-weight: 700;
+	font-display: swap;
+	src: url("fonts/+%20Tab%20variants/Valkyrie%20A%20Tab/valkyrie_a_tab_bold_italic.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "Valkyrie A Tab Caps";
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url("fonts/+%20Tab%20variants/Valkyrie%20A%20Tab%20Caps/valkyrie_a_tab_caps_regular.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "Valkyrie A Tab Caps";
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+	src: url("fonts/+%20Tab%20variants/Valkyrie%20A%20Tab%20Caps/valkyrie_a_tab_caps_bold.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "Valkyrie B Tab";
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url("fonts/+%20Tab%20variants/Valkyrie%20B%20Tab/valkyrie_b_tab_regular.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "Valkyrie B Tab";
+	font-style: italic;
+	font-weight: 400;
+	font-display: swap;
+	src: url("fonts/+%20Tab%20variants/Valkyrie%20B%20Tab/valkyrie_b_tab_italic.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "Valkyrie B Tab";
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+	src: url("fonts/+%20Tab%20variants/Valkyrie%20B%20Tab/valkyrie_b_tab_bold.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "Valkyrie B Tab";
+	font-style: italic;
+	font-weight: 700;
+	font-display: swap;
+	src: url("fonts/+%20Tab%20variants/Valkyrie%20B%20Tab/valkyrie_b_tab_bold_italic.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "Valkyrie B Tab Caps";
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url("fonts/+%20Tab%20variants/Valkyrie%20B%20Tab%20Caps/valkyrie_b_tab_caps_regular.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "Valkyrie B Tab Caps";
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+	src: url("fonts/+%20Tab%20variants/Valkyrie%20B%20Tab%20Caps/valkyrie_b_tab_caps_bold.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "Valkyrie OT A";
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url("fonts/+%20OT%20family/Valkyrie%20OT/valkyrie_ot_a_regular.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "Valkyrie OT A";
+	font-style: italic;
+	font-weight: 400;
+	font-display: swap;
+	src: url("fonts/+%20OT%20family/Valkyrie%20OT/valkyrie_ot_a_italic.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "Valkyrie OT A";
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+	src: url("fonts/+%20OT%20family/Valkyrie%20OT/valkyrie_ot_a_bold.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "Valkyrie OT A";
+	font-style: italic;
+	font-weight: 700;
+	font-display: swap;
+	src: url("fonts/+%20OT%20family/Valkyrie%20OT/valkyrie_ot_a_bold_italic.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "Valkyrie OT B";
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url("fonts/+%20OT%20family/Valkyrie%20OT/valkyrie_ot_b_regular.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "Valkyrie OT B";
+	font-style: italic;
+	font-weight: 400;
+	font-display: swap;
+	src: url("fonts/+%20OT%20family/Valkyrie%20OT/valkyrie_ot_b_italic.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "Valkyrie OT B";
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+	src: url("fonts/+%20OT%20family/Valkyrie%20OT/valkyrie_ot_b_bold.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "Valkyrie OT B";
+	font-style: italic;
+	font-weight: 700;
+	font-display: swap;
+	src: url("fonts/+%20OT%20family/Valkyrie%20OT/valkyrie_ot_b_bold_italic.woff2") format("woff2");
+}
+
 :root {
-    --emphasis: #743143;
-    --less-emphasis: #d7c4c0;
-    --background: #FFFFFF;
-    --lighter: #eae7e5;
-    --margin: 20rem;
-    --text: #433E43;
-    --darker-text: #2e2c2e;
-}
-html { font-size: 2.4vw; margin:0; }
-@media all and (min-width:1000px) { html { font-size: 18px; }
-
-
-#picture {
-    text-align: center;
-    margin-top: 1rem;
-    margin-left: var(--margin);
-    margin-right: var(--margin);
-    margin-bottom: 0.7rem;
+	--background-color: #ede7d1;
+	--content-background: #e3cebb;
+	--primary-accent: #8f6480;
+	--primary-accent-transparent: rgba(143, 100, 128, 0.5);
+	--secondary-accent: #797f94;
+	--secondary-accent-transparent: rgba(121, 127, 148, 0.5);
+	--dark-color: #434444;
 }
 
-#container, footer {
-    margin-left: var(--margin);
-    margin-right: var(--margin);
-}
-}
-@media all and (max-width:520px) { html{ font-size: 16px; } 
-
-
-
-#picture {
-    text-align: center;
-    margin-top: 1rem;
-    margin-left: 3%;
-    margin-right: 3%;
-    margin-bottom: 0.7rem;
+html {
+	scroll-behavior: smooth;
+	scroll-snap-type: y mandatory;
 }
 
-#container, footer {
-    margin-left: 3%;
-    margin-right: 3%;
-}}
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
 
 body {
-    margin: 0;
-    font-family: 'valkyrie_b';
-    line-height: 1.35;
-    font-size: 0.9rem;
-    font-variant-numeric: oldstyle-nums;
-    background-color: var(--background);
-    color: var(--text);
+	margin: 0;
+	min-width: 320px;
+	overflow-x: hidden;
+	background: var(--background-color);
+	color: var(--dark-color);
+	font-family: "Valkyrie A", serif;
 }
 
-h1 {
-    font-family: "Alegreya Sans SC";
-    font-weight: normal;
-    text-transform: uppercase;
-    font-size: 160%;
-    text-align: center;
-    margin: 0;
-    letter-spacing: 1px;
+.site-shell {
+	width: 100%;
 }
 
-h2 {
-    font-family: "Alegreya Sans SC";
-    font-weight: normal;
-    text-transform: lowercase;
-    color: var(--emphasis);
-    font-size: 140%;
-    text-align: left;
-    margin: 0.15rem;
-    margin-left: 1rem;
+.screen {
+	min-height: 100vh;
+	min-height: 100svh;
+	padding: clamp(2rem, 6vw, 6rem) clamp(1.25rem, 6vw, 8rem);
+	scroll-snap-align: start;
+	scroll-snap-stop: always;
+	display: grid;
+	place-items: center;
 }
 
-h2 ion-icon {
-    font-size: 60%;
-    position: relative;
-    top: 0.05rem;
-    color: var(--text);
+.screen--intro {
+	position: relative;
+	background-image: linear-gradient(rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0.72)), url("IMG_4088.jpeg");
+	background-position: center;
+	background-size: cover;
+	text-align: center;
 }
 
-h3 {
-    color: var(--emphasis);
-    font-size: 105%;
-    text-align: center;
-    margin: 0;
-    margin-top: 0.3rem;
-}
-ul {
-    margin: 0;
-    list-style: none;
-    padding-left: 1.5rem;
-    margin-bottom: 0.75rem;
+.scroll-cue {
+	position: absolute;
+	bottom: clamp(1.25rem, 3vw, 3rem);
+	left: 50%;
+	color: var(--dark-color);
+	font-family: "Asap Sharp", sans-serif;
+	font-size: clamp(2rem, 4vw, 3rem);
+	line-height: 1;
+	transform: translateX(-50%);
 }
 
-li:before {
-    content: "⬨";
-    opacity: 0.7;
-    padding-right: 5px;
-    position: relative;
-    top: -0.08rem;
+.scroll-cue .icon {
+	display: block;
 }
 
-.interventi {
-    font-size: 90%;
+.icon {
+	font-size: 90%;
 }
 
-#picture img {
-    width: 85%;
-    height: 230px;
-    opacity: 0.9;
-    object-fit: cover;
-    border-radius: 8px;
+.screen--intro .scroll-cue {
+	color: var(--background-color);
 }
 
-footer {
-    margin-top: 0.75rem;
-    margin-bottom: 1rem;
-    opacity: 0.9;
-    font-size: 80%;
+.screen--content {
+	position: relative;
+	background: var(--content-background);
+	color: var(--dark-color);
+	padding-top: 0;
+	place-items: start center;
 }
 
-.special-box {
-    background-color: var(--lighter);
-    padding: 0.9rem;
-    margin: 0.5rem;
-    margin-top: 1rem;
+.screen--projects {
+	position: relative;
+	background: var(--content-background);
+	color: var(--dark-color);
+	place-items: start center;
 }
 
-.special-box p {
-    font-size: 95%;
-}
-
-p {
-    margin: 0;
-    margin-left: 0.65rem;
-    margin-right: 0.65rem;
-    text-align: justify;
-}
-
-a {
-    color: var(--emphasis);
-    text-decoration: underline;
+a,
+a:visited {
+	color: var(--dark-color);
+	text-decoration: none;
 }
 
 a:hover {
-    text-decoration: none;
+	text-decoration: underline;
 }
 
-header {
-    top: 0;
-    left: 0;
-    width: 100%;
-    font-size: 95%;
-    text-align: center;
-    padding-top: 1rem;
+a:focus-visible {
+	outline: 2px solid var(--primary-accent);
+	outline-offset: 0.2rem;
 }
 
-.divisor {
-    color: var(--text);
-    position: relative;
-    top: -0.10rem;
-    font-size: 90%;
-    margin-left: 5px;
-    margin-right: 5px;
+.section-menu {
+	position: absolute;
+	left: clamp(1.25rem, 6vw, 8rem);
+	bottom: clamp(1.25rem, 3vw, 3rem);
+	display: flex;
+	gap: clamp(1.5rem, 3vw, 2.5rem);
+	font-family: "Asap Sharp", sans-serif;
+	font-size: clamp(1rem, 1.5vw, 1.25rem);
+	font-weight: 400;
+	text-transform: uppercase;
 }
 
-#menu {
-    font-size: 75%;
-    text-align: center;
-    letter-spacing: 1px;
+.section-menu a {
+	color: var(--dark-color);
 }
 
-#menu .contacts {
-    text-align: center;
-    color: var(--emphasis);
-    font-family: monospace;
+.section-menu a:hover {
+	text-decoration: underline;
 }
 
-.big-divisor-top {
-   width: 100%;
-   margin-top: 0.25rem;
-   margin-bottom: 0.5rem;
-   border-bottom: 1px solid var(--emphasis);
-}
-.big-divisor-bottom {
-    width: 100%;
-    margin-top: 0.75rem;
-    margin-bottom: 0.25rem;
-    border-bottom: 1px solid var(--emphasis);
+.screen__inner {
+	width: min(100%, 72rem);
 }
 
-.big-divisor-symbol {
-    font-family: "Alegreya Sans SC";
-    font-weight: normal;
-    text-transform: lowercase;
-    color: var(--emphasis);
-    font-size: 140%;
-    text-align: center;
-    margin: 0.15rem;
+.screen--intro .screen__inner {
+	max-width: 52rem;
 }
 
-.dettagli, details {
-    font-size: 90%;
+.screen--intro .screen__eyebrow,
+.screen--intro .screen__prompt {
+	color: var(--background-color);
 }
 
-.smaller-title-box {
-    margin-left: 0.65rem;
-    margin-right: 0.65rem;
-    border-bottom: 1px dashed var(--emphasis);
-    text-align: center;
-    margin-bottom: 0.6rem;
+.screen__eyebrow {
+	margin: 0 0 1rem;
+	color: var(--dark-color);
+	font-family: "Valkyrie A Caps", serif;
+	font-size: 0.75rem;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
 }
 
-.smaller-title {
-    background-color: var(--background);
-    position: relative;
-    top: 0.6rem;
-    padding-left: 7px;
-    padding-right: 7px;
-    font-family: "Alegreya Sans SC";
-    font-weight: normal;
-    text-transform: lowercase;
-    color: var(--emphasis);
-    font-size: 110%;
+h1,
+h2,
+h3,
+p {
+	margin-top: 0;
 }
 
-a img {
-    opacity: 0.8;
-}
-a img:hover {
-    opacity: 1;
-}
-
-footer .banners {
-    text-align: center; margin-bottom: 1rem;
-}
-footer .banners img {
-    width: 25%;
+h1,
+h2 {
+	margin-bottom: 1rem;
+	font-size: clamp(3rem, 10vw, 8rem);
+	font-weight: 400;
+	line-height: 0.95;
+	overflow-wrap: anywhere;
 }
 
-#container .banners img {
-    width: 20%;
-    border-radius: 8px;
-    float: right;
-    margin-left: 1.5rem;
-    margin-bottom: 0.5rem;
-    margin-top: 0.5rem;
-    margin-right: 0.5rem;
+h1 {
+	color: var(--background-color);
+}
+
+h2 {
+	font-size: clamp(1.5rem, 4.2vw, 3.6rem);
+	font-family: "Asap Sharp", sans-serif;
+	font-weight: 400;
+	text-align: right;
+	text-transform: uppercase;
+}
+
+h3 {
+	margin-bottom: 0.75rem;
+	font-family: "Asap Sharp", sans-serif;
+	font-size: 1.5rem;
+	font-weight: 400;
+	text-transform: uppercase;
+}
+
+.screen__prompt,
+.content-block p {
+	margin-bottom: 0;
+	color: var(--dark-color);
+	font-size: clamp(1rem, 2vw, 1.25rem);
+}
+
+.screen__prompt {
+	font-family: "Asap Sharp", sans-serif;
+}
+
+.content-block h3 {
+	font-size: 2.304rem;
+}
+
+.content-block p {
+	font-size: clamp(1.536rem, 3.072vw, 1.92rem);
+}
+
+.content-block p + p {
+	margin-top: 1.25rem;
+}
+
+.content-block > p:nth-of-type(2),
+.content-block > p:nth-of-type(3) {
+	font-size: clamp(1.3824rem, 2.7648vw, 1.728rem);
+    font-family: "Asap Sharp", sans-serif;
+}
+
+.content-quote {
+	margin: 2rem 0 0;
+	padding-left: 1rem;
+	border-left: 0.5rem solid var(--primary-accent);
+	font-family: "Valkyrie A", serif;
+	font-size: clamp(1.2rem, 2.4vw, 1.68rem);
+	font-style: italic;
+}
+
+.content-quote p {
+	margin-bottom: 0;
+	font-size: clamp(1.3068rem, 2.6136vw, 1.82952rem);
+}
+
+.quote-source {
+	display: block;
+	margin-top: 1rem;
+	color: var(--primary-accent);
+	font-family: "Asap Sharp", sans-serif;
+	font-size: 0.8em;
+	font-style: normal;
+}
+
+.evidenziatore1,
+.evidenziatore2 {
+	box-decoration-break: clone;
+	-webkit-box-decoration-break: clone;
+	padding: 0.08em 0.2em;
+	color: var(--dark-color);
+	background-repeat: no-repeat;
+}
+
+.evidenziatore1 {
+	background-image: linear-gradient(to bottom, transparent 0%, transparent 50%, var(--primary-accent-transparent) 50%, var(--primary-accent-transparent) 100%);
+	font-family: "Asap Sharp", sans-serif;
+}
+
+.evidenziatore2 {
+	background-image: linear-gradient(to bottom, transparent 0%, transparent 50%, var(--secondary-accent-transparent) 50%, var(--secondary-accent-transparent) 100%);
+	font-family: "Asap Sharp", sans-serif;
+}
+
+.content-grid {
+	display: grid;
+	grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+	gap: clamp(1rem, 3vw, 2rem);
+	margin-top: clamp(1rem, 2.5vw, 2rem);
+}
+
+.content-image {
+	width: 100%;
+	height: 100%;
+	display: block;
+	object-fit: cover;
+}
+
+.content-block {
+	min-height: 12rem;
+	padding: clamp(1.25rem, 3vw, 2rem);
+	padding-right: clamp(0.3125rem, 0.75vw, 0.5rem);
+	border: 0;
+	background: transparent;
+	align-self: center;
+}
+
+.projects-grid {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: clamp(1rem, 3vw, 2rem);
+	margin-top: clamp(1rem, 2.5vw, 2rem);
+}
+
+.project-block {
+	min-width: 0;
+}
+
+.project-block p {
+	margin-bottom: 0;
+	font-size: clamp(1rem, 2vw, 1.25rem);
+}
+
+@media (max-width: 600px) {
+	.content-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.projects-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.content-image {
+		height: auto;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
 }
