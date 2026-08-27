@@ -337,13 +337,6 @@ body {
 	place-items: start center;
 }
 
-.screen--projects {
-	position: relative;
-	background: var(--content-background);
-	color: var(--dark-color);
-	place-items: start center;
-}
-
 a,
 a:visited {
 	color: var(--dark-color);
@@ -532,28 +525,8 @@ h3 {
 	align-self: center;
 }
 
-.projects-grid {
-	display: grid;
-	grid-template-columns: repeat(3, minmax(0, 1fr));
-	gap: clamp(1rem, 3vw, 2rem);
-	margin-top: clamp(1rem, 2.5vw, 2rem);
-}
-
-.project-block {
-	min-width: 0;
-}
-
-.project-block p {
-	margin-bottom: 0;
-	font-size: clamp(1rem, 2vw, 1.25rem);
-}
-
 @media (max-width: 600px) {
 	.content-grid {
-		grid-template-columns: 1fr;
-	}
-
-	.projects-grid {
 		grid-template-columns: 1fr;
 	}
 
