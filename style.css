@@ -460,6 +460,11 @@ h3 {
     font-family: "Asap Sharp", sans-serif;
 }
 
+.content-block > p:nth-of-type(4) {
+	font-size: clamp(1rem, 2vw, 1.25rem);
+    font-family: "Asap Sharp", sans-serif;
+}
+
 .content-quote {
 	margin: 2rem 0 0;
 	padding-left: 1rem;
