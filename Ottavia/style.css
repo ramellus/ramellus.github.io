@@ -1,0 +1,199 @@
+:root {
+	--ink: #201E1F;
+	--plum: #732465;
+	--lime: #B9D61D;
+	--paper: #F0EDE5;
+	--plum-soft: rgba(115, 36, 101, 0.16);
+	--lime-soft: rgba(185, 214, 29, 0.4);
+}
+
+html {
+	scroll-behavior: smooth;
+	scroll-snap-type: y mandatory;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+	margin: 0;
+	min-width: 320px;
+	overflow-x: hidden;
+	background: var(--paper);
+	color: var(--ink);
+	font-family: Asap Sharp, sans-serif;
+}
+
+.site-shell { width: 100%; }
+
+.screen {
+	position: relative;
+	height: 100vh;
+	height: 100svh;
+	max-height: 100vh;
+	max-height: 100svh;
+	overflow: hidden;
+	padding: clamp(1rem, 2.5vw, 2rem) clamp(1.25rem, 6vw, 8rem);
+	display: grid;
+	place-items: center;
+	scroll-snap-align: start;
+	scroll-snap-stop: always;
+}
+
+.screen--members {
+	background-color: var(--paper);
+	background-image: radial-gradient(var(--plum-soft) 1px, transparent 1px);
+	background-size: 1.4rem 1.4rem;
+}
+
+.screen__inner { width: min(100%, 72rem); }
+
+.section-header {
+	max-width: 64rem;
+	margin-bottom: clamp(0.75rem, 2vw, 1.5rem);
+}
+
+.eyebrow, .member-role, .project-year, .project-tags, .section-menu, .copyright {
+	font-family: "Asap Sharp", sans-serif;
+	text-transform: uppercase;
+}
+
+.eyebrow {
+	margin: 0 0 0.5rem;
+	color: var(--plum);
+	font-size: 0.8rem;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+}
+
+h1, h2, h3, p { margin-top: 0; }
+
+.intro {
+	margin-bottom: 0;
+	color: var(--plum);
+	font-family: "Asap Sharp", sans-serif;
+	font-size: clamp(0.9rem, 1.5vw, 1.15rem);
+	line-height: 1.2;
+}
+
+.members-grid {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: clamp(0.75rem, 2vw, 1.25rem);
+}
+
+.member-card {
+	overflow: hidden;
+	background: var(--ink);
+	color: var(--paper);
+	text-align: center;
+}
+
+.member-card img {
+	display: block;
+	width: clamp(7rem, 14vw, 11rem);
+	height: clamp(7rem, 14vw, 11rem);
+	margin: clamp(0.75rem, 1.5vw, 1.25rem) auto 0;
+	border-radius: 50%;
+	object-fit: cover;
+	filter: saturate(0.7) contrast(1.05);
+}
+
+.member-copy { padding: clamp(0.75rem, 1.5vw, 1.25rem) clamp(1rem, 3vw, 2.5rem) clamp(1rem, 2vw, 1.5rem); }
+.member-copy h2 { margin-bottom: 0.4rem; color: var(--lime); font-size: clamp(1.25rem, 2.3vw, 2rem); font-weight: 400;  font-family: "JetBrains Mono", monospace;}
+.member-copy p:last-child { max-width: 24rem; margin: 0 auto; font-size: clamp(0.9rem, 1.4vw, 1.1rem); line-height: 1.2; }
+
+.section-menu {
+	position: absolute;
+	left: clamp(1.25rem, 6vw, 8rem);
+	bottom: clamp(1.25rem, 3vw, 3rem);
+	display: flex;
+	gap: 2rem;
+	font-size: 0.9rem;
+}
+
+ a, a:visited { color: var(--lime); text-decoration: none; }
+a:hover { text-decoration: underline; }
+a:focus-visible { outline: 2px solid var(--plum); outline-offset: 0.2rem; }
+
+.scroll-cue {
+	position: absolute;
+	bottom: clamp(1.25rem, 3vw, 3rem);
+	left: 50%;
+	color: var(--plum);
+	font-family: "Asap Sharp", sans-serif;
+	font-size: clamp(2rem, 4vw, 3rem);
+	line-height: 1;
+	transform: translateX(-50%);
+}
+
+.scroll-cue--top { top: clamp(1.25rem, 3vw, 3rem); bottom: auto; }
+
+.screen--projects {
+	background: var(--plum);
+	color: var(--paper);
+	padding-block: clamp(1.5rem, 4vw, 3.5rem);
+}
+
+.screen--projects .screen__inner {
+	height: 100%;
+}
+
+.projects-heading { display: flex; align-items: end; justify-content: space-between; margin-bottom: clamp(1rem, 3vw, 2rem); }
+.projects-heading h2 { margin: 0; color: var(--lime); font-size: clamp(1.35rem, 3vw, 2.5rem); font-weight: 400; text-align: right; text-transform: uppercase; }
+
+.projects-grid {
+	column-count: 3;
+	column-gap: clamp(1rem, 3vw, 2rem);
+}
+
+.project-item {
+	position: relative;
+	display: inline-grid;
+	width: 100%;
+	margin: 0 0 clamp(1rem, 3vw, 2rem);
+	padding: clamp(0.75rem, 1.5vw, 1rem);
+	break-inside: avoid;
+	overflow: hidden;
+	isolation: isolate;
+	background: var(--ink);
+	color: var(--paper);
+}
+
+.project-item::before { position: absolute; inset: 0; z-index: -1; background: rgba(32, 30, 31, 0.72); content: ""; }
+.project-featured { position: absolute; inset: 0; z-index: -2; display: block; width: 100%; height: 100%; object-fit: cover; opacity: 0.58; }
+.project-item > :not(.project-featured) { position: relative; z-index: 1; }
+.project-year, .project-tags { color: var(--paper); font-size: 0.7rem; }
+.project-item h3 { margin: 0.6rem 0 0.75rem; color: var(--paper); font-size: clamp(1rem, 2vw, 1.4rem); line-height: 1.05;  font-family: "JetBrains Mono", monospace;}
+.project-item h3 .icon { margin-right: 0.35em; color: var(--lime); }
+.project-summary { max-width: 52rem; margin: 0 0 1rem; font-size: clamp(1rem, 1.8vw, 1.3rem); line-height: 1.3; }
+.project-meta { display: flex; width: calc(100% + 2 * clamp(0.75rem, 1.5vw, 1rem)); align-items: center; justify-content: space-between; gap: 1rem; min-height: 2.25rem; margin: 0 calc(-1 * clamp(0.75rem, 1.5vw, 1rem)) calc(-1 * clamp(0.75rem, 1.5vw, 1rem)); padding: 0.4rem 0.65rem; background: var(--lime); }
+.project-tags { color: var(--ink); font-size: 0.7rem; }
+.project-link, .writing-links a .icon { flex: 0 0 auto; color: var(--ink); font-size: 1.4rem; line-height: 1; }
+.project-link:hover { color: var(--ink); text-decoration: none; }
+.project-link:focus-visible { outline: 2px solid var(--paper); outline-offset: 0.2rem; }
+.copyright { margin: 1rem 0 0; color: var(--paper); font-size: 0.7rem; opacity: 0.7; text-align: center; }
+
+@media (max-width: 800px) {
+	.members-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+	.projects-grid { column-count: 2; }
+}
+
+@media (max-width: 600px) {
+	.section-header { margin-bottom: 0.75rem; }
+	.members-grid { gap: 0.6rem; }
+	.member-card img { width: clamp(5rem, 23vw, 7rem); height: clamp(5rem, 23vw, 7rem); margin-top: 0.6rem; }
+	.member-copy { padding: 0.6rem 0.5rem 0.8rem; }
+	.member-copy h2 { font-size: clamp(1rem, 4vw, 1.35rem);}
+	.member-copy p:last-child { font-size: clamp(0.75rem, 3vw, 0.9rem); }
+	.projects-grid { column-count: 1; }
+	.section-menu { position: static; margin-top: 2rem; }
+	.scroll-cue { display: none; }
+	.screen--projects { padding-top: 4rem; }
+	.projects-heading { display: block; }
+	.projects-heading h2 { margin-top: 0.5rem; text-align: left; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+	html { scroll-behavior: auto; }
+	.project-item img { transition: none; }
+}
