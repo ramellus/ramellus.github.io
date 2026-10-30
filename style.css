@@ -637,10 +637,6 @@ body:has(.portfolio-item:target) .screen--intro .nav-icon {
 	--portfolio-background: url("progression.png");
 }
 
-.portfolio-item--transcend {
-	--portfolio-background: url("Transcend.jpg");
-}
-
 .screen--portfolio .portfolio-item--contact {
 	--portfolio-background: url("eulerlagrange.jpg");
 }
@@ -650,11 +646,11 @@ body:has(.portfolio-item:target) .screen--intro .nav-icon {
 }
 
 .portfolio-item--storytelling {
-	--portfolio-background: url("storytelling.jpeg");
+	--portfolio-background: url("training1.jpeg");
 }
 
 .screen--training .portfolio-item--contact {
-	--portfolio-background: url("speaking.jpeg");
+	--portfolio-background: url("training2.jpeg");
 }
 
 @keyframes portfolio-background-fade {
@@ -699,10 +695,6 @@ body:has(.portfolio-item:target) .screen--intro .nav-icon {
 
 .portfolio-item--navier-stokes .portfolio-item__content {
 	margin-right: auto;
-}
-
-.portfolio-item--transcend .portfolio-item__content {
-	margin-left: auto;
 }
 
 .portfolio-item--about .portfolio-item__content {
