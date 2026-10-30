@@ -708,7 +708,7 @@ body:has(.portfolio-item:target) .screen--intro .nav-icon {
 }
 
 .portfolio-item--storytelling .portfolio-item__content {
-	margin-right: auto;
+	margin-left: auto;
 }
 
 .portfolio-item__content h2,
