@@ -11,11 +11,6 @@
 	</head>
 	<body>
 		<header class="site-header">
-			<button class="menu-toggle" type="button" aria-controls="site-navigation" aria-expanded="false" aria-label="Toggle navigation">
-				<span></span>
-				<span></span>
-				<span></span>
-			</button>
 			<nav class="site-nav" id="site-navigation" aria-label="Main navigation">
 				<a href="#about">About</a>
 				<a href="#research">Research communication</a>
@@ -158,42 +153,13 @@
 
 		<footer class="site-footer section-wrap">
 			<div class="footer-meta">
-				<small>© Simone Ramello</small>
-				<small>Partita IVA 01771300058</small>
+				<small>© Simone Ramello. Valkyrie font by <a href="https://mbtype.com/" target="_blank" rel="noopener noreferrer">Matthew Butterick</a>. Photographs by <a href="https://www.instagram.com/giulia.venus/" target="_blank" rel="noopener noreferrer">Giulia Venus</a>.</small>
+				<small>Partita IVA/VAT number 01771300058</small>
 			</div>
 			<div class="footer-links">
 				<a href="https://www.linkedin.com/in/simone-ramello/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
 				<a href="mailto:ciao@simoneramello.it">Email</a>
 			</div>
 		</footer>
-		<script>
-			const menuToggle = document.querySelector(".menu-toggle");
-			const siteHeader = document.querySelector(".site-header");
-			const siteNavigation = document.querySelector("#site-navigation");
-
-			document.documentElement.classList.add("js");
-
-			function closeMenu() {
-				menuToggle.setAttribute("aria-expanded", "false");
-				siteHeader.classList.remove("is-menu-open");
-			}
-
-			menuToggle.addEventListener("click", () => {
-				const isExpanded = menuToggle.getAttribute("aria-expanded") === "true";
-				menuToggle.setAttribute("aria-expanded", String(!isExpanded));
-				siteHeader.classList.toggle("is-menu-open", !isExpanded);
-			});
-
-			siteNavigation.addEventListener("click", (event) => {
-				if (event.target.closest("a")) closeMenu();
-			});
-
-			siteHeader.addEventListener("keydown", (event) => {
-				if (event.key === "Escape" && menuToggle.getAttribute("aria-expanded") === "true") {
-					closeMenu();
-					menuToggle.focus();
-				}
-			});
-		</script>
 	</body>
 </html>
