@@ -3,97 +3,197 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>simone ramello</title>
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Asap+Sharp:wght@400;500;600;700&display=swap" rel="stylesheet">
-		<link rel="stylesheet" href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css">
+		<meta name="theme-color" content="#f5f7dc">
+		<meta name="description" content="Simone Ramello is a science communicator and mathematician helping researchers communicate their work.">
+		<title>Simone Ramello</title>
 		<link rel="icon" type="image/svg+xml" href="puzzle.svg">
 		<link rel="stylesheet" href="style.css">
 	</head>
 	<body>
-		<main class="site-shell">
-			<section class="screen screen--intro" id="start" aria-labelledby="start-title">
-				<div class="screen__inner">
-					<h1 id="start-title">Ciao! 👋</h1>
-					<p class="screen__prompt">I am Simone Ramello, a science communicator and mathematician.
-					<br>
-					I <span class="evidenziatore1">craft stories</span> for a living, using words, images, and data. When family asks, I say that I help researchers <span class="evidenziatore2">communicate their work</span>, supporting them in communication strategies, visual storytelling, and outreach.</p>
-					<div class="intro-feature">
-						<img src="https://assets-zebra.zanichelli.it/thumbs/7f459211-54a3-4306-805e-a8c429f38498-equazioni-ns-soluzione.jpeg/54f7bd6015ced2078bc1cbaf8641aecb5d229574.webp" alt="Illustration accompanying an article about the Navier–Stokes equations">
-						<span class="intro-feature__text">
-							<span class="intro-feature__label">New article</span>
-							<a class="intro-feature__title" href="https://aulascienze.scuola.zanichelli.it/materie-scienze/matematica-aule/openia-equazioni-navier-stokes/"><i>OpenAI e la soluzione delle equazioni di Navier-Stokes</i></a>
-						</span>
+		<header class="site-header">
+			<button class="menu-toggle" type="button" aria-controls="site-navigation" aria-expanded="false" aria-label="Toggle navigation">
+				<span></span>
+				<span></span>
+				<span></span>
+			</button>
+			<nav class="site-nav" id="site-navigation" aria-label="Main navigation">
+				<a href="#about">About</a>
+				<a href="#research">Research communication</a>
+				<a href="#training">Training</a>
+				<a href="mailto:ciao@simoneramello.it">Get in touch</a>
+			</nav>
+		</header>
+
+		<main>
+			<section class="hero section-wrap" id="home" aria-labelledby="hero-title">
+				<div class="hero__content">
+					<h1 id="hero-title">Ciao! I’m<br><span>Simone Ramello.</span></h1>
+					<p class="hero__intro">I help researchers communicate their work at the subtle intersection of clarity, rigour, and imagination.</p>
+				</div>
+				<img class="hero__ornament" src="coffee-cup-2.svg" alt="" aria-hidden="true">
+			</section>
+
+			<section class="about section-wrap section-rule" id="about" aria-labelledby="about-title">
+				<div class="section-content">
+					<h2 class="section-title" id="about-title"><span>About</span></h2>
+					<div class="about__intro">
+						<figure class="about__portrait framed-image">
+							<img src="IMG_4044.jpeg" alt="Simone Ramello speaking at an event" loading="lazy">
+						</figure>
+						<div class="prose">
+							<p>I work as a communication officer at <a href="https://qbio.di.unito.it">QBio</a> and <a href="https://mirri-it.it">MIRRI-IT</a>, a visual storyteller with <a href="https://cmcc.it">CMCC</a>, and a writer and editor.</p>
+							<p>I also co-founded <a href="https://collettivo-ottavia.it">Collettivo Ottavia</a>, an <i>urban lab</i> exploring data and society, education, and visual arts.</p>
+							<div class="timeline-scroll" tabindex="0" aria-label="Career timeline. Scroll horizontally to explore all three milestones.">
+								<div class="timeline">
+									<div class="timeline__item">
+										<span class="timeline__asterisk" aria-hidden="true">✳</span>
+										<h3>2021–2024</h3>
+										<p>PhD in Mathematics</p>
+										<p class="timeline__institution">Cluster of Excellence Mathematics Münster</p>
+									</div>
+									<div class="timeline__item">
+										<span class="timeline__asterisk" aria-hidden="true">✳</span>
+										<h3>2024–2026</h3>
+										<p>Master in Science Communication</p>
+										<p class="timeline__institution">International School for Advanced Studies (SISSA)</p>
+									</div>
+									<div class="timeline__item">
+										<span class="timeline__asterisk" aria-hidden="true">✳</span>
+										<h3>2026+</h3>
+										<p>Freelance Science Communicator</p>
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
-				<nav class="section-menu" aria-label="Section navigation">
-					<a class="nav-link" href="#start"><img class="nav-icon" src="Home.svg" alt="" aria-hidden="true"><span>Home</span></a>
-					<a class="nav-link" href="#about"><img class="nav-icon" src="About.svg" alt="" aria-hidden="true"><span>About</span></a>
-					<a class="nav-link" href="#training"><img class="nav-icon" src="Workshops.svg" alt="" aria-hidden="true"><span>Training</span></a>
-					<a class="nav-link" href="#portfolio"><img class="nav-icon nav-icon--portfolio" src="Portfolio.svg" alt="" aria-hidden="true"><span>Portfolio</span></a>
-					<a class="nav-link" href="https://www.linkedin.com/in/simone-ramello/" target="_blank" rel="noopener noreferrer"><img class="nav-icon nav-icon--linkedin" src="LinkedIn.svg" alt="" aria-hidden="true"><span>LinkedIn</span></a>
-					<a class="nav-link" href="mailto:ciao@simoneramello.it"><img class="nav-icon" src="Get%20in%20touch.svg" alt="" aria-hidden="true"><span>Get in touch</span></a>
-				</nav>
-				<p class="copyright">© 2026 Simone Ramello. Valkyrie by <a href="https://mbtype.com/" target="_blank" rel="noopener noreferrer">Matthew Butterick</a>. Photographs by <a href="https://www.instagram.com/giulia.venus/" target="_blank" rel="noopener noreferrer">Giulia Venus</a>.</p>
 			</section>
 
-			<section class="screen screen--panel" id="about" aria-label="About">
-				<div class="screen__inner" tabindex="0" aria-label="About Simone">
-					<section class="portfolio-item portfolio-item--about" id="about-item-1" aria-labelledby="about-title">
-						<article class="portfolio-item__content">
-							<h2 id="about-title">About me</h2>
-							<p>I work as a communication officer (<a href="https://qbio.di.unito.it">QBio</a>, <a href="https://mirri-it.it">MIRRI-IT</a>) | visual storyteller (<a href="https://cmcc.it">CMCC</a>) | writer and editor. I have co-founded <a href="https://collettivo-ottavia.it">Collettivo Ottavia</a>, an <i>urban lab</i> exploring the interplay between data and society, education, and visual arts.</p>
-							<p><i class="icon ion-md-school" aria-hidden="true"></i> PhD in Mathematics, <a href="https://www.uni-muenster.de/MathematicsMuenster/">Cluster of Excellence <strong>Mathematics Münster</strong></a><br><i class="icon ion-md-school" aria-hidden="true"></i> Postgraduate Certificate in Science Communication, <a href="https://sissa.it">International School of Advanced Studies (<strong>SISSA</strong>)</a></p>
-						</article>
-					</section>
+			<section class="clients section-wrap section-rule" aria-labelledby="clients-title">
+				<div class="section-content">
+					<h2 class="section-title" id="clients-title"><span>Selected clients</span></h2>
+					<div class="client-logo-window" tabindex="0" aria-label="Organization logos. Focus or hover to pause the scroll.">
+						<div class="client-logo-track">
+							<ul class="client-logos">
+								<li class="client-logo client-logo--qbio"><a href="https://qbio.di.unito.it" aria-label="QBio official website"><img src="assets/client-logos/qbio.png" alt="" loading="lazy" decoding="async"></a></li>
+								<li class="client-logo"><a href="https://mirri-it.it" aria-label="MIRRI-IT official website"><img src="assets/client-logos/mirri-it.png" alt="" loading="lazy" decoding="async"></a></li>
+								<li class="client-logo"><a href="https://www.cmcc.it" aria-label="CMCC official website"><img src="assets/client-logos/cmcc.png" alt="" loading="lazy" decoding="async"></a></li>
+								<li class="client-logo"><a href="https://www.mondadori.com" aria-label="Gruppo Mondadori official website"><img src="assets/client-logos/mondadori.jpg" alt="" loading="lazy" decoding="async"></a></li>
+								<li class="client-logo"><a href="https://www.zanichelli.it" aria-label="Zanichelli official website"><img src="assets/client-logos/zanichelli.png" alt="" loading="lazy" decoding="async"></a></li>
+								<li class="client-logo client-logo--alpha"><a href="https://www.alphatest.it" aria-label="Alpha Test official website"><img src="assets/client-logos/alpha-test.svg" alt="" loading="lazy" decoding="async"></a></li>
+								<li class="client-logo"><a href="https://www.ictp.it" aria-label="ICTP official website"><img src="assets/client-logos/ictp.png" alt="" loading="lazy" decoding="async"></a></li>
+								<li class="client-logo"><a href="https://www.uni-muenster.de/MathematicsMuenster/" aria-label="Cluster of Excellence Mathematics Münster official website"><img src="assets/client-logos/mathematics-muenster.svg" alt="" loading="lazy" decoding="async"></a></li>
+							</ul>
+							<ul class="client-logos client-logos--duplicate" aria-hidden="true">
+								<li class="client-logo client-logo--qbio"><a href="https://qbio.di.unito.it" aria-label="QBio official website" tabindex="-1"><img src="assets/client-logos/qbio.png" alt="" loading="lazy" decoding="async"></a></li>
+								<li class="client-logo"><a href="https://mirri-it.it" aria-label="MIRRI-IT official website" tabindex="-1"><img src="assets/client-logos/mirri-it.png" alt="" loading="lazy" decoding="async"></a></li>
+								<li class="client-logo"><a href="https://www.cmcc.it" aria-label="CMCC official website" tabindex="-1"><img src="assets/client-logos/cmcc.png" alt="" loading="lazy" decoding="async"></a></li>
+								<li class="client-logo"><a href="https://www.mondadori.com" aria-label="Gruppo Mondadori official website" tabindex="-1"><img src="assets/client-logos/mondadori.jpg" alt="" loading="lazy" decoding="async"></a></li>
+								<li class="client-logo"><a href="https://www.zanichelli.it" aria-label="Zanichelli official website" tabindex="-1"><img src="assets/client-logos/zanichelli.png" alt="" loading="lazy" decoding="async"></a></li>
+								<li class="client-logo client-logo--alpha"><a href="https://www.alphatest.it" aria-label="Alpha Test official website" tabindex="-1"><img src="assets/client-logos/alpha-test.svg" alt="" loading="lazy" decoding="async"></a></li>
+								<li class="client-logo"><a href="https://www.ictp.it" aria-label="ICTP official website" tabindex="-1"><img src="assets/client-logos/ictp.png" alt="" loading="lazy" decoding="async"></a></li>
+								<li class="client-logo"><a href="https://www.uni-muenster.de/MathematicsMuenster/" aria-label="Cluster of Excellence Mathematics Münster official website" tabindex="-1"><img src="assets/client-logos/mathematics-muenster.svg" alt="" loading="lazy" decoding="async"></a></li>
+							</ul>
+						</div>
+					</div>
 				</div>
 			</section>
 
-			<section class="screen screen--panel screen--portfolio" id="portfolio" aria-label="Portfolio">
-				<div class="screen__inner" tabindex="0" aria-label="Portfolio projects">
-					<section class="portfolio-item portfolio-item--biomedicine" id="portfolio-item-1" aria-label="eBioMedicine cover illustration">
-						<article class="portfolio-item__content">
-							<p>I was asked to design an <span class="evidenziatore1">illustration</span> to represent the content of the scientific paper <a href="https://www.thelancet.com/journals/ebiom/article/PIIS2352-3964(26)00354-3/fulltext"><i>Gut microbiome profiling at multiple sclerosis onset as a potential early prognostic marker of disease course: evidence from an observational cohort study</i></a>. The paper appeared in the October 2026 Issue of THE LANCET Discovery Science's journal eBioMedicine. The illustration was selected through a competitive process to appear on the cover of the Issue. <a class="full-size-link" href="ebm.jpg"><i class="icon ion-md-arrow-forward" aria-hidden="true"></i> Full size</a></p>
+			<section class="research section-wrap section-rule" id="research" aria-labelledby="research-title">
+				<div class="section-content">
+					<h2 class="section-title" id="research-title"><span>Research communication</span></h2>
+					<div class="prose research-intro">
+						<ul class="research-intro__list">
+							<li>I develop <b>communication strategies</b> for research groups, institutions, consortia, and multi-partner research projects. I support researchers in establishing their online presence through social media, websites, and digital content.</li>
+							<li>I help researchers design <b>outreach activities</b>, organize conferences, and build citizen science initiatives.</li>
+							<li>I support <b>science-art interactions</b>, design visual storytelling solutions to communicate scientific content, and combine rigour and creativity in information design and data visualization.</li>
+						</ul>
+					</div>
+					<div class="creative-storytelling">
+						<div class="creative-storytelling__grid">
+							<article class="work-card">
+							<a class="work-card__image framed-image" href="ebm.jpg" aria-label="View eBioMedicine cover illustration at full size">
+								<img src="ebm.jpg" alt="Cover illustration for an eBioMedicine research paper" loading="lazy">
+							</a>
+							<h3>eBioMedicine cover</h3>
+							<p>An illustration for a study on gut microbiome profiling and multiple sclerosis, selected for the cover of an eBioMedicine issue.</p>
+							<a class="button-link work-card__button" href="https://www.behance.net/simoneramello/" target="_blank" rel="noopener noreferrer">More on Behance</a>
 						</article>
-						<a class="portfolio-arrow portfolio-arrow--down" href="#portfolio-item-2" aria-label="Scroll to next portfolio item"><span aria-hidden="true">↓</span></a>
-					</section>
-					<section class="portfolio-item portfolio-item--navier-stokes" id="portfolio-item-2" aria-label="Computational oncology thesis cover">
-						<article class="portfolio-item__content">
-							<p>I was asked to design the cover for a PhD thesis in computational oncology. Building on the mathematical model developed within the thesis, I built a <span class="evidenziatore2">data-driven design</span> to showcase how multiple mutations appear and interact within a tumour. <a class="full-size-link" href="progression.png"><i class="icon ion-md-arrow-forward" aria-hidden="true"></i> Full size</a></p>
+						<article class="work-card">
+							<div class="work-card__image framed-image">
+								<img src="Animazione video.gif" alt="Animated visual for the ON-AIR project" loading="lazy">
+							</div>
+							<h3>ON-AIR in a nutshell</h3>
+							<p>I have realized a series of short video interviews to researchers, to showcase the project <i>ON-AIR: Artificial Intelligence and Integrated Omics for Precision Oncology</i>.</p>
+							<a class="button-link work-card__button" href="https://onair.di.unito.it" target="_blank" rel="noopener noreferrer">Watch on the ON-AIR website</a>
 						</article>
-						<a class="portfolio-arrow portfolio-arrow--up" href="#portfolio-item-1" aria-label="Scroll to previous portfolio item"><span aria-hidden="true">↑</span></a>
-						<a class="portfolio-arrow portfolio-arrow--down" href="#portfolio-item-3" aria-label="Scroll to next portfolio item"><span aria-hidden="true">↓</span></a>
-					</section>
-					
-					<section class="portfolio-item portfolio-item--contact" id="portfolio-item-4" aria-label="Older portfolio work">
-						<div class="portfolio-item__closing">
-							<p>Take a look at some of my older work!</p>
-							<a class="portfolio-button" href="https://www.behance.net/simoneramello/">Behance portfolio</a>
+						<article class="work-card">
+							<div class="creative-storytelling__podcast-image framed-image">
+								<img src="assets/on-a-tangent-cover.jpg" alt="Cover artwork for the On A Tangent podcast" loading="lazy" decoding="async">
+							</div>
+							<h3>On A Tangent</h3>
+							<p>A podcast I designed, hosted, and produced for its first season, sharing the stories behind mathematics through conversations with early-career researchers.</p>
+							<a class="button-link work-card__button" href="https://open.spotify.com/show/0KXZ3qf0H6t1cYifSJVEYB" target="_blank" rel="noopener noreferrer">Listen on Spotify</a>
+						</article>
 						</div>
-						<a class="portfolio-arrow portfolio-arrow--up" href="#portfolio-item-3" aria-label="Scroll to previous portfolio item"><span aria-hidden="true">↑</span></a>
-					</section>
+					</div>
 				</div>
 			</section>
 
-			<section class="screen screen--panel screen--training" id="training" aria-label="Training">
-				<div class="screen__inner" tabindex="0" aria-label="Training sessions">
-					<section class="portfolio-item portfolio-item--storytelling" id="training-item-1" aria-labelledby="training-storytelling-title">
-						<article class="portfolio-item__content">
-							<h2 id="training-storytelling-title">Storytelling for the working mathematician</h2>
-							<p><span class="evidenziatore2">How can we use stories to communicate mathematics?</span> In this workshop, targeted at <span class="evidenziatore1">early-career mathematicians</span>, we walk through the basics of science communication and the central ideas of storytelling. We learn how to identify the fundamental parts of a story and its workings. We then see how storytelling can be used in the communication of scientific research, and mathematics in particular.</p>
-						</article>
-						<a class="portfolio-arrow portfolio-arrow--down" href="#training-item-2" aria-label="Scroll to training call to action"><span aria-hidden="true">↓</span></a>
-					</section>
-					<section class="portfolio-item portfolio-item--contact" id="training-item-2" aria-label="Training call to action">
-						<div class="portfolio-item__closing">
-							<p>Want to bring a workshop to your organisation?</p>
-							<a class="portfolio-button" href="mailto:ciao@simoneramello.it">Get in touch</a>
+			<section class="training section-wrap section-rule" id="training" aria-labelledby="training-title">
+				<div class="section-content">
+					<h2 class="section-title" id="training-title"><span>Training</span></h2>
+					<div class="training__content">
+						<figure class="training__image framed-image">
+							<img src="training1.jpeg" alt="Simone leading a storytelling workshop for mathematicians" loading="lazy">
+						</figure>
+						<div class="prose">
+							<h3>Storytelling for the working mathematician</h3>
+							<p>How can we use stories to communicate mathematics?<br>In this workshop, targeted at early-career mathematicians, we walk through the basics of science communication and the central ideas of storytelling. We learn how to identify the fundamental parts of a story and its workings. We then see how storytelling can be used in the communication of scientific research, and mathematics in particular.</p>
 						</div>
-						<a class="portfolio-arrow portfolio-arrow--up" href="#training-item-1" aria-label="Scroll to previous training section"><span aria-hidden="true">↑</span></a>
-					</section>
+					</div>
 				</div>
 			</section>
 		</main>
+
+		<footer class="site-footer section-wrap">
+			<div class="footer-meta">
+				<small>© Simone Ramello</small>
+				<small>Partita IVA 01771300058</small>
+			</div>
+			<div class="footer-links">
+				<a href="https://www.linkedin.com/in/simone-ramello/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+				<a href="mailto:ciao@simoneramello.it">Email</a>
+			</div>
+		</footer>
+		<script>
+			const menuToggle = document.querySelector(".menu-toggle");
+			const siteHeader = document.querySelector(".site-header");
+			const siteNavigation = document.querySelector("#site-navigation");
+
+			document.documentElement.classList.add("js");
+
+			function closeMenu() {
+				menuToggle.setAttribute("aria-expanded", "false");
+				siteHeader.classList.remove("is-menu-open");
+			}
+
+			menuToggle.addEventListener("click", () => {
+				const isExpanded = menuToggle.getAttribute("aria-expanded") === "true";
+				menuToggle.setAttribute("aria-expanded", String(!isExpanded));
+				siteHeader.classList.toggle("is-menu-open", !isExpanded);
+			});
+
+			siteNavigation.addEventListener("click", (event) => {
+				if (event.target.closest("a")) closeMenu();
+			});
+
+			siteHeader.addEventListener("keydown", (event) => {
+				if (event.key === "Escape" && menuToggle.getAttribute("aria-expanded") === "true") {
+					closeMenu();
+					menuToggle.focus();
+				}
+			});
+		</script>
 	</body>
 </html>
