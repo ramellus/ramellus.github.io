@@ -812,7 +812,8 @@ function placeTimelineProjects() {
 					&& screenX - starSize / 2 < rect.right
 					&& screenY + starSize / 2 > rect.top
 					&& screenY - starSize / 2 < rect.bottom);
-			}) ?? preferredY;
+			});
+			if (y === undefined) throw new Error(`Unable to position ${projects[projectIndex].name} on the timeline without overlap.`);
 			positions[projectIndex] = { x, y };
 			placedPositions.push({ x, y });
 			timelineAxis.append(createSvgElement("line", {
@@ -921,7 +922,7 @@ function placeProjects() {
 		};
 		indices.forEach((projectIndex, memberIndex) => {
 			const angle = memberIndex * 2.399963;
-			const radius = indices.length === 1 ? 0 : 26 + Math.sqrt(memberIndex) * Math.min(40, cellWidth * 0.11, cellHeight * 0.11);
+			const radius = indices.length === 1 ? 0 : 26 + Math.sqrt(memberIndex) * Math.min(40, cellWidth * 0.13, cellHeight * 0.13);
 			positions[projectIndex] = {
 				x: center.x + Math.cos(angle) * radius,
 				y: center.y + Math.sin(angle) * radius,
