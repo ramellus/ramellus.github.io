@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="theme-color" content="#0f0326">
+		<meta name="description" content="An interactive constellation of Simone Ramello's science communication projects.">
+		<title>Portfolio - Simone Ramello</title>
+		<link rel="stylesheet" href="../style.css">
+		<link rel="stylesheet" href="portfolio.css">
+	</head>
+	<body class="portfolio-page">
+		<header class="portfolio-header">
+			<a class="portfolio-wordmark" href="../index.html">Simone Ramello</a>
+			<nav aria-label="Portfolio views">
+				<span class="view-toggle-label">cluster by:</span>
+				<button class="view-button" type="button" data-view="type" aria-pressed="true"><i class="legend-line legend-line--type"></i><span>type</span></button>
+				<button class="view-button" type="button" data-view="client" aria-pressed="false"><i class="legend-line legend-line--client"></i><span>client</span></button>
+				<button class="view-button" type="button" data-view="topic" aria-pressed="false"><i class="legend-line legend-line--topic"></i><span>topic</span></button>
+				<div class="connection-toggles" role="group" aria-label="secondary connections">
+					<span class="connection-toggle-label">show connections by:</span>
+					<button class="connection-toggle" type="button" data-connection-toggle="type" aria-pressed="true" hidden><i class="legend-line legend-line--type"></i><span>type</span></button>
+					<button class="connection-toggle" type="button" data-connection-toggle="client" aria-pressed="true"><i class="legend-line legend-line--client"></i><span>client</span></button>
+					<button class="connection-toggle" type="button" data-connection-toggle="topic" aria-pressed="true"><i class="legend-line legend-line--topic"></i><span>topic</span></button>
+				</div>
+			</nav>
+		</header>
+
+		<main class="constellation-main">
+			<div class="constellation-shell">
+				<svg class="connections" id="connections" aria-hidden="true" viewBox="0 0 1000 700" preserveAspectRatio="none"></svg>
+				<div class="constellation" id="constellation" aria-label="Project constellation"></div>
+				<div class="star-tooltip" id="star-tooltip" role="status" hidden></div>
+				<aside class="project-stats" id="project-stats" aria-label="Project counts by year"></aside>
+			</div>
+		</main>
+
+		<section class="project-cards mobile-project-cards" id="mobile-project-cards" aria-label="Projects"></section>
+
+		<dialog class="project-dialog" id="project-dialog" aria-labelledby="dialog-title">
+			<button class="dialog-close" type="button" aria-label="Close project details">×</button>
+			<div class="dialog-content" id="dialog-content"></div>
+		</dialog>
+
+		<script src="portfolio.js" defer></script>
+	</body>
+</html>
