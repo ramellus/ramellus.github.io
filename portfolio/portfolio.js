@@ -999,7 +999,7 @@ function renderMobileCards() {
 			date.textContent = project.date;
 			content.append(date);
 		}
-		if (project.description) {
+		if (project.description && !project.types.includes("writing")) {
 			const description = document.createElement("p");
 			description.textContent = project.description;
 			content.append(description);
@@ -1079,7 +1079,7 @@ function openProject(project) {
 	title.id = "dialog-title";
 	title.textContent = project.name;
 	dialogContent.append(title);
-	if (project.description) {
+	if (project.description && !project.types.includes("writing")) {
 		const description = document.createElement("p");
 		description.className = "dialog-description";
 		description.textContent = project.description;
