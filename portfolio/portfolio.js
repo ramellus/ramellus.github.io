@@ -140,6 +140,16 @@ const projects = [
 		url: "https://aulascienze.scuola.zanichelli.it/materie-scienze/matematica-aule/se-le-dimostrazioni-le-fanno-i-computer/",
 	},
 	{
+		name: "Ottavia: i dati intorno a noi",
+		date: "March 2026",
+		clients: ["Liceo Artistico Statale Nordio"],
+		types: ["education"],
+		topics: ["mathematics"],
+		description: "A series of workshops on statistics and data visualization for high schoolers.",
+		image: "https://collettivo-ottavia.it/Drawing%204.jpg",
+		url: "",
+	},
+	{
 		name: "Quando la scienza viene fermata",
 		date: "September 2025",
 		clients: ["Aula di Scienze"],
@@ -724,6 +734,8 @@ function placeTimelineProjects() {
 	const chartBounds = timelineAxis.getBoundingClientRect();
 	const scaleX = chartBounds.width / 1000;
 	const scaleY = chartBounds.height / 700;
+	const labelScaleY = scaleX / scaleY;
+	const yearLabelY = 42;
 	const starSize = projectStars[0]?.getBoundingClientRect().width || 40;
 	const laneStep = Math.max(1, (starSize + 6) / scaleY);
 	const maxLane = Math.max(1, Math.floor((Math.min(axisY, 700 - axisY) - starSize / (2 * scaleY)) / laneStep));
@@ -763,7 +775,13 @@ function placeTimelineProjects() {
 				y2: axisY,
 				class: "timeline-year-guide",
 			}));
-			const label = createSvgElement("text", { x, y: 42, class: "timeline-year-label" });
+			// Counteract the SVG's non-uniform scaling so year text keeps its proportions.
+			const label = createSvgElement("text", {
+				x,
+				y: yearLabelY,
+				class: "timeline-year-label",
+				transform: `matrix(1 0 0 ${labelScaleY} 0 ${yearLabelY * (1 - labelScaleY)})`,
+			});
 			label.textContent = String(Math.floor(month / 12));
 			timelineAxis.append(label);
 		}

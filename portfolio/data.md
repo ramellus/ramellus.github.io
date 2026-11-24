@@ -222,3 +222,11 @@
 - Topic(s): academia
 - Short description (max. 50 words): An episode about psychologist Diederik Stapel, whose fabricated research undermined his studies on discrimination and stereotypes.
 - Image (URL): https://i.scdn.co/image/ab67656300005f1fdbab16f40fae22e78ef17e8b
+
+## Ottavia: i dati intorno a noi
+- Date: March 2026
+- Client(s): Liceo Artistico Statale Nordio
+- Type(s): education
+- Topic(s): mathematics
+- Short description (max. 50 words): A series of workshops on statistics and data visualization for high schoolers.
+- Image (URL): https://collettivo-ottavia.it/Drawing%204.jpg
