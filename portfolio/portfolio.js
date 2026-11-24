@@ -73,7 +73,7 @@ const projects = [
 		name: "ON-AIR in a nutshell",
 		date: "",
 		clients: ["QBio"],
-		types: ["videos"],
+		types: ["video"],
 		topics: ["AI", "bioinformatics"],
 		description: "Short video interviews with researchers introducing ON-AIR, a project on artificial intelligence and integrated omics for precision oncology.",
 		image: "https://simoneramello.it/Animazione%20video.gif",

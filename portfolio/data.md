@@ -57,7 +57,7 @@
 ## [ON-AIR in a nutshell](https://simoneramello.it/#research)
 - Date:
 - Client(s): QBio
-- Type(s): videos
+- Type(s): video
 - Topic(s): AI, bioinformatics
 - Short description (max. 50 words): Short video interviews with researchers introducing ON-AIR, a project on artificial intelligence and integrated omics for precision oncology.
 - Image (URL): https://simoneramello.it/Animazione%20video.gif
