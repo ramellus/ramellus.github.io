@@ -43,8 +43,8 @@ const projects = [
 		name: "The butterfly effect",
 		date: "June 2026",
 		clients: ["ICTP"],
-		types: ["videos"],
-		topics: [],
+		types: ["visuals"],
+		topics: ["physics", "mathematics"],
 		description: "",
 		image: "https://mir-s3-cdn-cf.behance.net/projects/404/d6652c251282951.6a32c49821b09.gif",
 		url: "https://www.behance.net/gallery/251282951/The-butterfly-effect",
@@ -54,7 +54,7 @@ const projects = [
 		date: "June 2026",
 		clients: ["ICTP"],
 		types: ["visuals"],
-		topics: [],
+		topics: ["physics", "mathematics"],
 		description: "",
 		image: "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/fb5443251282943.6a32c4905c4a1.png",
 		url: "https://www.behance.net/gallery/251282943/End-of-year-2025",
@@ -385,8 +385,10 @@ function selectMainConnections() {
 }
 
 function updateConnectionEmphasis() {
+	const hideMainConnections = hoveredProject !== null
+		&& Object.values(connectionVisibility).some(Boolean);
 	svg.querySelectorAll(".connection--main").forEach(line => {
-		line.classList.toggle("connection--hidden-on-hover", hoveredProject !== null);
+		line.classList.toggle("connection--hidden-on-hover", hideMainConnections);
 	});
 	svg.querySelectorAll(".connection:not(.connection--main)").forEach(line => {
 		const isConnected = Number(line.dataset.projectLeft) === hoveredProject

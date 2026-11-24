@@ -33,8 +33,8 @@
 ## [The butterfly effect](https://www.behance.net/gallery/251282951/The-butterfly-effect)
 - Date: June 2026
 - Client(s): ICTP
-- Type(s): videos
-- Topic(s):
+- Type(s): visuals
+- Topic(s): physics, mathematics
 - Short description (max. 50 words):
 - Image (URL): https://mir-s3-cdn-cf.behance.net/projects/404/d6652c251282951.6a32c49821b09.gif
 
@@ -42,7 +42,7 @@
 - Date: June 2026
 - Client(s): ICTP
 - Type(s): visuals
-- Topic(s):
+- Topic(s): physics, mathematics
 - Short description (max. 50 words):
 - Image (URL): https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/fb5443251282943.6a32c4905c4a1.png
 
