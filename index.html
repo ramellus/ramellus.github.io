@@ -8,24 +8,30 @@
 		<title>Simone Ramello</title>
 		<link rel="icon" type="image/svg+xml" href="puzzle.svg">
 		<link rel="stylesheet" href="style.css">
+		<script src="accent.js" defer></script>
 	</head>
-	<body>
+	<body data-accent-color="coral">
 		<header class="site-header">
 			<nav class="site-nav" id="site-navigation" aria-label="Main navigation">
 				<a href="#about">About</a>
 				<a href="#research">Research communication</a>
 				<a href="#training">Training</a>
 				<a href="mailto:ciao@simoneramello.it">Get in touch</a>
+				<div class="accent-picker" role="group" aria-label="Accent colour">
+					<button class="accent-picker__button" type="button" data-accent="coral" aria-label="Use coral accent" aria-pressed="true" title="Coral"></button>
+					<button class="accent-picker__button" type="button" data-accent="lilac" aria-label="Use lilac-purple accent" aria-pressed="false" title="Lilac-purple"></button>
+					<button class="accent-picker__button" type="button" data-accent="teal" aria-label="Use teal accent" aria-pressed="false" title="Teal"></button>
+				</div>
 			</nav>
 		</header>
 
 		<main>
 			<section class="hero section-wrap" id="home" aria-labelledby="hero-title">
 				<div class="hero__content">
-					<h1 id="hero-title">Ciao! I’m<br><span>Simone Ramello.</span></h1>
+					<h1 id="hero-title">Ciao! I’m<br><span>Simone Ramello</span>.</h1>
 					<p class="hero__intro">I help researchers communicate their work at the subtle intersection of clarity, rigour, and imagination.</p>
 				</div>
-				<img class="hero__ornament" src="coffee-cup-2.svg" alt="" aria-hidden="true">
+				<div class="hero__ornament" aria-hidden="true"></div>
 			</section>
 
 			<section class="about section-wrap section-rule" id="about" aria-labelledby="about-title">

@@ -9,7 +9,7 @@
 		<link rel="stylesheet" href="../style.css">
 		<link rel="stylesheet" href="portfolio.css">
 	</head>
-	<body class="portfolio-page">
+	<body class="portfolio-page" data-accent-color="coral">
 		<header class="portfolio-header">
 			<a class="portfolio-wordmark" href="../index.html">Simone Ramello</a>
 			<nav aria-label="Portfolio visualizations">
@@ -21,6 +21,11 @@
 					<button class="connection-toggle" type="button" data-connection-toggle="type" aria-pressed="true"><i class="legend-line legend-line--type"></i><span>type</span></button>
 					<button class="connection-toggle" type="button" data-connection-toggle="client" aria-pressed="false"><i class="legend-line legend-line--client"></i><span>client</span></button>
 					<button class="connection-toggle" type="button" data-connection-toggle="topic" aria-pressed="false"><i class="legend-line legend-line--topic"></i><span>topic</span></button>
+				</div>
+				<div class="accent-picker" role="group" aria-label="Accent colour">
+					<button class="accent-picker__button" type="button" data-accent="coral" aria-label="Use coral accent" aria-pressed="true" title="Coral"></button>
+					<button class="accent-picker__button" type="button" data-accent="lilac" aria-label="Use lilac-purple accent" aria-pressed="false" title="Lilac-purple"></button>
+					<button class="accent-picker__button" type="button" data-accent="teal" aria-label="Use teal accent" aria-pressed="false" title="Teal"></button>
 				</div>
 			</nav>
 		</header>
@@ -55,6 +60,7 @@
 			<div class="dialog-content" id="dialog-content"></div>
 		</dialog>
 
+		<script src="../accent.js" defer></script>
 		<script src="portfolio.js" defer></script>
 	</body>
 </html>

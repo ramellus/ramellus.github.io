@@ -298,7 +298,6 @@ const activeView = "type";
 let activeMode = "type";
 let positions = [];
 let hoveredProject = null;
-let mainConnectionSelection = null;
 const projectStars = [];
 const connectionMotions = new WeakMap();
 let connectionDelayTimer;
@@ -407,19 +406,6 @@ function shared(left, right, field) {
 	return left[field].some(value => right[field].includes(value));
 }
 
-function selectMainConnections() {
-	const activeField = { type: "types", client: "clients", topic: "topics" }[activeView];
-	const selected = new Set();
-	for (let left = 0; left < projects.length; left += 1) {
-		for (let right = left + 1; right < projects.length; right += 1) {
-			if (groupLabel(projects[left], activeView) !== groupLabel(projects[right], activeView)
-				|| !shared(projects[left], projects[right], activeField)) continue;
-			selected.add(`${left}-${right}`);
-		}
-	}
-	return selected;
-}
-
 function updateConnectionEmphasis() {
 	const hideMainConnections = hoveredProject !== null
 		&& (connectionVisibility.client || connectionVisibility.topic);
@@ -444,17 +430,15 @@ function updateHoveredProject() {
 
 function addConnections(animate = false) {
 	const activeField = { type: "types", client: "clients", topic: "topics" }[activeView];
-	mainConnectionSelection ??= selectMainConnections();
 	const desired = new Map();
 	for (let left = 0; left < projects.length; left += 1) {
 		for (let right = left + 1; right < projects.length; right += 1) {
-			const pairKey = `${left}-${right}`;
 			const sameCluster = groupLabel(projects[left], activeView) === groupLabel(projects[right], activeView);
-			const showMainConnection = !sameCluster || mainConnectionSelection.has(pairKey);
+			const showSecondaryConnections = !sameCluster || shared(projects[left], projects[right], activeField);
 			const connections = [["topics", "topic"], ["types", "type"], ["clients", "client"]]
 				.filter(([field, category]) => shared(projects[left], projects[right], field)
 					&& connectionVisibility[category]
-					&& (category !== activeView || showMainConnection));
+					&& (category === activeView || showSecondaryConnections));
 			const dx = positions[right].x - positions[left].x;
 			const dy = positions[right].y - positions[left].y;
 			const length = Math.hypot(dx, dy) || 1;
@@ -643,7 +627,6 @@ function renderTopicTreemap(sourcePositions = null) {
 	const animationTargets = [];
 
 	for (const { item: group, ...bounds } of topicBounds) {
-		const groupElement = createSvgElement("g", { class: "treemap-topic-group" });
 		const frame = createSvgElement("rect", {
 			x: bounds.x + 2,
 			y: bounds.y + 2,
@@ -651,8 +634,7 @@ function renderTopicTreemap(sourcePositions = null) {
 			height: Math.max(0, bounds.height - 4),
 			class: "treemap-topic-frame",
 		});
-		groupElement.append(frame);
-		topicTreemap.append(groupElement);
+		topicTreemap.append(frame);
 		const topicLabel = document.createElement("span");
 		topicLabel.className = "topic-group-label";
 		topicLabel.textContent = `${group.topic} (${group.projectIndices.length})`;
