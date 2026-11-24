@@ -61,7 +61,7 @@ const projects = [
 	},
 	{
 		name: "eBioMedicine cover",
-		date: "",
+		date: "September 2026",
 		clients: ["QBio"],
 		types: ["visuals"],
 		topics: ["bioinformatics"],
@@ -71,7 +71,7 @@ const projects = [
 	},
 	{
 		name: "ON-AIR in a nutshell",
-		date: "",
+		date: "July 2026",
 		clients: ["QBio"],
 		types: ["video"],
 		topics: ["AI", "bioinformatics"],
@@ -81,7 +81,7 @@ const projects = [
 	},
 	{
 		name: "On A Tangent",
-		date: "",
+		date: "June 2024",
 		clients: ["MMünster"],
 		types: ["podcasts"],
 		topics: ["mathematics"],
@@ -101,7 +101,7 @@ const projects = [
 	},
 	{
 		name: "Storytelling for the working mathematician",
-		date: "",
+		date: "October 2026",
 		clients: ["MMünster"],
 		types: ["training"],
 		topics: ["mathematics"],
@@ -288,8 +288,14 @@ const tooltip = document.querySelector("#star-tooltip");
 const projectStats = document.querySelector("#project-stats");
 const dialog = document.querySelector("#project-dialog");
 const dialogContent = document.querySelector("#dialog-content");
+const themeToggle = document.querySelector("#theme-toggle");
+const themeColorMeta = document.querySelector('meta[name="theme-color"]');
 const mobileCards = document.querySelector("#mobile-project-cards");
-let activeView = "type";
+const timelineAxis = document.querySelector("#timeline-axis");
+const topicTreemap = document.querySelector("#topic-treemap");
+const treemapProjectStars = document.querySelector("#treemap-project-stars");
+const activeView = "type";
+let activeMode = "type";
 let positions = [];
 let hoveredProject = null;
 let mainConnectionSelection = null;
@@ -298,18 +304,18 @@ const connectionMotions = new WeakMap();
 let connectionDelayTimer;
 let connectionGeneration = 0;
 let connectionsPending = false;
-const connectionVisibility = { type: false, client: false, topic: false };
+const connectionVisibility = { type: true, client: false, topic: false };
 const categoryLabels = { type: "type", client: "client", topic: "topic" };
 const projectMoveDuration = 1100;
 const connectionDrawDuration = 750;
 
 function renderProjectStats() {
-	const years = [2026, 2025, 2024];
 	const counts = projects.reduce((totals, project) => {
 		const year = Number(project.date.match(/\b\d{4}$/)?.[0]);
-		if (years.includes(year)) totals[year] += 1;
+		if (year) totals[year] = (totals[year] || 0) + 1;
 		return totals;
-	}, Object.fromEntries(years.map(year => [year, 0])));
+	}, {});
+	const years = Object.keys(counts).map(Number).sort((left, right) => right - left);
 
 	projectStats.replaceChildren();
 	const icon = document.createElement("img");
@@ -337,14 +343,28 @@ function prefersReducedMotion() {
 }
 
 function updateConnectionToggles() {
+	document.querySelector(".connection-toggles").hidden = activeMode !== "type";
 	document.querySelectorAll(".connection-toggle").forEach(button => {
 		const category = button.dataset.connectionToggle;
-		const isSecondary = category !== activeView;
-		button.hidden = !isSecondary;
 		button.setAttribute("aria-pressed", String(connectionVisibility[category]));
 		button.setAttribute("aria-label", `${connectionVisibility[category] ? "hide" : "show"} ${categoryLabels[category]} connections`);
 		button.querySelector("span").textContent = categoryLabels[category];
 	});
+}
+
+function updateViewButtons() {
+	document.querySelectorAll(".view-button").forEach(button => {
+		button.setAttribute("aria-pressed", String(button.dataset.view === activeMode));
+	});
+}
+
+function updateTheme(lightMode) {
+	document.body.classList.toggle("light-mode", lightMode);
+	const nextMode = lightMode ? "dark" : "light";
+	themeToggle.setAttribute("aria-label", `Switch to ${nextMode} mode`);
+	themeToggle.querySelector(".theme-icon--sun").hidden = lightMode;
+	themeToggle.querySelector(".theme-icon--moon").hidden = !lightMode;
+	themeColorMeta.content = getComputedStyle(document.body).getPropertyValue("--portfolio-background").trim();
 }
 
 function createSvgElement(tag, attributes = {}) {
@@ -353,40 +373,56 @@ function createSvgElement(tag, attributes = {}) {
 	return element;
 }
 
+function createProjectStar(project, projectIndex, className = "star", showHoverDetails = true) {
+	const star = document.createElement("button");
+	star.className = className;
+	star.type = "button";
+	star.setAttribute("aria-label", `${project.name}. ${project.date}. ${project.clients.join(", ") || "No client listed"}. Topics: ${project.topics.join(", ") || "None listed"}. Type: ${project.types.join(", ") || "None listed"}.`);
+	star.dataset.project = projectIndex;
+	if (project.image) {
+		const image = document.createElement("img");
+		image.src = project.image;
+		image.alt = "";
+		image.loading = "lazy";
+		star.append(image);
+	} else {
+		star.textContent = "✳";
+		star.setAttribute("aria-hidden", "false");
+	}
+	if (showHoverDetails) {
+		star.addEventListener("mouseenter", event => showTooltip(event.currentTarget, project));
+		star.addEventListener("mouseenter", updateHoveredProject);
+		star.addEventListener("focus", event => showTooltip(event.currentTarget, project));
+		star.addEventListener("focus", updateHoveredProject);
+		star.addEventListener("mouseleave", hideTooltip);
+		star.addEventListener("mouseleave", updateHoveredProject);
+		star.addEventListener("blur", hideTooltip);
+		star.addEventListener("blur", updateHoveredProject);
+	}
+	star.addEventListener("click", () => openProject(project));
+	return star;
+}
+
 function shared(left, right, field) {
 	return left[field].some(value => right[field].includes(value));
 }
 
 function selectMainConnections() {
 	const activeField = { type: "types", client: "clients", topic: "topics" }[activeView];
-	const candidates = [];
+	const selected = new Set();
 	for (let left = 0; left < projects.length; left += 1) {
 		for (let right = left + 1; right < projects.length; right += 1) {
 			if (groupLabel(projects[left], activeView) !== groupLabel(projects[right], activeView)
 				|| !shared(projects[left], projects[right], activeField)) continue;
-			candidates.push([left, right]);
+			selected.add(`${left}-${right}`);
 		}
-	}
-
-	for (let index = candidates.length - 1; index > 0; index -= 1) {
-		const randomIndex = Math.floor(Math.random() * (index + 1));
-		[candidates[index], candidates[randomIndex]] = [candidates[randomIndex], candidates[index]];
-	}
-
-	const degrees = new Array(projects.length).fill(0);
-	const selected = new Set();
-	for (const [left, right] of candidates) {
-		if (degrees[left] >= 2 || degrees[right] >= 2) continue;
-		selected.add(`${left}-${right}`);
-		degrees[left] += 1;
-		degrees[right] += 1;
 	}
 	return selected;
 }
 
 function updateConnectionEmphasis() {
 	const hideMainConnections = hoveredProject !== null
-		&& Object.values(connectionVisibility).some(Boolean);
+		&& (connectionVisibility.client || connectionVisibility.topic);
 	svg.querySelectorAll(".connection--main").forEach(line => {
 		line.classList.toggle("connection--hidden-on-hover", hideMainConnections);
 	});
@@ -417,7 +453,8 @@ function addConnections(animate = false) {
 			const showMainConnection = !sameCluster || mainConnectionSelection.has(pairKey);
 			const connections = [["topics", "topic"], ["types", "type"], ["clients", "client"]]
 				.filter(([field, category]) => shared(projects[left], projects[right], field)
-					&& (category === activeView ? showMainConnection : connectionVisibility[category]));
+					&& connectionVisibility[category]
+					&& (category !== activeView || showMainConnection));
 			const dx = positions[right].x - positions[left].x;
 			const dy = positions[right].y - positions[left].y;
 			const length = Math.hypot(dx, dy) || 1;
@@ -536,15 +573,318 @@ function groupLabel(project, view) {
 	return project[`${view}s`][0] || `Unspecified ${view}`;
 }
 
-function placeProjects(view) {
-	const viewChanged = view !== activeView;
-	if (viewChanged && connectionDelayTimer) clearTimeout(connectionDelayTimer);
-	if (viewChanged) {
-		Object.keys(connectionVisibility).forEach(category => {
-			connectionVisibility[category] = false;
+const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+function projectMonthIndex(project) {
+	const [, monthName, yearString] = project.date.match(/^([A-Za-z]+) (\d{4})$/) || [];
+	const month = monthNames.indexOf(monthName);
+	if (month < 0 || !yearString) throw new Error(`Invalid project date for "${project.name}": ${project.date}`);
+	return Number(yearString) * 12 + month;
+}
+
+function layoutTreemap(items, bounds, weightForItem) {
+	if (!items.length) return [];
+	if (items.length === 1) return [{ item: items[0], ...bounds }];
+
+	const totalWeight = items.reduce((total, item) => total + weightForItem(item), 0);
+	let splitIndex = 1;
+	let accumulatedWeight = 0;
+	let closestDifference = Infinity;
+	for (let index = 1; index < items.length; index += 1) {
+		accumulatedWeight += weightForItem(items[index - 1]);
+		const difference = Math.abs(totalWeight / 2 - accumulatedWeight);
+		if (difference < closestDifference) {
+			closestDifference = difference;
+			splitIndex = index;
+		}
+	}
+
+	const firstItems = items.slice(0, splitIndex);
+	const remainingItems = items.slice(splitIndex);
+	const firstWeight = firstItems.reduce((total, item) => total + weightForItem(item), 0);
+	const firstShare = firstWeight / totalWeight;
+	let firstBounds;
+	let remainingBounds;
+	if (bounds.width >= bounds.height) {
+		const firstWidth = bounds.width * firstShare;
+		firstBounds = { x: bounds.x, y: bounds.y, width: firstWidth, height: bounds.height };
+		remainingBounds = { x: bounds.x + firstWidth, y: bounds.y, width: bounds.width - firstWidth, height: bounds.height };
+	} else {
+		const firstHeight = bounds.height * firstShare;
+		firstBounds = { x: bounds.x, y: bounds.y, width: bounds.width, height: firstHeight };
+		remainingBounds = { x: bounds.x, y: bounds.y + firstHeight, width: bounds.width, height: bounds.height - firstHeight };
+	}
+
+	return [
+		...layoutTreemap(firstItems, firstBounds, weightForItem),
+		...layoutTreemap(remainingItems, remainingBounds, weightForItem),
+	];
+}
+
+function renderTopicTreemap(sourcePositions = null) {
+	const projectsByTopic = new Map();
+	projects.forEach((project, projectIndex) => {
+		const topics = project.topics.length ? project.topics : ["uncategorized"];
+		for (const topic of topics) {
+			if (!projectsByTopic.has(topic)) projectsByTopic.set(topic, []);
+			projectsByTopic.get(topic).push(projectIndex);
+		}
+	});
+
+	const topicGroups = [...projectsByTopic.entries()]
+		.map(([topic, projectIndices]) => ({ topic, projectIndices }))
+		.sort((left, right) => right.projectIndices.length - left.projectIndices.length
+			|| left.topic.localeCompare(right.topic));
+	const topicBounds = layoutTreemap(topicGroups, { x: 0, y: 0, width: 1000, height: 700 }, group => group.projectIndices.length);
+	topicTreemap.replaceChildren();
+	treemapProjectStars.replaceChildren();
+	const shellBounds = topicTreemap.getBoundingClientRect();
+	const maxStarSize = window.matchMedia("(max-width: 820px)").matches ? 34 : 40;
+	const animationTargets = [];
+
+	for (const { item: group, ...bounds } of topicBounds) {
+		const groupElement = createSvgElement("g", { class: "treemap-topic-group" });
+		const frame = createSvgElement("rect", {
+			x: bounds.x + 2,
+			y: bounds.y + 2,
+			width: Math.max(0, bounds.width - 4),
+			height: Math.max(0, bounds.height - 4),
+			class: "treemap-topic-frame",
+		});
+		groupElement.append(frame);
+		topicTreemap.append(groupElement);
+		const topicLabel = document.createElement("span");
+		topicLabel.className = "topic-group-label";
+		topicLabel.textContent = `${group.topic} (${group.projectIndices.length})`;
+		topicLabel.style.left = `${(bounds.x + 10) / 10}%`;
+		topicLabel.style.top = `${(bounds.y + 18) / 7}%`;
+		treemapProjectStars.append(topicLabel);
+
+		const contentBounds = {
+			x: bounds.x + 6,
+			y: bounds.y + 27,
+			width: Math.max(1, bounds.width - 12),
+			height: Math.max(1, bounds.height - 33),
+		};
+		const contentWidth = contentBounds.width * shellBounds.width / 1000;
+		const contentHeight = contentBounds.height * shellBounds.height / 700;
+		let columns = 1;
+		let bestAspectDifference = Infinity;
+		for (let candidateColumns = 1; candidateColumns <= group.projectIndices.length; candidateColumns += 1) {
+			const rows = Math.ceil(group.projectIndices.length / candidateColumns);
+			const cellAspect = (contentWidth / candidateColumns) / (contentHeight / rows);
+			const aspectDifference = Math.abs(Math.log(cellAspect));
+			if (aspectDifference < bestAspectDifference) {
+				columns = candidateColumns;
+				bestAspectDifference = aspectDifference;
+			}
+		}
+
+		const rowCount = Math.ceil(group.projectIndices.length / columns);
+		const cellWidth = contentBounds.width / columns;
+		const cellHeight = contentBounds.height / rowCount;
+		const starSize = Math.min(maxStarSize, Math.min(contentWidth / columns, contentHeight / rowCount) * 0.6);
+		group.projectIndices.forEach((projectIndex, memberIndex) => {
+			const project = projects[projectIndex];
+			const row = Math.floor(memberIndex / columns);
+			const column = memberIndex % columns;
+			const itemsInRow = Math.min(columns, group.projectIndices.length - row * columns);
+			const rowOffset = (columns - itemsInRow) * cellWidth / 2;
+			const centerX = contentBounds.x + rowOffset + (column + 0.5) * cellWidth;
+			const centerY = contentBounds.y + (row + 0.5) * cellHeight;
+			const targetLeft = `${centerX / 10}%`;
+			const targetTop = `${centerY / 7}%`;
+			const star = createProjectStar(project, projectIndex, "star treemap-star");
+			star.setAttribute("aria-label", `${star.getAttribute("aria-label")} Topic group: ${group.topic}.`);
+			star.style.width = `${starSize}px`;
+			star.style.height = `${starSize}px`;
+			const sourcePosition = sourcePositions?.[projectIndex];
+			if (sourcePosition && !prefersReducedMotion()) {
+				star.style.left = `${sourcePosition.x / 10}%`;
+				star.style.top = `${sourcePosition.y / 7}%`;
+				treemapProjectStars.append(star);
+				animationTargets.push({ star, left: targetLeft, top: targetTop });
+			} else {
+				star.style.left = targetLeft;
+				star.style.top = targetTop;
+				treemapProjectStars.append(star);
+			}
 		});
 	}
-	activeView = view;
+
+	if (animationTargets.length) {
+		void treemapProjectStars.offsetHeight;
+		requestAnimationFrame(() => {
+			animationTargets.forEach(({ star, left, top }) => {
+				star.style.left = left;
+				star.style.top = top;
+			});
+		});
+	}
+}
+
+function placeTimelineProjects() {
+	const projectsByMonth = new Map();
+	projects.forEach((project, index) => {
+		const month = projectMonthIndex(project);
+		if (!projectsByMonth.has(month)) projectsByMonth.set(month, []);
+		projectsByMonth.get(month).push(index);
+	});
+
+	const months = [...projectsByMonth.keys()];
+	const firstMonth = Math.min(...months);
+	const lastMonth = Math.max(...months);
+	const axisY = 350;
+	const chartLeft = 55;
+	const chartRight = 925;
+	const axisEnd = 960;
+	const xForMonth = month => chartLeft + (month - firstMonth) / (lastMonth - firstMonth || 1) * (chartRight - chartLeft);
+	const chartBounds = timelineAxis.getBoundingClientRect();
+	const scaleX = chartBounds.width / 1000;
+	const scaleY = chartBounds.height / 700;
+	const starSize = projectStars[0]?.getBoundingClientRect().width || 40;
+	const laneStep = Math.max(1, (starSize + 6) / scaleY);
+	const maxLane = Math.max(1, Math.floor((Math.min(axisY, 700 - axisY) - starSize / (2 * scaleY)) / laneStep));
+	const blockedRects = [projectStats, themeToggle]
+		.filter(element => getComputedStyle(element).display !== "none")
+		.map(element => element.getBoundingClientRect());
+	const placedPositions = [];
+	positions = new Array(projects.length);
+	timelineAxis.replaceChildren();
+	timelineAxis.append(createSvgElement("line", {
+		x1: chartLeft,
+		y1: axisY,
+		x2: axisEnd,
+		y2: axisY,
+		class: "timeline-axis-line",
+	}));
+	timelineAxis.append(createSvgElement("path", {
+		d: `M ${axisEnd - 8} ${axisY - 5} L ${axisEnd} ${axisY} L ${axisEnd - 8} ${axisY + 5}`,
+		class: "timeline-axis-arrow",
+	}));
+
+	for (let month = firstMonth; month <= lastMonth; month += 1) {
+		const x = xForMonth(month);
+		const isYearMark = month === firstMonth || month % 12 === 0;
+		timelineAxis.append(createSvgElement("line", {
+			x1: x,
+			y1: axisY - (isYearMark ? 10 : 4),
+			x2: x,
+			y2: axisY + (isYearMark ? 10 : 4),
+			class: "timeline-axis-tick",
+		}));
+		if (isYearMark) {
+			timelineAxis.append(createSvgElement("line", {
+				x1: x,
+				y1: 56,
+				x2: x,
+				y2: axisY,
+				class: "timeline-year-guide",
+			}));
+			const label = createSvgElement("text", { x, y: 42, class: "timeline-year-label" });
+			label.textContent = String(Math.floor(month / 12));
+			timelineAxis.append(label);
+		}
+	}
+
+	for (const [month, indices] of [...projectsByMonth].sort(([left], [right]) => left - right)) {
+		const direction = month % 2 === 0 ? -1 : 1;
+		indices.forEach((projectIndex, memberIndex) => {
+			const x = xForMonth(month);
+			const preferredLane = Math.min(maxLane, Math.floor(memberIndex / 2) + 1);
+			const preferredSign = memberIndex % 2 === 0 ? direction : -direction;
+			const preferredY = axisY + preferredSign * preferredLane * laneStep;
+			const candidateYs = [];
+			for (let lane = 1; lane <= maxLane; lane += 1) {
+				candidateYs.push(axisY + direction * lane * laneStep, axisY - direction * lane * laneStep);
+			}
+			candidateYs.sort((left, right) => Math.abs(left - preferredY) - Math.abs(right - preferredY));
+			candidateYs.push(axisY);
+			const y = candidateYs.find(candidateY => {
+				const overlapsProject = placedPositions.some(position =>
+					Math.abs((x - position.x) * scaleX) < starSize
+					&& Math.abs((candidateY - position.y) * scaleY) < starSize);
+				if (overlapsProject) return false;
+				const screenX = chartBounds.left + x * scaleX;
+				const screenY = chartBounds.top + candidateY * scaleY;
+				return !blockedRects.some(rect =>
+					screenX + starSize / 2 > rect.left
+					&& screenX - starSize / 2 < rect.right
+					&& screenY + starSize / 2 > rect.top
+					&& screenY - starSize / 2 < rect.bottom);
+			}) ?? preferredY;
+			positions[projectIndex] = { x, y };
+			placedPositions.push({ x, y });
+			timelineAxis.append(createSvgElement("line", {
+				x1: x,
+				y1: axisY,
+				x2: x,
+				y2: y,
+				class: "timeline-stem",
+			}));
+		});
+	}
+
+	projectStars.forEach((star, index) => {
+		star.style.left = `${positions[index].x / 10}%`;
+		star.style.top = `${positions[index].y / 7}%`;
+	});
+}
+
+function clearClusterVisuals() {
+	if (connectionDelayTimer) clearTimeout(connectionDelayTimer);
+	connectionGeneration += 1;
+	connectionsPending = false;
+	svg.querySelectorAll(".connection").forEach(line => {
+		cancelConnectionMotion(line);
+		line.remove();
+	});
+	svg.querySelectorAll("mask").forEach(element => element.remove());
+	constellation.querySelectorAll(".cluster-label").forEach(label => label.remove());
+}
+
+function setVisualization(mode) {
+	if (mode === activeMode) return;
+	activeMode = mode;
+	document.body.classList.toggle("timeline-mode", activeMode === "timeline");
+	document.body.classList.toggle("topic-mode", activeMode === "topic");
+	constellation.setAttribute("aria-label", activeMode === "type" ? "Project constellation" : `${activeMode === "timeline" ? "Timeline" : "Topic treemap"} projects`);
+	updateViewButtons();
+	updateConnectionToggles();
+	hideTooltip();
+
+	if (activeMode === "timeline") {
+		topicTreemap.replaceChildren();
+		treemapProjectStars.replaceChildren();
+		clearClusterVisuals();
+		placeTimelineProjects();
+		return;
+	}
+	if (activeMode === "topic") {
+		const sourcePositions = positions.map(position => position && { ...position });
+		timelineAxis.replaceChildren();
+		clearClusterVisuals();
+		renderTopicTreemap(sourcePositions);
+		return;
+	}
+
+	topicTreemap.replaceChildren();
+	treemapProjectStars.replaceChildren();
+	timelineAxis.replaceChildren();
+	if (connectionDelayTimer) clearTimeout(connectionDelayTimer);
+	connectionGeneration += 1;
+	connectionsPending = true;
+	placeProjects();
+	const generation = connectionGeneration;
+	connectionDelayTimer = setTimeout(() => {
+		if (generation !== connectionGeneration) return;
+		connectionsPending = false;
+		addConnections(true);
+	}, prefersReducedMotion() ? 0 : projectMoveDuration);
+}
+
+function placeProjects() {
+	const view = activeView;
 	const groupMap = new Map();
 	projects.forEach((project, index) => {
 		const key = groupLabel(project, view);
@@ -554,6 +894,7 @@ function placeProjects(view) {
 
 	const groups = [...groupMap.entries()].sort(([a], [b]) => a.localeCompare(b));
 	const verticalGutter = 80;
+	const verticalShift = 18;
 	const contentHeight = 700 - verticalGutter * 2;
 	let columns = 1;
 	let largestCellSide = 0;
@@ -576,7 +917,7 @@ function placeProjects(view) {
 		const cellHeight = contentHeight / rows;
 		const center = {
 			x: cellWidth * (column + 0.5),
-			y: verticalGutter + cellHeight * (row + 0.5),
+			y: verticalGutter + cellHeight * (row + 0.5) - verticalShift,
 		};
 		indices.forEach((projectIndex, memberIndex) => {
 			const angle = memberIndex * 2.399963;
@@ -592,43 +933,12 @@ function placeProjects(view) {
 		});
 	});
 
-	svg.querySelectorAll(".cluster-label").forEach(label => label.remove());
-	if (viewChanged) {
-		connectionGeneration += 1;
-		connectionsPending = true;
-		mainConnectionSelection = null;
-		svg.querySelectorAll(".connection, mask").forEach(connection => connection.remove());
-	}
+	constellation.querySelectorAll(".cluster-label").forEach(label => label.remove());
 
 	projects.forEach((project, index) => {
 		let star = projectStars[index];
 		if (!star) {
-			star = document.createElement("button");
-			star.className = "star";
-			star.type = "button";
-			star.style.left = `${positions[index].x / 10}%`;
-			star.style.top = `${positions[index].y / 7}%`;
-			star.setAttribute("aria-label", `${project.name}. ${project.clients.join(", ") || "No client listed"}. Topics: ${project.topics.join(", ") || "None listed"}. Type: ${project.types.join(", ") || "None listed"}.`);
-			star.dataset.project = index;
-			if (project.image) {
-				const image = document.createElement("img");
-				image.src = project.image;
-				image.alt = "";
-				image.loading = "lazy";
-				star.append(image);
-			} else {
-				star.textContent = "✳";
-				star.setAttribute("aria-hidden", "false");
-			}
-			star.addEventListener("mouseenter", event => showTooltip(event.currentTarget, project));
-			star.addEventListener("mouseenter", updateHoveredProject);
-			star.addEventListener("focus", event => showTooltip(event.currentTarget, project));
-			star.addEventListener("focus", updateHoveredProject);
-			star.addEventListener("mouseleave", hideTooltip);
-			star.addEventListener("mouseleave", updateHoveredProject);
-			star.addEventListener("blur", hideTooltip);
-			star.addEventListener("blur", updateHoveredProject);
-			star.addEventListener("click", () => openProject(project));
+			star = createProjectStar(project, index);
 			projectStars[index] = star;
 			constellation.append(star);
 		}
@@ -637,34 +947,22 @@ function placeProjects(view) {
 	});
 
 	const svgBounds = svg.getBoundingClientRect();
-	const scaleY = svgBounds.height / 700;
+	const scaleY = svgBounds.height ? svgBounds.height / 700 : 1;
 	const nodeSize = projectStars[0].getBoundingClientRect().width;
 	for (const { label, indices } of labels) {
-		const initialBaseline = 20;
-		const text = createSvgElement("text", { x: 0, y: initialBaseline, class: "cluster-label" });
+		const text = document.createElement("span");
+		text.className = "cluster-label";
 		text.textContent = label.toLowerCase();
-		svg.append(text);
-		const labelBounds = text.getBBox();
 		const barycenterX = indices.reduce((sum, index) => sum + positions[index].x, 0) / indices.length;
 		const highestNodeY = Math.min(...indices.map(index => positions[index].y));
-		const labelTop = highestNodeY - (nodeSize / 2 + 15) / scaleY;
-		text.setAttribute("x", barycenterX);
-		text.setAttribute("y", labelTop + initialBaseline - labelBounds.y - labelBounds.height);
+		const labelBottom = highestNodeY - (nodeSize / 2 + 15) / scaleY;
+		text.style.left = `${barycenterX / 10}%`;
+		text.style.top = `${labelBottom / 7}%`;
+		constellation.append(text);
 	}
-	document.querySelectorAll(".view-button").forEach(button => {
-		button.setAttribute("aria-pressed", String(button.dataset.view === view));
-	});
+	updateViewButtons();
 	updateConnectionToggles();
-	if (viewChanged) {
-		const generation = connectionGeneration;
-		connectionDelayTimer = setTimeout(() => {
-			if (generation !== connectionGeneration) return;
-			connectionsPending = false;
-			addConnections(true);
-		}, prefersReducedMotion() ? 0 : projectMoveDuration);
-	} else if (!connectionsPending) {
-		addConnections(true);
-	}
+	if (!connectionsPending) addConnections(true);
 }
 
 function renderMobileCards() {
@@ -737,10 +1035,11 @@ function showTooltip(star, project) {
 		topic: project.topics.join(", ") || "No topics",
 		type: project.types.join(", "),
 	};
-	details.textContent = Object.entries(metadata)
-		.filter(([category]) => category !== activeView)
-		.map(([, value]) => value)
-		.join(" · ");
+	const detailsText = Object.entries(metadata)
+		.filter(([category]) => activeMode !== "type" || category !== activeView)
+		.map(([, value]) => value);
+	if (activeMode !== "type") detailsText.unshift(project.date);
+	details.textContent = detailsText.join(" · ");
 	tooltip.append(title, details);
 	tooltip.hidden = false;
 	const desiredLeft = starBounds.left - containerBounds.left + starBounds.width + 10;
@@ -805,20 +1104,27 @@ function openProject(project) {
 }
 
 document.querySelectorAll(".view-button").forEach(button => {
-	button.addEventListener("click", () => placeProjects(button.dataset.view));
+	button.addEventListener("click", () => setVisualization(button.dataset.view));
 });
 document.querySelectorAll(".connection-toggle").forEach(button => {
 	button.addEventListener("click", () => {
 		const category = button.dataset.connectionToggle;
 		connectionVisibility[category] = !connectionVisibility[category];
-		placeProjects(activeView);
+		updateConnectionToggles();
+		if (activeMode === "type") placeProjects();
 	});
 });
+themeToggle.addEventListener("click", () => updateTheme(!document.body.classList.contains("light-mode")));
 document.querySelector(".dialog-close").addEventListener("click", () => dialog.close());
 dialog.addEventListener("click", event => {
 	if (event.target === dialog) dialog.close();
 });
-window.addEventListener("resize", hideTooltip);
+window.addEventListener("resize", () => {
+	hideTooltip();
+	if (activeMode === "topic") renderTopicTreemap();
+});
 renderMobileCards();
 renderProjectStats();
-placeProjects(activeView);
+updateViewButtons();
+updateConnectionToggles();
+placeProjects();

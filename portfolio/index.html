@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="theme-color" content="#0f0326">
+		<meta name="theme-color" content="#000000">
 		<meta name="description" content="An interactive constellation of Simone Ramello's science communication projects.">
 		<title>Portfolio - Simone Ramello</title>
 		<link rel="stylesheet" href="../style.css">
@@ -12,16 +12,15 @@
 	<body class="portfolio-page">
 		<header class="portfolio-header">
 			<a class="portfolio-wordmark" href="../index.html">Simone Ramello</a>
-			<nav aria-label="Portfolio views">
-				<span class="view-toggle-label">cluster by:</span>
-				<button class="view-button" type="button" data-view="type" aria-pressed="true"><i class="legend-line legend-line--type"></i><span>type</span></button>
-				<button class="view-button" type="button" data-view="client" aria-pressed="false"><i class="legend-line legend-line--client"></i><span>client</span></button>
-				<button class="view-button" type="button" data-view="topic" aria-pressed="false"><i class="legend-line legend-line--topic"></i><span>topic</span></button>
-				<div class="connection-toggles" role="group" aria-label="secondary connections">
+			<nav aria-label="Portfolio visualizations">
+				<button class="view-button" type="button" data-view="type" aria-pressed="true"><span>type</span></button>
+				<button class="view-button" type="button" data-view="topic" aria-pressed="false"><span>topic</span></button>
+				<button class="view-button" type="button" data-view="timeline" aria-pressed="false"><span>timeline</span></button>
+				<div class="connection-toggles" role="group" aria-label="Show connections by">
 					<span class="connection-toggle-label">show connections by:</span>
-					<button class="connection-toggle" type="button" data-connection-toggle="type" aria-pressed="true" hidden><i class="legend-line legend-line--type"></i><span>type</span></button>
-					<button class="connection-toggle" type="button" data-connection-toggle="client" aria-pressed="true"><i class="legend-line legend-line--client"></i><span>client</span></button>
-					<button class="connection-toggle" type="button" data-connection-toggle="topic" aria-pressed="true"><i class="legend-line legend-line--topic"></i><span>topic</span></button>
+					<button class="connection-toggle" type="button" data-connection-toggle="type" aria-pressed="true"><i class="legend-line legend-line--type"></i><span>type</span></button>
+					<button class="connection-toggle" type="button" data-connection-toggle="client" aria-pressed="false"><i class="legend-line legend-line--client"></i><span>client</span></button>
+					<button class="connection-toggle" type="button" data-connection-toggle="topic" aria-pressed="false"><i class="legend-line legend-line--topic"></i><span>topic</span></button>
 				</div>
 			</nav>
 		</header>
@@ -29,11 +28,25 @@
 		<main class="constellation-main">
 			<div class="constellation-shell">
 				<svg class="connections" id="connections" aria-hidden="true" viewBox="0 0 1000 700" preserveAspectRatio="none"></svg>
-				<div class="constellation" id="constellation" aria-label="Project constellation"></div>
+				<svg class="timeline-axis" id="timeline-axis" aria-hidden="true" viewBox="0 0 1000 700" preserveAspectRatio="none"></svg>
+				<svg class="topic-treemap" id="topic-treemap" role="group" aria-label="Projects grouped by topic" viewBox="0 0 1000 700" preserveAspectRatio="none"></svg>
+				<div class="constellation" id="constellation" aria-label="Project constellation">
+					<div class="treemap-project-stars" id="treemap-project-stars" role="group" aria-label="Projects within topic groups"></div>
+				</div>
 				<div class="star-tooltip" id="star-tooltip" role="status" hidden></div>
 				<aside class="project-stats" id="project-stats" aria-label="Project counts by year"></aside>
 			</div>
 		</main>
+
+		<button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to light mode">
+			<svg class="theme-icon theme-icon--sun" aria-hidden="true" viewBox="0 0 24 24">
+				<circle cx="12" cy="12" r="4"></circle>
+				<path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"></path>
+			</svg>
+			<svg class="theme-icon theme-icon--moon" aria-hidden="true" viewBox="0 0 24 24" hidden>
+				<path d="M20.2 15.5A8.5 8.5 0 0 1 8.5 3.8 8.5 8.5 0 1 0 20.2 15.5Z"></path>
+			</svg>
+		</button>
 
 		<section class="project-cards mobile-project-cards" id="mobile-project-cards" aria-label="Projects"></section>
 

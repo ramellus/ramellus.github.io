@@ -47,7 +47,7 @@
 - Image (URL): https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/fb5443251282943.6a32c4905c4a1.png
 
 ## [eBioMedicine cover](https://simoneramello.it/#research)
-- Date:
+- Date: September 2026
 - Client(s): QBio
 - Type(s): visuals
 - Topic(s): bioinformatics
@@ -55,7 +55,7 @@
 - Image (URL): https://simoneramello.it/ebm.jpg
 
 ## [ON-AIR in a nutshell](https://simoneramello.it/#research)
-- Date:
+- Date: July 2026
 - Client(s): QBio
 - Type(s): video
 - Topic(s): AI, bioinformatics
@@ -63,7 +63,7 @@
 - Image (URL): https://simoneramello.it/Animazione%20video.gif
 
 ## [On A Tangent](https://simoneramello.it/#research)
-- Date:
+- Date: June 2024
 - Client(s): MMünster
 - Type(s): podcasts
 - Topic(s): mathematics
@@ -71,7 +71,7 @@
 - Image (URL): https://simoneramello.it/assets/on-a-tangent-cover.jpg
 
 ## [Storytelling for the working mathematician](https://simoneramello.it/#training)
-- Date:
+- Date: October 2026
 - Client(s): MMünster
 - Type(s): training
 - Topic(s): mathematics
